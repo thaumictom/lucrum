@@ -1,0 +1,58 @@
+{
+	"payload": {
+		"statistics_closed": {
+			"48hours": [],
+			"90days": [
+				{
+					"datetime": "2026-03-06T00:00:00.000+00:00",
+					"volume": 32,
+					"min_price": 7,
+					"max_price": 10,
+					"open_price": 10,
+					"closed_price": 9,
+					"avg_price": 8.5,
+					"wa_price": 9.281,
+					"median": 9.0,
+					"moving_avg": 9.1,
+					"donch_top": 12,
+					"donch_bot": 7,
+					"id": "69acbc00ff93ce0014c14cb0"
+				},
+				{
+					"datetime": "2026-03-07T00:00:00.000+00:00",
+					"volume": 32,
+					"min_price": 7,
+					"max_price": 10,
+					"open_price": 10,
+					"closed_price": 9,
+					"avg_price": 8.5,
+					"wa_price": 9.281,
+					"median": 9.0,
+					"moving_avg": 9.1,
+					"donch_top": 12,
+					"donch_bot": 7,
+					"id": "69acbc00ff93ce0014c14cb0"
+				},
+				{
+					"datetime": "2026-03-08T00:00:00.000+00:00",
+					"volume": 67,
+					"min_price": 9,
+					"max_price": 10,
+					"open_price": 9,
+					"closed_price": 9,
+					"avg_price": 9.5,
+					"wa_price": 9.299,
+					"median": 10,
+					"moving_avg": 9.2,
+					"donch_top": 10,
+					"donch_bot": 7,
+					"id": "69ae0d80ff93ce0011c20ce2"
+				}
+			]
+		},
+		"statistics_live": {
+			"48hours": [],
+			"90days": []
+		}
+	}
+}

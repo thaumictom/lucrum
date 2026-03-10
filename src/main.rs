@@ -1,6 +1,8 @@
 mod api;
 mod cache;
+mod logging;
 mod models;
+mod scraper;
 mod statistics;
 
 use anyhow::Result;
