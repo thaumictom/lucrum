@@ -13,7 +13,7 @@ use crate::logging::{log_error, log_info};
 use crate::models::{ItemStatistics, StatisticsRun};
 use crate::scraper::{StatisticsScraper, sanitize_item_statistics};
 
-const DEFAULT_REQUESTS_PER_SECOND: f64 = 2.0;
+const DEFAULT_REQUESTS_PER_SECOND: f64 = 2.5;
 const MAX_ATTEMPTS: usize = 3;
 const PROGRESS_LOG_INTERVAL: usize = 100;
 
