@@ -1,0 +1,19 @@
+FROM rust:1.86-bookworm AS builder
+WORKDIR /app
+
+COPY Cargo.toml Cargo.lock ./
+COPY src ./src
+RUN cargo build --release
+
+FROM debian:bookworm-slim
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates util-linux \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY --from=builder /app/target/release/lucrum /usr/local/bin/lucrum
+COPY deploy/run-lucrum.sh /usr/local/bin/run-lucrum.sh
+RUN chmod +x /usr/local/bin/run-lucrum.sh \
+    && mkdir -p /app/data
+
+CMD ["sleep", "infinity"]

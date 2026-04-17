@@ -1,0 +1,18 @@
+:80 {
+    root * /srv/data
+
+    @options method OPTIONS
+    respond @options 204
+
+    @json path *.json
+    header @json Access-Control-Allow-Origin "*"
+    header @json Access-Control-Allow-Methods "GET, OPTIONS"
+    header @json Access-Control-Allow-Headers "Content-Type"
+    header @json Cache-Control "public, max-age=300"
+    header @json Content-Type "application/json; charset=utf-8"
+
+    encode zstd gzip
+    file_server
+
+    respond /healthz 200
+}

@@ -1,0 +1,65 @@
+# Deployment Guide (Coolify + Caddy)
+
+This folder contains everything needed to:
+
+- host generated JSON with Caddy
+- regenerate JSON on a 6-hour schedule
+- avoid overlapping runs with a lock file
+
+## Files
+
+- `docker-compose.coolify.yml`: two services (`caddy`, `worker`) and shared volumes
+- `Dockerfile.worker`: builds the Rust binary and includes scheduler script
+- `run-lucrum.sh`: lock + retry wrapper around the Rust binary
+- `Caddyfile`: static JSON hosting config with CORS and gzip/zstd
+- `.env.example`: optional env overrides for scrape behavior
+
+## Coolify Setup
+
+1. Create a new Docker Compose resource in Coolify.
+2. Set compose file path to `deploy/docker-compose.coolify.yml`.
+3. Add a domain to the `caddy` service in Coolify (target container port `80`).
+4. Deploy the stack.
+
+Coolify will handle TLS and public routing. Caddy only serves internal HTTP on port 80.
+
+## Initial Data Generation
+
+After first deploy, run this command once on the `worker` service:
+
+~~~sh
+/usr/local/bin/run-lucrum.sh
+~~~
+
+This will produce data in the shared volume mounted at `/app/data` on the worker and `/srv/data` on Caddy.
+
+## Scheduled Regeneration (Every 6 Hours)
+
+Create a Coolify Scheduled Task with:
+
+- Service: `worker`
+- Cron: `0 */6 * * *`
+- Command:
+
+~~~sh
+/usr/local/bin/run-lucrum.sh
+~~~
+
+## Hosted Endpoints
+
+Once deployed, your domain will serve:
+
+- `/warframe_items.json`
+- `/warframe_market_statistics.json`
+
+Optional health endpoint:
+
+- `/healthz`
+
+## Optional Tuning
+
+Adjust values via environment variables in Coolify:
+
+- `LUCRUM_REQUESTS_PER_SECOND` (default `2.5`)
+- `MAX_ATTEMPTS` (default `3`)
+- `RETRY_SECONDS` (default `300`)

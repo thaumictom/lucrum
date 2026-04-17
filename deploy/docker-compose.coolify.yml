@@ -1,0 +1,29 @@
+services:
+  caddy:
+    image: caddy:2.9-alpine
+    restart: unless-stopped
+    expose:
+      - "80"
+    volumes:
+      - lucrum_data:/srv/data:ro
+      - caddy_data:/data
+      - caddy_config:/config
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+
+  worker:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.worker
+    restart: unless-stopped
+    command: ["sleep", "infinity"]
+    environment:
+      LUCRUM_REQUESTS_PER_SECOND: "${LUCRUM_REQUESTS_PER_SECOND:-2.5}"
+      MAX_ATTEMPTS: "${MAX_ATTEMPTS:-3}"
+      RETRY_SECONDS: "${RETRY_SECONDS:-300}"
+    volumes:
+      - lucrum_data:/app/data
+
+volumes:
+  lucrum_data:
+  caddy_data:
+  caddy_config:
