@@ -1,0 +1,8 @@
+:80 {
+    root * /srv
+    file_server
+
+    @json path *.json
+    header @json Access-Control-Allow-Origin *
+    header @json Cache-Control "public, max-age=300"
+}

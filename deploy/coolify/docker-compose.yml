@@ -1,0 +1,24 @@
+services:
+  lucrum-fetcher:
+    build:
+      context: ../..
+      dockerfile: deploy/coolify/Dockerfile.fetcher
+    restart: unless-stopped
+    environment:
+      LUCRUM_REQUESTS_PER_SECOND: '2.5'
+    volumes:
+      - lucrum-data:/app/data
+
+  lucrum-json:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - lucrum-fetcher
+    expose:
+      - '80'
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - lucrum-data:/srv:ro
+
+volumes:
+  lucrum-data:
