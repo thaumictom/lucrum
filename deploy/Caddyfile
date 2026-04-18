@@ -1,18 +1,26 @@
 :80 {
     root * /srv/data
 
-    @options method OPTIONS
+    @api path /warframe/v1/*
+    header @api Access-Control-Allow-Origin "*"
+    header @api Access-Control-Allow-Methods "GET, OPTIONS"
+    header @api Access-Control-Allow-Headers "Content-Type"
+
+    @options {
+        method OPTIONS
+        path /warframe/v1/*
+    }
     respond @options 204
 
-    @json path *.json
-    header @json Access-Control-Allow-Origin "*"
-    header @json Access-Control-Allow-Methods "GET, OPTIONS"
-    header @json Access-Control-Allow-Headers "Content-Type"
+    @json path /warframe/v1/*.json
     header @json Cache-Control "public, max-age=300"
     header @json Content-Type "application/json; charset=utf-8"
 
-    encode zstd gzip
-    file_server
+    handle_path /warframe/v1/* {
+        encode zstd gzip
+        file_server
+    }
 
     respond /healthz 200
+    respond /warframe/v1/healthz 200
 }
