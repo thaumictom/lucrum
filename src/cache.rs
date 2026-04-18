@@ -11,6 +11,7 @@ use chrono::Utc;
 use serde_json::Value;
 
 use crate::api::fetch_tradeable_item_slugs;
+use crate::logging::{log_info, log_warn};
 use crate::models::TradeableItemsCache;
 
 /// Tracks whether the on-disk JSON already uses the current field name.
@@ -22,21 +23,65 @@ struct LoadedCache {
 
 /// Ensure the cache exists and refresh it only when it is missing or stale.
 pub fn ensure_tradeable_items_cache(path: &Path) -> Result<TradeableItemsCache> {
+    log_info(
+        "cache",
+        &format!("Checking tradeable item cache at {}.", path.display()),
+    );
+
     if let Some(loaded) = load_cache(path)? {
+        let age_hours = Utc::now()
+            .signed_duration_since(loaded.cache.last_fetched_at)
+            .num_hours()
+            .max(0);
+
         if !loaded.cache.is_stale() {
+            log_info(
+                "cache",
+                &format!(
+                    "Using existing cache (items={}, age={}h, last_fetched_at={}).",
+                    loaded.cache.tradeable_items.len(),
+                    age_hours,
+                    loaded.cache.last_fetched_at
+                ),
+            );
+
             // Rewrite old cache files so future reads use the new field name.
             if !loaded.is_normalized {
+                log_info(
+                    "cache",
+                    "Normalizing legacy cache format to use tradeable_items field.",
+                );
                 write_cache(path, &loaded.cache)?;
             }
             return Ok(loaded.cache);
         }
+
+        log_warn(
+            "cache",
+            &format!(
+                "Cache is stale (age={}h, last_fetched_at={}); refreshing from API.",
+                age_hours, loaded.cache.last_fetched_at
+            ),
+        );
+    } else {
+        log_warn("cache", "Cache file not found; refreshing from API.");
     }
 
+    log_info("cache", "Fetching tradeable item list from API.");
     let cache = TradeableItemsCache {
         last_fetched_at: Utc::now(),
         tradeable_items: fetch_tradeable_item_slugs()?,
     };
+
     write_cache(path, &cache)?;
+    log_info(
+        "cache",
+        &format!(
+            "Cache refreshed with {} tradeable items.",
+            cache.tradeable_items.len()
+        ),
+    );
+
     Ok(cache)
 }
 

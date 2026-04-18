@@ -28,29 +28,50 @@ pub fn scrape_and_write_statistics(
     let rps = configured_requests_per_second()?;
     let mut scraper = StatisticsScraper::new(rps)?;
     let cached = load_cached_statistics(output_path)?;
+    let cached_count = cached.len();
     let mut scraped = 0usize;
     let mut skipped = 0usize;
 
     initialize_run(output_path, run_start)?;
 
-    log_info(&format!(
-        "Starting market statistics scrape for {} items at {rps:.2} requests/second.",
-        slugs.len(),
-    ));
+    log_info(
+        "statistics",
+        &format!(
+            "Starting market statistics scrape: items={} cached_items={} requests_per_second={rps:.2} output_path={}",
+            slugs.len(),
+            cached_count,
+            output_path.display()
+        ),
+    );
 
     for (i, slug) in slugs.iter().enumerate() {
         if i % PROGRESS_LOG_INTERVAL == 0 || i + 1 == slugs.len() {
-            log_info(&format!("Scraping item {}/{}: {slug}", i + 1, slugs.len()));
+            let percent = ((i + 1) as f64 / slugs.len() as f64) * 100.0;
+            log_info(
+                "statistics",
+                &format!(
+                    "Processing item {}/{} ({percent:.1}%): {slug}",
+                    i + 1,
+                    slugs.len()
+                ),
+            );
         }
 
         // Re-use cached data when the item was fetched recently enough.
         if let Some(cached_item) = cached.get(slug)
             && should_skip_fetch(cached_item, run_start)
         {
-            log_info(&format!(
-                "Skipping {slug}; cache is still fresh for liquidity {}.",
-                cached_item.liquidity
-            ));
+            let age_minutes = run_start
+                .signed_duration_since(cached_item.last_fetched_at)
+                .num_minutes()
+                .max(0);
+            log_info(
+                "statistics",
+                &format!(
+                    "Skipping {slug}; cache hit (liquidity={}, age={}m).",
+                    cached_item.liquidity, age_minutes
+                ),
+            );
             append_item(output_path, run_start, cached_item.clone())?;
             skipped += 1;
             continue;
@@ -64,19 +85,31 @@ pub fn scrape_and_write_statistics(
             Err(error) => {
                 let msg = format!("{slug}: {error}");
                 if let Err(e) = record_error(output_path, run_start, &msg) {
-                    log_error(&format!(
-                        "Failed to write partial statistics output after error: {e}"
-                    ));
+                    log_error(
+                        "statistics",
+                        &format!("Failed to write partial statistics output after error: {e}"),
+                    );
                 }
-                panic!("Shutting down after {MAX_ATTEMPTS} failed attempts for {msg}");
+                log_error(
+                    "statistics",
+                    &format!("Aborting scrape after {MAX_ATTEMPTS} failed attempts for {msg}."),
+                );
+                return Err(anyhow!(
+                    "Shutting down after {MAX_ATTEMPTS} failed attempts for {msg}"
+                ));
             }
         }
     }
 
     finalize_run(output_path, run_start)?;
-    log_info(&format!(
-        "Finished market statistics scrape for {scraped} items and reused {skipped} cached items."
-    ));
+    let elapsed_seconds = Utc::now().signed_duration_since(run_start).num_seconds();
+    log_info(
+        "statistics",
+        &format!(
+            "Finished market statistics scrape: fetched_items={scraped} reused_cached_items={skipped} elapsed_seconds={elapsed_seconds} output_path={}",
+            output_path.display()
+        ),
+    );
 
     Ok(scraped)
 }

@@ -73,18 +73,28 @@ impl StatisticsScraper {
     pub fn fetch_with_retry(&mut self, slug: &str) -> Result<ItemStatistics> {
         for attempt in 1..=MAX_ATTEMPTS {
             self.wait_for_rate_limit();
-            log_info(&format!(
-                "Fetching statistics for {slug} (attempt {attempt}/{MAX_ATTEMPTS})."
-            ));
+            log_info(
+                "scraper",
+                &format!("Fetching statistics for {slug} (attempt {attempt}/{MAX_ATTEMPTS})."),
+            );
 
             match self.fetch_once(slug) {
-                Ok(stats) => return Ok(stats),
+                Ok(stats) => {
+                    log_info(
+                        "scraper",
+                        &format!("Fetch succeeded for {slug} on attempt {attempt}/{MAX_ATTEMPTS}."),
+                    );
+                    return Ok(stats);
+                }
                 Err(error) if attempt < MAX_ATTEMPTS => {
-                    log_warn(&format!(
-                        "Attempt {attempt}/{MAX_ATTEMPTS} failed for {slug}: {error}. \
+                    log_warn(
+                        "scraper",
+                        &format!(
+                            "Attempt {attempt}/{MAX_ATTEMPTS} failed for {slug}: {error}. \
                          Retrying in {} minutes.",
-                        RETRY_DELAY.as_secs() / 60
-                    ));
+                            RETRY_DELAY.as_secs() / 60
+                        ),
+                    );
                     thread::sleep(RETRY_DELAY);
                 }
                 Err(error) => return Err(error),
