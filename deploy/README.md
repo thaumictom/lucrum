@@ -23,6 +23,16 @@ This folder contains everything needed to:
 
 Coolify will handle TLS and public routing. Caddy only serves internal HTTP on port 80.
 
+## Coolify Path Resolution Note
+
+Coolify runs Docker Compose with the repository root as the project directory.
+Because of that, relative paths in `deploy/docker-compose.coolify.yml` should be
+repo-root relative, for example:
+
+- `build.context: .`
+- `dockerfile: deploy/Dockerfile.worker`
+- `./deploy/Caddyfile:/etc/caddy/Caddyfile:ro`
+
 ## Initial Data Generation
 
 After first deploy, run this command once on the `worker` service:
