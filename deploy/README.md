@@ -73,3 +73,17 @@ Adjust values via environment variables in Coolify:
 - `LUCRUM_REQUESTS_PER_SECOND` (default `2.5`)
 - `MAX_ATTEMPTS` (default `3`)
 - `RETRY_SECONDS` (default `300`)
+
+## Troubleshooting Build Failures
+
+If Coolify fails on `cargo build --release` with exit code `101`:
+
+- ensure the latest `deploy/Dockerfile.worker` is deployed
+- check full build logs for the first Rust compiler error above the final `exit code: 101` line
+- verify your deployment server has enough RAM (Rust builds can fail under memory pressure)
+
+The worker Dockerfile already applies:
+
+- lockfile build (`cargo build --release --locked`)
+- single-job compile (`CARGO_BUILD_JOBS=1` and `-j 1`)
+- crates.io sparse protocol and retries
