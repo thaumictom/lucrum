@@ -1,0 +1,2 @@
+FROM caddy:2.9-alpine
+COPY deploy/Caddyfile /etc/caddy/Caddyfile

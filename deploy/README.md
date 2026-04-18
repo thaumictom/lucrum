@@ -10,6 +10,7 @@ This folder contains everything needed to:
 
 - `docker-compose.coolify.yml`: two services (`caddy`, `worker`) and shared volumes
 - `Dockerfile.worker`: builds the Rust binary and includes scheduler script
+- `Dockerfile.caddy`: builds the Caddy image with an embedded Caddyfile
 - `run-lucrum.sh`: lock + retry wrapper around the Rust binary
 - `Caddyfile`: static JSON hosting config with CORS and gzip/zstd
 - `.env.example`: optional env overrides for scrape behavior
@@ -31,7 +32,11 @@ repo-root relative, for example:
 
 - `build.context: .`
 - `dockerfile: deploy/Dockerfile.worker`
-- `./deploy/Caddyfile:/etc/caddy/Caddyfile:ro`
+- `dockerfile: deploy/Dockerfile.caddy`
+
+The Caddy service intentionally bakes `deploy/Caddyfile` into the image instead
+of bind-mounting it, which avoids runtime file-vs-directory mount issues on
+some Coolify hosts.
 
 ## Initial Data Generation
 

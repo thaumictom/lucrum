@@ -1,6 +1,8 @@
 services:
   caddy:
-    image: caddy:2.9-alpine
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.caddy
     restart: unless-stopped
     expose:
       - '80'
@@ -8,7 +10,6 @@ services:
       - lucrum_data:/srv/data:ro
       - caddy_data:/data
       - caddy_config:/config
-      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
 
   worker:
     build:
