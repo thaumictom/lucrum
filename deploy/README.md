@@ -64,8 +64,8 @@ Create a Coolify Scheduled Task with:
 
 Once deployed, your domain will serve:
 
-- `/warframe_items.json`
-- `/warframe_market_statistics.json`
+- `/warframe/v1/items.json`
+- `/warframe/v1/market_statistics.json`
 
 Optional health endpoint:
 

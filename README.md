@@ -4,10 +4,10 @@ Rust CLI that collects item statistics from [warframe.market](https://warframe.m
 
 ## What it does
 
-1. Loads the local tradeable-item cache from `data/warframe_items.json`.
+1. Loads the local tradeable-item cache from `data/items.json`.
 2. Refreshes that cache only when missing or older than 72 hours.
 3. Scrapes per-item market statistics.
-4. Writes results to `data/warframe_market_statistics.json`.
+4. Writes results to `data/market_statistics.json`.
 
 ## Requirements
 
@@ -31,8 +31,8 @@ cargo run --release
 
 ## Output files
 
-- `data/warframe_items.json`: cached list of tradeable item slugs + fetch timestamp
-- `data/warframe_market_statistics.json`: full scrape run with
+- `data/items.json`: cached list of tradeable item slugs + fetch timestamp
+- `data/market_statistics.json`: full scrape run with
   - `run_start`
   - `run_end`
   - `last_error`

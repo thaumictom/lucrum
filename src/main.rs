@@ -34,8 +34,8 @@ fn main() -> Result<()> {
 }
 
 fn run(run_start: chrono::DateTime<Utc>) -> Result<()> {
-    let cache_path = Path::new("data/warframe_items.json");
-    let statistics_path = Path::new("data/warframe_market_statistics.json");
+    let cache_path = Path::new("data/items.json");
+    let statistics_path = Path::new("data/market_statistics.json");
 
     log_info(
         "main",

@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 
-const data = JSON.parse(fs.readFileSync('./data/warframe_market_statistics.json', 'utf8'));
+const data = JSON.parse(fs.readFileSync('./data/market_statistics.json', 'utf8'));
 
 const items = Array.isArray(data) ? data : data.item_statistics;
 
