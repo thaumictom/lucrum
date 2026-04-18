@@ -1,14 +1,58 @@
 //! Warframe Market API client.
 
+use std::collections::HashMap;
+
 use anyhow::{Context, Result, bail};
 
 use crate::logging::{log_info, log_warn};
-use crate::models::MarketItemsResponse;
+use crate::models::{MarketItem, MarketItemsResponse};
 
 const ITEMS_URL: &str = "https://api.warframe.market/v2/items";
 
 /// Fetch the public item list and keep only the slug for each item.
 pub fn fetch_tradeable_item_slugs() -> Result<Vec<String>> {
+    let items = fetch_tradeable_items()?;
+    let slugs: Vec<String> = items.into_iter().map(|item| item.slug).collect();
+    log_info(
+        "api",
+        &format!(
+            "Received {} tradeable item slugs from Warframe Market.",
+            slugs.len()
+        ),
+    );
+
+    Ok(slugs)
+}
+
+/// Fetch the public item list and return slug -> English display name.
+pub fn fetch_tradeable_item_names() -> Result<HashMap<String, String>> {
+    let items = fetch_tradeable_items()?;
+    let names = items
+        .into_iter()
+        .map(|item| {
+            let name = item
+                .i18n
+                .get("en")
+                .map(|entry| entry.name.as_str())
+                .filter(|name| !name.is_empty())
+                .unwrap_or(item.slug.as_str())
+                .to_owned();
+            (item.slug, name)
+        })
+        .collect::<HashMap<_, _>>();
+
+    log_info(
+        "api",
+        &format!(
+            "Received {} tradeable item names from Warframe Market.",
+            names.len()
+        ),
+    );
+
+    Ok(names)
+}
+
+fn fetch_tradeable_items() -> Result<Vec<MarketItem>> {
     log_info(
         "api",
         &format!("Requesting tradeable item list from {ITEMS_URL}."),
@@ -37,14 +81,5 @@ pub fn fetch_tradeable_item_slugs() -> Result<Vec<String>> {
         .json::<MarketItemsResponse>()
         .context("failed to deserialize Warframe Market response")?;
 
-    let slugs: Vec<String> = response.data.into_iter().map(|item| item.slug).collect();
-    log_info(
-        "api",
-        &format!(
-            "Received {} tradeable item slugs from Warframe Market.",
-            slugs.len()
-        ),
-    );
-
-    Ok(slugs)
+    Ok(response.data)
 }

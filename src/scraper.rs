@@ -70,7 +70,7 @@ impl StatisticsScraper {
     }
 
     /// Fetch statistics for `slug`, retrying up to `MAX_ATTEMPTS` times on failure.
-    pub fn fetch_with_retry(&mut self, slug: &str) -> Result<ItemStatistics> {
+    pub fn fetch_with_retry(&mut self, slug: &str, name: &str) -> Result<ItemStatistics> {
         for attempt in 1..=MAX_ATTEMPTS {
             self.wait_for_rate_limit();
             log_info(
@@ -78,7 +78,7 @@ impl StatisticsScraper {
                 &format!("Fetching statistics for {slug} (attempt {attempt}/{MAX_ATTEMPTS})."),
             );
 
-            match self.fetch_once(slug) {
+            match self.fetch_once(slug, name) {
                 Ok(stats) => {
                     log_info(
                         "scraper",
@@ -116,7 +116,7 @@ impl StatisticsScraper {
     }
 
     /// Single (non-retried) statistics fetch for one item slug.
-    fn fetch_once(&self, slug: &str) -> Result<ItemStatistics> {
+    fn fetch_once(&self, slug: &str, name: &str) -> Result<ItemStatistics> {
         let fetched_at = Utc::now();
         let url = STATISTICS_URL_TEMPLATE.replace("{slug}", slug);
         let response = self
@@ -145,7 +145,7 @@ impl StatisticsScraper {
             .json::<StatisticsResponse>()
             .with_context(|| format!("failed to deserialize statistics payload for {slug}"))?;
 
-        build_item_statistics(slug, fetched_at, body)
+        build_item_statistics(slug, name, fetched_at, body)
     }
 }
 
@@ -155,6 +155,7 @@ impl StatisticsScraper {
 /// and today's closed statistics together with the latest live sell offer.
 fn build_item_statistics(
     slug: &str,
+    name: &str,
     fetched_at: DateTime<Utc>,
     response: StatisticsResponse,
 ) -> Result<ItemStatistics> {
@@ -202,6 +203,7 @@ fn build_item_statistics(
 
     Ok(ItemStatistics {
         item: slug.to_owned(),
+        name: name.to_owned(),
         last_fetched_at: fetched_at,
         liquidity,
         statistics_yesterday,
@@ -271,10 +273,16 @@ mod tests {
         let response: StatisticsResponse =
             serde_json::from_str(include_str!("../sample.json")).expect("sample.json should parse");
 
-        let result = build_item_statistics("secura_dual_cestra", fixed_fetch_time(), response)
-            .expect("statistics should build from sample payload");
+        let result = build_item_statistics(
+            "secura_dual_cestra",
+            "Secura Dual Cestra",
+            fixed_fetch_time(),
+            response,
+        )
+        .expect("statistics should build from sample payload");
 
         assert_eq!(result.item, "secura_dual_cestra");
+        assert_eq!(result.name, "Secura Dual Cestra");
         assert_eq!(result.liquidity, 67);
         assert_eq!(result.statistics_today["volume"], 67);
         assert_eq!(result.current_offers, json!({}));
@@ -299,9 +307,13 @@ mod tests {
         }))
         .expect("test payload should parse");
 
-        let result =
-            build_item_statistics("orokin_derelict_plaza_scene", fixed_fetch_time(), response)
-                .expect("missing days should not fail");
+        let result = build_item_statistics(
+            "orokin_derelict_plaza_scene",
+            "Orokin Derelict Plaza Scene",
+            fixed_fetch_time(),
+            response,
+        )
+        .expect("missing days should not fail");
 
         assert_eq!(result.liquidity, 0);
         assert_eq!(result.statistics_yesterday["volume"], 8);
@@ -342,8 +354,13 @@ mod tests {
         }))
         .expect("test payload should parse");
 
-        let result = build_item_statistics("secura_dual_cestra", fixed_fetch_time(), response)
-            .expect("today's live sell offer should be collected");
+        let result = build_item_statistics(
+            "secura_dual_cestra",
+            "Secura Dual Cestra",
+            fixed_fetch_time(),
+            response,
+        )
+        .expect("today's live sell offer should be collected");
 
         // order_type is dropped because it is always "sell" and adds no information.
         assert_eq!(result.current_offers.get("order_type"), None);
@@ -354,6 +371,7 @@ mod tests {
     fn strips_datetime_and_id_before_persisting() {
         let mut item = ItemStatistics {
             item: "secura_dual_cestra".to_owned(),
+            name: "Secura Dual Cestra".to_owned(),
             last_fetched_at: fixed_fetch_time(),
             liquidity: 21,
             statistics_yesterday: json!({

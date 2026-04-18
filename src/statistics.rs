@@ -9,6 +9,7 @@ use std::path::Path;
 use anyhow::{Context, Result, anyhow, bail};
 use chrono::{DateTime, Duration, Utc};
 
+use crate::api::fetch_tradeable_item_names;
 use crate::logging::{log_error, log_info};
 use crate::models::{ItemStatistics, StatisticsRun};
 use crate::scraper::{StatisticsScraper, sanitize_item_statistics};
@@ -29,6 +30,7 @@ pub fn scrape_and_write_statistics(
     let mut scraper = StatisticsScraper::new(rps)?;
     let cached = load_cached_statistics(output_path)?;
     let cached_count = cached.len();
+    let item_names = fetch_tradeable_item_names()?;
     let mut scraped = 0usize;
     let mut skipped = 0usize;
 
@@ -45,6 +47,11 @@ pub fn scrape_and_write_statistics(
     );
 
     for (i, slug) in slugs.iter().enumerate() {
+        let item_name = item_names
+            .get(slug)
+            .map(String::as_str)
+            .unwrap_or(slug.as_str());
+
         if i % PROGRESS_LOG_INTERVAL == 0 || i + 1 == slugs.len() {
             let percent = ((i + 1) as f64 / slugs.len() as f64) * 100.0;
             log_info(
@@ -61,6 +68,11 @@ pub fn scrape_and_write_statistics(
         if let Some(cached_item) = cached.get(slug)
             && should_skip_fetch(cached_item, run_start)
         {
+            let mut cached_item = cached_item.clone();
+            if cached_item.name.is_empty() {
+                cached_item.name = item_name.to_owned();
+            }
+
             let age_minutes = run_start
                 .signed_duration_since(cached_item.last_fetched_at)
                 .num_minutes()
@@ -72,12 +84,12 @@ pub fn scrape_and_write_statistics(
                     cached_item.liquidity, age_minutes
                 ),
             );
-            append_item(output_path, run_start, cached_item.clone())?;
+            append_item(output_path, run_start, cached_item)?;
             skipped += 1;
             continue;
         }
 
-        match scraper.fetch_with_retry(slug) {
+        match scraper.fetch_with_retry(slug, item_name) {
             Ok(stats) => {
                 append_item(output_path, run_start, stats)?;
                 scraped += 1;
@@ -250,6 +262,7 @@ mod tests {
         let now = Utc::now();
         let cached = ItemStatistics {
             item: "secura_dual_cestra".to_owned(),
+            name: "Secura Dual Cestra".to_owned(),
             last_fetched_at: now - Duration::minutes(59),
             liquidity: 201,
             statistics_yesterday: json!({}),
@@ -272,6 +285,7 @@ mod tests {
         let now = Utc::now();
         let cached = ItemStatistics {
             item: "irradiating_disarm".to_owned(),
+            name: "Irradiating Disarm".to_owned(),
             last_fetched_at: now - Duration::hours(17),
             liquidity: 5,
             statistics_yesterday: json!({}),

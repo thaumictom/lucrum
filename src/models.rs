@@ -1,5 +1,7 @@
 //! Data types shared across the application.
 
+use std::collections::HashMap;
+
 use chrono::{DateTime, Duration, Utc};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -30,10 +32,18 @@ pub struct MarketItemsResponse {
     pub data: Vec<MarketItem>,
 }
 
-/// A single item from the market items list; only the slug is kept.
+/// A single item from the market items list.
 #[derive(Debug, Deserialize)]
 pub struct MarketItem {
     pub slug: String,
+    #[serde(default)]
+    pub i18n: HashMap<String, MarketItemLocalization>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct MarketItemLocalization {
+    #[serde(default)]
+    pub name: String,
 }
 
 // ── Statistics ────────────────────────────────────────────────────────────
@@ -51,6 +61,8 @@ pub struct StatisticsRun {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ItemStatistics {
     pub item: String,
+    #[serde(default)]
+    pub name: String,
     pub last_fetched_at: DateTime<Utc>,
     pub liquidity: u64,
     pub statistics_yesterday: Value,
