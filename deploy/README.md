@@ -81,9 +81,11 @@ If Coolify fails on `cargo build --release` with exit code `101`:
 - ensure the latest `deploy/Dockerfile.worker` is deployed
 - check full build logs for the first Rust compiler error above the final `exit code: 101` line
 - verify your deployment server has enough RAM (Rust builds can fail under memory pressure)
+- verify the builder Rust version is not older than your dependency lockfile requires
 
 The worker Dockerfile already applies:
 
 - lockfile build (`cargo build --release --locked`)
 - single-job compile (`CARGO_BUILD_JOBS=1` and `-j 1`)
 - crates.io sparse protocol and retries
+- current stable Rust image (`rust:bookworm`) to avoid stale compiler pinning
