@@ -3,7 +3,7 @@ use std::path::Path;
 
 use anyhow::{Context, Result};
 
-use crate::types::Dictionary;
+use crate::types::{Dictionary, TradeableItemsRun};
 
 pub fn write_dictionary(path: &str, dictionary: &Dictionary) -> Result<()> {
     let output_path = Path::new(path);
@@ -16,6 +16,23 @@ pub fn write_dictionary(path: &str, dictionary: &Dictionary) -> Result<()> {
 
     let json =
         serde_json::to_string_pretty(dictionary).context("failed to serialize dictionary")?;
+
+    fs::write(output_path, json)
+        .with_context(|| format!("failed to write {}", output_path.display()))?;
+
+    Ok(())
+}
+
+pub fn write_tradeable_items(path: &str, run: &TradeableItemsRun) -> Result<()> {
+    let output_path = Path::new(path);
+
+    if let Some(parent) = output_path.parent() {
+        fs::create_dir_all(parent)
+            .with_context(|| format!("failed to create output directory {}", parent.display()))?;
+    }
+
+    let json =
+        serde_json::to_string_pretty(run).context("failed to serialize tradeable items run")?;
 
     fs::write(output_path, json)
         .with_context(|| format!("failed to write {}", output_path.display()))?;
