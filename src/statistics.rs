@@ -4,7 +4,7 @@
 use std::collections::HashMap;
 use std::env;
 use std::fs;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 use anyhow::{Context, Result, anyhow, bail};
 use chrono::{DateTime, Duration, Utc};
@@ -29,20 +29,22 @@ pub fn scrape_and_write_statistics(
     let rps = configured_requests_per_second()?;
     let mut scraper = StatisticsScraper::new(rps)?;
     let cached = load_cached_statistics(output_path)?;
+    let staged_output_path = staging_output_path(output_path);
     let cached_count = cached.len();
     let item_names = fetch_tradeable_item_names()?;
     let mut scraped = 0usize;
     let mut skipped = 0usize;
 
-    initialize_run(output_path, run_start)?;
+    initialize_run(&staged_output_path, run_start)?;
 
     log_info(
         "statistics",
         &format!(
-            "Starting market statistics scrape: items={} cached_items={} requests_per_second={rps:.2} output_path={}",
+            "Starting market statistics scrape: items={} cached_items={} requests_per_second={rps:.2} output_path={} staged_output_path={}",
             slugs.len(),
             cached_count,
-            output_path.display()
+            output_path.display(),
+            staged_output_path.display()
         ),
     );
 
@@ -84,19 +86,19 @@ pub fn scrape_and_write_statistics(
                     cached_item.liquidity, age_minutes
                 ),
             );
-            append_item(output_path, run_start, cached_item)?;
+            append_item(&staged_output_path, run_start, cached_item)?;
             skipped += 1;
             continue;
         }
 
         match scraper.fetch_with_retry(slug, item_name) {
             Ok(stats) => {
-                append_item(output_path, run_start, stats)?;
+                append_item(&staged_output_path, run_start, stats)?;
                 scraped += 1;
             }
             Err(error) => {
                 let msg = format!("{slug}: {error}");
-                if let Err(e) = record_error(output_path, run_start, &msg) {
+                if let Err(e) = record_error(&staged_output_path, run_start, &msg) {
                     log_error(
                         "statistics",
                         &format!("Failed to write partial statistics output after error: {e}"),
@@ -113,7 +115,8 @@ pub fn scrape_and_write_statistics(
         }
     }
 
-    finalize_run(output_path, run_start)?;
+    finalize_run(&staged_output_path, run_start)?;
+    publish_staged_run(&staged_output_path, output_path)?;
     let elapsed_seconds = Utc::now().signed_duration_since(run_start).num_seconds();
     log_info(
         "statistics",
@@ -161,10 +164,9 @@ fn configured_requests_per_second() -> Result<f64> {
 
 // ── JSON persistence ──────────────────────────────────────────────────────
 //
-// NOTE: `append_item` re-reads and rewrites the entire JSON file on every
-// item so that partial progress is always persisted to disk.  This is an
-// intentional durability trade-off — no data is lost if the process crashes,
-// at the cost of O(n²) file I/O over a full scrape run.
+// NOTE: `append_item` persists progress to a staging file on every item.
+// The live JSON stays untouched until `publish_staged_run` is called at
+// completion, so readers never observe a partially written public file.
 
 /// Write an empty run to disk so that partial progress is always recoverable.
 fn initialize_run(path: &Path, start: DateTime<Utc>) -> Result<()> {
@@ -248,6 +250,46 @@ fn write_run(path: &Path, run: &StatisticsRun) -> Result<()> {
     fs::write(path, format!("{json}\n"))
         .with_context(|| format!("failed to write statistics file at {}", path.display()))?;
     Ok(())
+}
+
+fn staging_output_path(output_path: &Path) -> PathBuf {
+    let file_name = output_path
+        .file_name()
+        .and_then(|name| name.to_str())
+        .unwrap_or("market_statistics.json");
+    output_path.with_file_name(format!(".{file_name}.staging"))
+}
+
+fn publish_staged_run(staged_path: &Path, output_path: &Path) -> Result<()> {
+    match fs::rename(staged_path, output_path) {
+        Ok(()) => Ok(()),
+        Err(rename_error) => {
+            if output_path.exists() {
+                fs::remove_file(output_path).with_context(|| {
+                    format!(
+                        "failed to remove existing statistics file at {}",
+                        output_path.display()
+                    )
+                })?;
+                fs::rename(staged_path, output_path).with_context(|| {
+                    format!(
+                        "failed to publish staged statistics from {} to {}",
+                        staged_path.display(),
+                        output_path.display()
+                    )
+                })?;
+                Ok(())
+            } else {
+                Err(rename_error).with_context(|| {
+                    format!(
+                        "failed to publish staged statistics from {} to {}",
+                        staged_path.display(),
+                        output_path.display()
+                    )
+                })
+            }
+        }
+    }
 }
 
 // ── Tests ─────────────────────────────────────────────────────────────────
