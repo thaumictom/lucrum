@@ -17,6 +17,7 @@ const DICTIONARY_PATH: &str = "data/dictionary.json";
 const TRADEABLE_ITEMS_PATH: &str = "data/tradeable_items.json";
 const CACHE_MAX_AGE_HOURS: i64 = 72;
 const DEFAULT_REQUESTS_PER_SECOND: f64 = 2.5;
+const DEFAULT_DEBUG_FETCH_OFFSET: Option<usize> = None;
 const DEFAULT_DEBUG_FETCH_LIMIT: Option<usize> = None;
 
 fn main() -> Result<()> {
@@ -37,11 +38,13 @@ fn main() -> Result<()> {
     }
 
     let requests_per_second = configured_requests_per_second()?;
+    let fetch_offset = configured_fetch_offset()?;
     let fetch_limit = configured_fetch_limit()?;
     let run = build_tradeable_items_run(
         DICTIONARY_PATH,
         TRADEABLE_ITEMS_PATH,
         requests_per_second,
+        fetch_offset,
         fetch_limit,
     )?;
     write_tradeable_items(TRADEABLE_ITEMS_PATH, &run)?;
@@ -68,6 +71,23 @@ fn configured_requests_per_second() -> Result<f64> {
         }
         Err(env::VarError::NotPresent) => Ok(DEFAULT_REQUESTS_PER_SECOND),
         Err(error) => Err(error).context("failed to read LUCRUM_REQUESTS_PER_SECOND"),
+    }
+}
+
+fn configured_fetch_offset() -> Result<Option<usize>> {
+    match env::var("LUCRUM_FETCH_OFFSET") {
+        Ok(value) => {
+            let parsed = value
+                .parse::<usize>()
+                .context("LUCRUM_FETCH_OFFSET must be an integer")?;
+            if parsed == 0 {
+                Ok(None)
+            } else {
+                Ok(Some(parsed))
+            }
+        }
+        Err(env::VarError::NotPresent) => Ok(DEFAULT_DEBUG_FETCH_OFFSET),
+        Err(error) => Err(error).context("failed to read LUCRUM_FETCH_OFFSET"),
     }
 }
 

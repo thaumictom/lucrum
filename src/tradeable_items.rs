@@ -42,6 +42,7 @@ pub fn build_tradeable_items_run(
     dictionary_path: &str,
     previous_run_path: &str,
     requests_per_second: f64,
+    fetch_offset: Option<usize>,
     fetch_limit: Option<usize>,
 ) -> Result<TradeableItemsRun> {
     let dictionary = read_dictionary(dictionary_path)?;
@@ -54,10 +55,11 @@ pub fn build_tradeable_items_run(
         .map(|item| item.slug)
         .collect();
 
-    let selected_slugs: Vec<String> = match fetch_limit {
-        Some(limit) => slugs.into_iter().take(limit).collect(),
-        None => slugs,
-    };
+    let selected_slugs: Vec<String> = slugs
+        .into_iter()
+        .skip(fetch_offset.unwrap_or(0))
+        .take(fetch_limit.unwrap_or(usize::MAX))
+        .collect();
 
     let client = Client::builder()
         .timeout(Duration::from_secs(60))
@@ -69,7 +71,6 @@ pub fn build_tradeable_items_run(
     let mut items = Vec::with_capacity(selected_slugs.len());
 
     for slug in selected_slugs {
-        let cached_liquidity = cached_by_slug.get(&slug).map(|item| item.liquidity);
         let decision_time = Utc::now();
         if let Some(cached) = cached_by_slug.get(&slug)
             && should_use_cached(cached, decision_time)
@@ -78,11 +79,6 @@ pub fn build_tradeable_items_run(
             items.push(cached.clone());
             continue;
         }
-
-        let decision_liquidity = cached_liquidity
-            .map(|value| value.to_string())
-            .unwrap_or_else(|| "unknown".to_string());
-        println!("(fetch) slug={} liquidity={}", slug, decision_liquidity);
 
         if let Some(previous_start) = last_request_started_at {
             let elapsed = previous_start.elapsed();
@@ -116,7 +112,9 @@ pub fn build_tradeable_items_run(
             &payload.payload.statistics_live.forty_eight_hours,
             called_at,
         );
-        let liquidity = sum_volumes(&statistics_today);
+        let liquidity =
+            sum_volumes(&statistics_yesterday).saturating_add(sum_volumes(&statistics_today));
+        println!("(fetch) slug={} liquidity={}", slug, liquidity);
 
         items.push(TradeableItemSnapshot {
             slug,
@@ -181,7 +179,7 @@ fn should_use_cached(item: &TradeableItemSnapshot, now: DateTime<Utc>) -> bool {
 fn freshness_hours_for_liquidity(liquidity: u64) -> i64 {
     if liquidity <= 20 {
         24
-    } else if liquidity <= 50 {
+    } else if liquidity <= 100 {
         6
     } else {
         1
