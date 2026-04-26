@@ -34,6 +34,7 @@ pub fn build_dictionary() -> Result<Dictionary> {
             slug: item.slug,
             tags: item.tags,
             vaulted: item.vaulted,
+            ducats: item.ducats,
         })
         .collect();
 

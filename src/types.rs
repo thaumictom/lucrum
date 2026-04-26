@@ -12,6 +12,8 @@ pub struct ApiItem {
     #[serde(default)]
     pub vaulted: Option<bool>,
     #[serde(default)]
+    pub ducats: Option<u32>,
+    #[serde(default)]
     pub tags: Vec<String>,
     #[serde(default)]
     pub i18n: ApiI18n,
@@ -41,6 +43,8 @@ pub struct TradeableItem {
     pub tags: Vec<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vaulted: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub ducats: Option<u32>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
