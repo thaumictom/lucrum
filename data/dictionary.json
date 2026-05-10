@@ -1,5 +1,5 @@
 {
-  "last_fetched_at": "2026-04-19T13:45:30.171754500Z",
+  "last_fetched_at": "2026-05-10T12:24:06.793274200Z",
   "tradeable_items": [
     {
       "slug": "secura_dual_cestra",
@@ -81,7 +81,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "catalyzer_link",
@@ -243,7 +244,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "cleanse_corrupted",
@@ -383,7 +385,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "mycona_colony_scene",
@@ -408,7 +411,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "akjagara_prime_receiver",
@@ -417,7 +421,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "kitgun_riven_mod_(veiled)",
@@ -472,7 +477,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "freeze_force",
@@ -511,7 +517,8 @@
         "sentinel",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "spring_loaded_blade",
@@ -705,7 +712,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "loki_prime_systems_blueprint",
@@ -715,7 +723,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "naramon_lens",
@@ -761,7 +770,8 @@
         "prime",
         "archwing",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "secondary_wind",
@@ -782,7 +792,8 @@
         "prime",
         "archwing",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "point_strike",
@@ -903,7 +914,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "reaper_prime_blueprint",
@@ -913,7 +925,8 @@
         "weapon",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "arcane_thrak_helmet",
@@ -952,7 +965,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "disarming_purity",
@@ -980,7 +994,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "crossing_snakes",
@@ -1039,7 +1054,8 @@
         "prime",
         "set",
         "secondary"
-      ]
+      ],
+      "ducats": 75
     },
     {
       "slug": "arcane_avalon_helmet",
@@ -1153,7 +1169,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "volt_prime_neuroptics_blueprint",
@@ -1163,7 +1180,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "arcane_phoenix_helmet",
@@ -1180,7 +1198,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "volt_prime_chassis_blueprint",
@@ -1190,7 +1209,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "marquise_veridos",
@@ -1254,7 +1274,8 @@
         "prime",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "ninkondi_prime_chain",
@@ -1263,7 +1284,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "zhuge_prime_receiver",
@@ -1272,7 +1294,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "zhuge_prime_set",
@@ -1282,7 +1305,8 @@
         "prime",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 220
     },
     {
       "slug": "wukong_prime_neuroptics_blueprint",
@@ -1292,7 +1316,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "ruinous_extension",
@@ -1343,7 +1368,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "lingering_torment",
@@ -1390,7 +1416,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "dera_vandal_stock",
@@ -1417,7 +1444,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "swing_line",
@@ -1438,7 +1466,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 305
     },
     {
       "slug": "measured_burst",
@@ -1576,7 +1605,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "rhino_prime_blueprint",
@@ -1585,7 +1615,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "steady_hands",
@@ -1604,7 +1635,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "energy_conversion",
@@ -1719,7 +1751,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "wyrm_prime_systems",
@@ -1728,7 +1761,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "trinity_prime_neuroptics_blueprint",
@@ -1738,7 +1772,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "mind_freak",
@@ -1758,7 +1793,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "streamline",
@@ -1807,7 +1843,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "capacitance",
@@ -1838,7 +1875,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "bore",
@@ -1878,7 +1916,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "snipetron_vandal_set",
@@ -2027,7 +2066,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "fracturing_wind",
@@ -2216,7 +2256,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "pyrana_prime_receiver",
@@ -2225,7 +2266,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "pyrana_prime_barrel",
@@ -2234,7 +2276,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "destreza_prime_set",
@@ -2244,7 +2287,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "primed_expel_grineer",
@@ -2424,7 +2468,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "vigilante_fervor",
@@ -2442,7 +2487,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "ankyros_prime_gauntlet",
@@ -2451,7 +2497,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "bo_prime_blueprint",
@@ -2461,7 +2508,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "silva_and_aegis_prime_guard",
@@ -2470,7 +2518,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "vicious_frost",
@@ -2556,7 +2605,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "spinning_needle",
@@ -2631,7 +2681,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "jolt",
@@ -2650,7 +2701,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "stunning_speed",
@@ -2678,7 +2730,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "crash_course",
@@ -2758,7 +2811,8 @@
         "sentinel",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "vulpine_mask",
@@ -2787,7 +2841,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "tactical_pump",
@@ -2823,7 +2878,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "unleashed",
@@ -2842,7 +2898,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "arcane_chorus_helmet",
@@ -2860,7 +2917,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "entropy_flight",
@@ -2880,7 +2938,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "poppin_vert",
@@ -2999,7 +3058,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "stradavar_prime_set",
@@ -3009,7 +3069,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "equinox_prime_blueprint",
@@ -3018,7 +3079,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "bronco_prime_barrel",
@@ -3027,7 +3089,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "war_hilt",
@@ -3045,7 +3108,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "frost_prime_blueprint",
@@ -3054,7 +3118,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "bronco_prime_blueprint",
@@ -3064,7 +3129,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "astral_twilight",
@@ -3094,7 +3160,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "fang_prime_blade",
@@ -3103,7 +3170,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "vauban_prime_neuroptics_blueprint",
@@ -3113,7 +3181,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "hikou_prime_stars",
@@ -3122,7 +3191,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "intruder",
@@ -3189,7 +3259,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "antimatter_mine",
@@ -3210,7 +3281,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "prism_guard",
@@ -3240,7 +3312,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "deceptive_bond",
@@ -3261,7 +3334,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "arcane_squall_helmet",
@@ -3391,7 +3465,8 @@
         "blueprint",
         "warframe",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "grim_fury",
@@ -3632,7 +3707,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "centaur_aegis",
@@ -3660,7 +3736,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "chilling_grasp",
@@ -3680,7 +3757,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "blazing_steel",
@@ -3784,7 +3862,8 @@
         "prime",
         "sentinel",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "rakta_ballistica",
@@ -3803,7 +3882,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "greedy_pull",
@@ -3824,7 +3904,8 @@
         "prime",
         "melee",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "sanctuary",
@@ -3892,7 +3973,8 @@
         "prime",
         "skin",
         "set"
-      ]
+      ],
+      "ducats": 155
     },
     {
       "slug": "latron_prime_set",
@@ -3902,7 +3984,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 60
     },
     {
       "slug": "lex_prime_set",
@@ -3912,7 +3995,8 @@
         "prime",
         "set",
         "secondary"
-      ]
+      ],
+      "ducats": 55
     },
     {
       "slug": "odonata_prime_set",
@@ -3921,7 +4005,8 @@
         "prime",
         "set",
         "archwing"
-      ]
+      ],
+      "ducats": 140
     },
     {
       "slug": "gun_glide",
@@ -4074,7 +4159,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "enhanced_durability",
@@ -4119,7 +4205,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "carving_mantis",
@@ -4155,7 +4242,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "sicarus_prime_set",
@@ -4165,7 +4253,8 @@
         "prime",
         "set",
         "secondary"
-      ]
+      ],
+      "ducats": 130
     },
     {
       "slug": "grinloked",
@@ -4214,7 +4303,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "boltor_prime_stock",
@@ -4223,7 +4313,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "night_stalker",
@@ -4291,7 +4382,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "eject_magazine",
@@ -4353,7 +4445,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "reaping_spiral",
@@ -4372,7 +4465,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "sharpened_blade",
@@ -4431,7 +4525,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 110
     },
     {
       "slug": "relentless_assault",
@@ -4450,7 +4545,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "calculated_spring",
@@ -4481,7 +4577,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "aklex_prime_blueprint",
@@ -4491,7 +4588,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "aklex_prime_set",
@@ -4501,7 +4599,8 @@
         "prime",
         "set",
         "secondary"
-      ]
+      ],
+      "ducats": 145
     },
     {
       "slug": "ballistica_prime_blueprint",
@@ -4511,7 +4610,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "tranquil_cleave",
@@ -4746,7 +4846,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "zhuge_prime_barrel",
@@ -4755,7 +4856,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "ninkondi_prime_handle",
@@ -4764,7 +4866,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "ninkondi_prime_set",
@@ -4774,7 +4877,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "wukong_prime_set",
@@ -4783,7 +4887,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "scindo_prime_handle",
@@ -4792,7 +4897,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "vile_precision",
@@ -4858,7 +4964,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "stormbringer",
@@ -4942,7 +5049,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "seeking_force",
@@ -5046,7 +5154,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "gaias_tragedy",
@@ -5065,7 +5174,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "karak_wraith_barrel",
@@ -5131,7 +5241,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "redirection",
@@ -5150,7 +5261,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 95
     },
     {
       "slug": "chilling_globe",
@@ -5170,7 +5282,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "exothermic",
@@ -5191,7 +5304,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "eagle_eye",
@@ -5286,7 +5400,8 @@
         "weapon",
         "secondary",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "blade_of_truth",
@@ -5326,7 +5441,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "oberon_prime_set",
@@ -5335,7 +5451,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "centaur_blade",
@@ -5383,7 +5500,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "prisma_dual_cleavers",
@@ -5411,7 +5529,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "primed_heavy_trauma",
@@ -5470,7 +5589,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 90
     },
     {
       "slug": "boar_prime_set",
@@ -5480,7 +5600,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "ballistica_prime_receiver",
@@ -5489,7 +5610,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "boltor_prime_set",
@@ -5499,7 +5621,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "strun_wraith_stock",
@@ -5526,7 +5649,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 275
     },
     {
       "slug": "kogake_prime_gauntlet",
@@ -5535,7 +5659,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "zephyr_prime_blueprint",
@@ -5544,7 +5669,8 @@
         "warframe",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "lato_vandal_set",
@@ -5631,7 +5757,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "centaur_handle",
@@ -5700,7 +5827,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "euphona_prime_blueprint",
@@ -5710,7 +5838,8 @@
         "weapon",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "onorix_handle",
@@ -5774,7 +5903,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "virtuos_surge",
@@ -5810,7 +5940,8 @@
       "name": "Kavasa Prime Buckle",
       "tags": [
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "strain_eruption",
@@ -5836,7 +5967,8 @@
       "name": "Kavasa Prime Band",
       "tags": [
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "kuva_throne_scene",
@@ -5990,7 +6122,8 @@
         "prime",
         "set",
         "secondary"
-      ]
+      ],
+      "ducats": 145
     },
     {
       "slug": "perpetual_agony",
@@ -6044,7 +6177,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "vermillion_storm",
@@ -6158,7 +6292,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "expel_grineer",
@@ -6177,7 +6312,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "mag_prime_neuroptics_blueprint",
@@ -6187,7 +6323,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "primed_fast_hands",
@@ -6362,7 +6499,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "tigris_prime_blueprint",
@@ -6372,7 +6510,8 @@
         "prime",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "emergent_aftermath",
@@ -6402,7 +6541,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "mag_prime_systems_blueprint",
@@ -6412,7 +6552,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "prisma_grakata",
@@ -6438,7 +6579,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "automatic_trigger",
@@ -6525,7 +6667,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "dera_vandal_receiver",
@@ -6543,7 +6686,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "vile_acceleration",
@@ -6670,7 +6814,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "healing_flame",
@@ -6720,7 +6865,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 115
     },
     {
       "slug": "trinity_prime_set",
@@ -6729,7 +6875,8 @@
         "set",
         "warframe",
         "prime"
-      ]
+      ],
+      "ducats": 130
     },
     {
       "slug": "vigilante_armaments",
@@ -6748,7 +6895,8 @@
         "prime",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "beguiling_lantern",
@@ -6769,7 +6917,8 @@
         "prime",
         "secondary",
         "set"
-      ]
+      ],
+      "ducats": 250
     },
     {
       "slug": "virtuos_fury",
@@ -6881,7 +7030,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "wukong_prime_systems_blueprint",
@@ -6891,7 +7041,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "zhuge_prime_string",
@@ -6900,7 +7051,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "gilded_truth",
@@ -7047,7 +7199,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "mecha_empowered",
@@ -7127,7 +7280,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "speed_trigger",
@@ -7180,7 +7334,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "arrow_mutation",
@@ -7199,7 +7354,8 @@
         "warframe",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "hastened_deflection",
@@ -7240,7 +7396,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "archgun_riven_mod_(veiled)",
@@ -7260,7 +7417,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "resonating_quake",
@@ -7354,7 +7512,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "akvasto_prime_link",
@@ -7363,7 +7522,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "contamination_casing",
@@ -7411,7 +7571,8 @@
         "prime",
         "melee",
         "set"
-      ]
+      ],
+      "ducats": 275
     },
     {
       "slug": "suppress",
@@ -7481,7 +7642,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "hall_of_malevolence",
@@ -7579,7 +7741,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "lucky_shot",
@@ -7732,7 +7895,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "equinox_prime_neuroptics_blueprint",
@@ -7742,7 +7906,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "redeemer_prime_blueprint",
@@ -7752,7 +7917,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "virtuos_spike",
@@ -7771,7 +7937,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "serrated_edges",
@@ -7824,7 +7991,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "mutalist_nav_coordinates",
@@ -7841,7 +8009,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "soft_hands",
@@ -7883,7 +8052,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "sword_alone",
@@ -7914,7 +8084,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "tear_gas",
@@ -8060,7 +8231,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "piercing_navigator",
@@ -8109,7 +8281,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "arcane_tempo",
@@ -8209,7 +8382,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "cutting_edge",
@@ -8241,7 +8415,8 @@
         "prime",
         "set",
         "secondary"
-      ]
+      ],
+      "ducats": 60
     },
     {
       "slug": "contagious_spread",
@@ -8279,7 +8454,8 @@
         "sentinel",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 110
     },
     {
       "slug": "hushed_invisibility",
@@ -8300,7 +8476,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 125
     },
     {
       "slug": "pilfering_swarm",
@@ -8455,7 +8632,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "arcane_bodyguard",
@@ -8516,7 +8694,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "dethcube_prime_carapace",
@@ -8525,7 +8704,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "dethcube_prime_cerebrum",
@@ -8534,7 +8714,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "tekko_prime_gauntlet",
@@ -8543,7 +8724,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "dethcube_prime_blueprint",
@@ -8552,7 +8734,8 @@
         "blueprint",
         "prime",
         "sentinel"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "dethcube_prime_set",
@@ -8561,7 +8744,8 @@
         "set",
         "prime",
         "sentinel"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "glacial_edge",
@@ -8591,7 +8775,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "runtime",
@@ -8619,7 +8804,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "ivara_prime_chassis_blueprint",
@@ -8629,7 +8815,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "ivara_prime_systems_blueprint",
@@ -8639,7 +8826,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "baza_prime_blueprint",
@@ -8649,7 +8837,8 @@
         "prime",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "baza_prime_set",
@@ -8659,7 +8848,8 @@
         "prime",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "aksomati_prime_set",
@@ -8669,7 +8859,8 @@
         "prime",
         "secondary",
         "set"
-      ]
+      ],
+      "ducats": 235
     },
     {
       "slug": "aksomati_prime_link",
@@ -8678,7 +8869,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "baza_prime_stock",
@@ -8687,7 +8879,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "aksomati_prime_receiver",
@@ -8696,7 +8889,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "gram_prime_handle",
@@ -8705,7 +8899,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "primed_reach",
@@ -8734,7 +8929,8 @@
         "prime",
         "sentinel",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "terminal_velocity",
@@ -8825,7 +9021,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "searing_leap",
@@ -8969,7 +9166,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "stradavar_prime_receiver",
@@ -8978,7 +9176,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "snipetron_vandal_barrel",
@@ -9003,7 +9202,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "spry_sights",
@@ -9098,7 +9298,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "draining_gloom",
@@ -9165,7 +9366,8 @@
         "prime",
         "set",
         "secondary"
-      ]
+      ],
+      "ducats": 75
     },
     {
       "slug": "seeker",
@@ -9193,7 +9395,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "reaper_prime_blade",
@@ -9202,7 +9405,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "rending_strike",
@@ -9260,7 +9464,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "tainted_shell",
@@ -9445,7 +9650,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "frost_prime_chassis_blueprint",
@@ -9455,7 +9661,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "rhino_prime_systems_blueprint",
@@ -9465,7 +9672,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "ember_prime_blueprint",
@@ -9474,7 +9682,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "eroding_blight",
@@ -9618,7 +9827,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "decurion_receiver",
@@ -9647,7 +9857,8 @@
         "prime",
         "skin",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "ayatan_cyan_star",
@@ -9896,7 +10107,8 @@
         "weapon",
         "melee",
         "set"
-      ]
+      ],
+      "ducats": 75
     },
     {
       "slug": "immolated_radiance",
@@ -9916,7 +10128,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "carrier_prime_carapace",
@@ -9925,7 +10138,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "full_capacity",
@@ -9957,7 +10171,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "inaros_tomb_scene",
@@ -9974,7 +10189,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "oberon_prime_chassis_blueprint",
@@ -9984,7 +10200,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "lock_and_load",
@@ -10012,7 +10229,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "arcane_guardian",
@@ -10030,7 +10248,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "fast_deflection",
@@ -10049,7 +10268,8 @@
         "prime",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "oberon_prime_systems_blueprint",
@@ -10059,7 +10279,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "baza_prime_receiver",
@@ -10068,7 +10289,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "primed_smite_infested",
@@ -10223,7 +10445,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "hypothermic_shell",
@@ -10326,7 +10549,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "aerial_ace",
@@ -10414,7 +10638,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 150
     },
     {
       "slug": "hysterical_assault",
@@ -10455,7 +10680,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 180
     },
     {
       "slug": "esher_devar",
@@ -10472,7 +10698,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "electro_pulse",
@@ -10675,7 +10902,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "sicarus_prime_barrel",
@@ -10684,7 +10912,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "braton_prime_barrel",
@@ -10693,7 +10922,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "purifying_flames",
@@ -10742,7 +10972,8 @@
         "prime",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "shield_charger",
@@ -10789,7 +11020,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "double_barrel_drift",
@@ -10838,7 +11070,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "mantis_engines_blueprint",
@@ -10864,7 +11097,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "sapping_reach",
@@ -10894,7 +11128,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 145
     },
     {
       "slug": "crimson_dervish",
@@ -10914,7 +11149,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "akstiletto_prime_barrel",
@@ -10923,7 +11159,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "deep_freeze",
@@ -10942,7 +11179,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "physique",
@@ -10960,7 +11198,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "paris_prime_upper_limb",
@@ -10969,7 +11208,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "akbolto_prime_blueprint",
@@ -10979,7 +11219,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "silva_and_aegis_prime_blueprint",
@@ -10989,7 +11230,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "scindo_prime_blade",
@@ -10998,7 +11240,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "euphona_prime_barrel",
@@ -11007,7 +11250,8 @@
         "component",
         "prime",
         "weapon"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "mag_prime_blueprint",
@@ -11016,7 +11260,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "furax_wraith_blueprint",
@@ -11035,7 +11280,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "ice_spring",
@@ -11071,7 +11317,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "paris_prime_lower_limb",
@@ -11080,7 +11327,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "triple_tap",
@@ -11369,7 +11617,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "stradavar_prime_blueprint",
@@ -11379,7 +11628,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "vaykor_marelok",
@@ -11416,7 +11666,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "pangolin_prime_blade",
@@ -11425,7 +11676,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "pangolin_prime_set",
@@ -11435,7 +11687,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "titania_prime_blueprint",
@@ -11444,7 +11697,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "revo_reducer",
@@ -11471,7 +11725,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "tribunal",
@@ -11701,7 +11956,8 @@
         "warframe",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "chilling_reload",
@@ -11739,7 +11995,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "primed_cryo_rounds",
@@ -11838,7 +12095,8 @@
         "prime",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "cernos_prime_lower_limb",
@@ -11847,7 +12105,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "cernos_prime_upper_limb",
@@ -11856,7 +12115,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "cernos_prime_grip",
@@ -11865,7 +12125,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "condition_overload",
@@ -11921,7 +12182,8 @@
         "sentinel",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 90
     },
     {
       "slug": "naramon_transmute_core",
@@ -12015,7 +12277,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "ice_wave_impedance",
@@ -12036,7 +12299,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "dakra_prime_blade",
@@ -12045,7 +12309,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "glaive_prime_disc",
@@ -12054,7 +12319,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "ayatan_ayr_sculpture",
@@ -12185,7 +12451,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "primed_animal_instinct",
@@ -12262,7 +12529,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 235
     },
     {
       "slug": "scindo_prime_set",
@@ -12272,7 +12540,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 170
     },
     {
       "slug": "telos_boltace",
@@ -12290,7 +12559,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "latron_prime_stock",
@@ -12299,7 +12569,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "lex_prime_barrel",
@@ -12308,7 +12579,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "grineer_forest_factory_scene",
@@ -12350,7 +12622,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "staggering_shield",
@@ -12371,7 +12644,8 @@
         "prime",
         "secondary",
         "set"
-      ]
+      ],
+      "ducats": 285
     },
     {
       "slug": "stropha_set",
@@ -12522,7 +12796,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "inaros_prime_chassis_blueprint",
@@ -12532,7 +12807,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "inaros_prime_neuroptics_blueprint",
@@ -12542,7 +12818,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "inaros_prime_blueprint",
@@ -12551,7 +12828,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "inaros_prime_systems_blueprint",
@@ -12561,7 +12839,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "panthera_prime_stock",
@@ -12570,7 +12849,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "karyst_prime_handle",
@@ -12579,7 +12859,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "karyst_prime_set",
@@ -12589,7 +12870,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "panthera_prime_set",
@@ -12599,7 +12881,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "panthera_prime_barrel",
@@ -12608,7 +12891,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "panthera_prime_receiver",
@@ -12617,7 +12901,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "panthera_prime_blueprint",
@@ -12627,7 +12912,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "karyst_prime_blueprint",
@@ -12637,7 +12923,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "karyst_prime_blade",
@@ -12646,7 +12933,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "vigilante_supplies",
@@ -12674,7 +12962,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "dakra_prime_blueprint",
@@ -12684,7 +12973,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "narrow_minded",
@@ -12720,7 +13010,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "primed_target_cracker",
@@ -12750,7 +13041,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "bane_of_corrupted",
@@ -12787,7 +13079,8 @@
         "warframe",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "looter",
@@ -12861,7 +13154,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "cernos_prime_set",
@@ -12871,7 +13165,8 @@
         "prime",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 200
     },
     {
       "slug": "valkyr_prime_blueprint",
@@ -12880,7 +13175,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "valkyr_prime_set",
@@ -12889,7 +13185,8 @@
         "prime",
         "warframe",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "venka_prime_blades",
@@ -12898,7 +13195,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "bounty_hunter",
@@ -13108,7 +13406,8 @@
         "archwing",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "blind_justice",
@@ -13209,7 +13508,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "nami_skyla_prime_blade",
@@ -13218,7 +13518,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "kronen_prime_handle",
@@ -13227,7 +13528,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "gladiator_finesse",
@@ -13282,7 +13584,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "omega_beacon",
@@ -13309,7 +13612,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "gorgon_wraith_barrel",
@@ -13326,7 +13630,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "akbolto_prime_set",
@@ -13336,7 +13641,8 @@
         "prime",
         "secondary",
         "set"
-      ]
+      ],
+      "ducats": 350
     },
     {
       "slug": "akbolto_prime_link",
@@ -13345,7 +13651,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "akbolto_prime_barrel",
@@ -13354,7 +13661,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "braton_vandal_blueprint",
@@ -13372,7 +13680,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "partitioned_mallet",
@@ -13634,7 +13943,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "gorgon_wraith_set",
@@ -13674,7 +13984,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "radiant_finish",
@@ -13722,7 +14033,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "recharge_barrier",
@@ -13773,7 +14085,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "braton_prime_blueprint",
@@ -13783,7 +14096,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "defiled_snapdragon",
@@ -13802,7 +14116,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "recuperate",
@@ -13823,7 +14138,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 190
     },
     {
       "slug": "vital_sense",
@@ -13843,7 +14159,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "cyngas_set",
@@ -13871,7 +14188,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "kaszas_set",
@@ -13943,7 +14261,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "cryo_rounds",
@@ -13981,7 +14300,8 @@
         "component",
         "prime",
         "weapon"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "transient_fortitude",
@@ -14028,7 +14348,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "covert_lethality",
@@ -14140,7 +14461,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "spira_prime_set",
@@ -14150,7 +14472,8 @@
         "prime",
         "set",
         "secondary"
-      ]
+      ],
+      "ducats": 345
     },
     {
       "slug": "sheev_blade",
@@ -14233,7 +14556,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 305
     },
     {
       "slug": "kronen_prime_set",
@@ -14243,7 +14567,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 305
     },
     {
       "slug": "helios_prime_systems",
@@ -14252,7 +14577,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "extend",
@@ -14290,7 +14616,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "exodia_epidemic",
@@ -14308,7 +14635,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "mirage_prime_blueprint",
@@ -14317,7 +14645,8 @@
         "warframe",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "primed_quickdraw",
@@ -14365,7 +14694,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "trample",
@@ -14425,7 +14755,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "true_steel",
@@ -14454,7 +14785,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "animal_instinct",
@@ -14517,7 +14849,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "tekko_prime_blade",
@@ -14526,7 +14859,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "tekko_prime_set",
@@ -14536,7 +14870,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 275
     },
     {
       "slug": "tekko_prime_blueprint",
@@ -14546,7 +14881,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "necramech_redirection",
@@ -14846,7 +15182,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "guandao_prime_blueprint",
@@ -14856,7 +15193,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "combo_killer",
@@ -15158,7 +15496,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "kogake_prime_blueprint",
@@ -15168,7 +15507,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "hornet_strike",
@@ -15187,7 +15527,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "ore_gaze",
@@ -15270,7 +15611,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "raksa_kubrow_imprint",
@@ -15289,7 +15631,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 185
     },
     {
       "slug": "gram_prime_blueprint",
@@ -15299,7 +15642,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "ambush",
@@ -15391,7 +15735,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "transistor_shield",
@@ -15439,7 +15784,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "vauban_prime_set",
@@ -15448,7 +15794,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 290
     },
     {
       "slug": "mesas_waltz",
@@ -15469,7 +15816,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "sands_of_inaros",
@@ -15485,7 +15833,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "vauban_prime_systems_blueprint",
@@ -15495,7 +15844,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "scattering_inferno",
@@ -15603,7 +15953,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "final_harbinger",
@@ -15623,7 +15974,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 90
     },
     {
       "slug": "loki_prime_set",
@@ -15632,7 +15984,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "nova_prime_set",
@@ -15641,7 +15994,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "nyx_prime_set",
@@ -15650,7 +16004,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "soma_prime_set",
@@ -15660,7 +16015,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "twitch",
@@ -15723,7 +16079,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "hunter_munitions",
@@ -15741,7 +16098,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "meteor_munitions",
@@ -15801,7 +16159,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "gladiator_rush",
@@ -15828,7 +16187,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "overcharge_detectors",
@@ -15946,7 +16306,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "delta_beacon",
@@ -15963,7 +16324,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "recover",
@@ -15983,7 +16345,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "pyroclastic_flow",
@@ -16015,7 +16378,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "zephyr_prime_set",
@@ -16024,7 +16388,8 @@
         "prime",
         "warframe",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "gnashing_payara",
@@ -16044,7 +16409,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "tiberon_prime_barrel",
@@ -16053,7 +16419,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "kronen_prime_blade",
@@ -16062,7 +16429,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "winds_of_purity",
@@ -16100,7 +16468,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "proof_fragment",
@@ -16205,7 +16574,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "teshins_refuge_scene",
@@ -16222,7 +16592,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "dual_rounds",
@@ -16261,7 +16632,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "sonic_boost",
@@ -16288,7 +16660,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 350
     },
     {
       "slug": "akjagara_prime_link",
@@ -16297,7 +16670,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "magus_melt",
@@ -16352,7 +16726,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "stradavar_prime_stock",
@@ -16361,7 +16736,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "repair_kit",
@@ -16489,7 +16865,8 @@
         "prime",
         "archwing",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "seeking_fury",
@@ -16527,7 +16904,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "magus_husk",
@@ -16572,7 +16950,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "smoke_shadow",
@@ -16666,7 +17045,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "charged_bullets",
@@ -16715,7 +17095,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "galatine_prime_blade",
@@ -16724,7 +17105,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "gram_prime_set",
@@ -16734,7 +17116,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "sancti_tigris",
@@ -16752,7 +17135,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "nekros_prime_blueprint",
@@ -16761,7 +17145,8 @@
         "blueprint",
         "warframe",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "trinity_prime_systems_blueprint",
@@ -16771,7 +17156,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "pistol_amp",
@@ -16799,7 +17185,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "corinth_prime_stock",
@@ -16808,7 +17195,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "corinth_prime_blueprint",
@@ -16818,7 +17206,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "titania_prime_systems_blueprint",
@@ -16828,7 +17217,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "necramech_intensify",
@@ -16871,7 +17261,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "atlas_prime_neuroptics_blueprint",
@@ -16881,7 +17272,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "atlas_prime_blueprint",
@@ -16890,7 +17282,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "dethcube_prime_systems",
@@ -16899,7 +17292,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "pyrana_prime_set",
@@ -16909,7 +17303,8 @@
         "prime",
         "secondary",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "savage_silence",
@@ -16948,7 +17343,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "braton_vandal_barrel",
@@ -16976,7 +17372,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "master_key",
@@ -17067,7 +17464,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "voltaic_strike",
@@ -17086,7 +17484,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "ayatan_anasa_sculpture",
@@ -17168,7 +17567,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "snipetron_vandal_receiver",
@@ -17287,7 +17687,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "slay_board",
@@ -17306,7 +17707,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "redeemer_prime_handle",
@@ -17315,7 +17717,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "critical_focus",
@@ -17373,7 +17776,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "necramech_seismic_wave",
@@ -17448,7 +17852,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "zakti_prime_set",
@@ -17458,7 +17863,8 @@
         "prime",
         "secondary",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "residual_boils",
@@ -17660,7 +18066,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "aksomati_prime_barrel",
@@ -17669,7 +18076,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "grendel_systems_locator",
@@ -17836,7 +18244,8 @@
         "prime",
         "set",
         "secondary"
-      ]
+      ],
+      "ducats": 75
     },
     {
       "slug": "astral_slash",
@@ -17857,7 +18266,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "duality",
@@ -18071,7 +18481,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 170
     },
     {
       "slug": "limbo_prime_neuroptics_blueprint",
@@ -18081,7 +18492,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "energy_transfer",
@@ -18110,7 +18522,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "ayatan_zambuka_sculpture",
@@ -18228,7 +18641,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "mesa_prime_systems_blueprint",
@@ -18238,7 +18652,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "mesa_prime_chassis_blueprint",
@@ -18248,7 +18663,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "magus_revert",
@@ -18367,7 +18783,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "trinity_prime_chassis_blueprint",
@@ -18377,7 +18794,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "growing_power",
@@ -18431,7 +18849,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "aksomati_prime_blueprint",
@@ -18441,7 +18860,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "shedu_handle",
@@ -18548,7 +18968,8 @@
         "set",
         "warframe",
         "prime"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "arcane_phantasm",
@@ -18566,7 +18987,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "chroma_prime_systems_blueprint",
@@ -18576,7 +18998,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "last_herald",
@@ -18605,7 +19028,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "galatine_prime_set",
@@ -18615,7 +19039,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "chroma_prime_neuroptics_blueprint",
@@ -18625,7 +19050,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "akjagara_prime_blueprint",
@@ -18635,7 +19061,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "strain_infection",
@@ -18695,7 +19122,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "cold_arrival",
@@ -18759,7 +19187,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "controlled_slide",
@@ -18798,7 +19227,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "corinth_prime_set",
@@ -18808,7 +19238,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "pangolin_prime_blueprint",
@@ -18818,7 +19249,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "overloader",
@@ -18836,7 +19268,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "corinth_prime_receiver",
@@ -18845,7 +19278,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "damaged_necramech_casing",
@@ -19089,7 +19523,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "zakti_prime_blueprint",
@@ -19099,7 +19534,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "guandao_prime_handle",
@@ -19108,7 +19544,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "zakti_prime_barrel",
@@ -19117,7 +19554,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "nezha_prime_systems_blueprint",
@@ -19127,7 +19565,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "nezha_prime_chassis_blueprint",
@@ -19137,7 +19576,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "zakti_prime_receiver",
@@ -19146,7 +19586,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "nezha_prime_neuroptics_blueprint",
@@ -19156,7 +19597,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "nezha_prime_set",
@@ -19165,7 +19607,8 @@
         "set",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "necramech_drift",
@@ -19305,7 +19748,8 @@
         "blueprint",
         "warframe",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "tenora_prime_blueprint",
@@ -19315,7 +19759,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "tenora_prime_receiver",
@@ -19324,7 +19769,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "pandero_prime_set",
@@ -19334,7 +19780,8 @@
         "prime",
         "set",
         "secondary"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "tenora_prime_stock",
@@ -19343,7 +19790,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "tenora_prime_set",
@@ -19353,7 +19801,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "pandero_prime_barrel",
@@ -19362,7 +19811,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "tenora_prime_barrel",
@@ -19371,7 +19821,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "octavia_prime_chassis_blueprint",
@@ -19381,7 +19832,8 @@
         "warframe",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "octavia_prime_neuroptics_blueprint",
@@ -19391,7 +19843,8 @@
         "warframe",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "pandero_prime_receiver",
@@ -19400,7 +19853,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "octavia_prime_systems_blueprint",
@@ -19410,7 +19864,8 @@
         "warframe",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "pandero_prime_blueprint",
@@ -19420,7 +19875,8 @@
         "prime",
         "secondary",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "octavia_prime_set",
@@ -19429,7 +19885,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "primed_chilling_grasp",
@@ -23354,7 +23811,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "volnus_prime_head",
@@ -23363,7 +23821,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "neo_t4_relic",
@@ -23408,7 +23867,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "volnus_prime_set",
@@ -23418,7 +23878,8 @@
         "prime",
         "set",
         "melee"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "gara_prime_set",
@@ -23427,7 +23888,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "gara_prime_neuroptics_blueprint",
@@ -23437,7 +23899,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "gara_prime_systems_blueprint",
@@ -23447,7 +23910,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "astilla_prime_blueprint",
@@ -23457,7 +23921,8 @@
         "prime",
         "primary",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "axi_n7_relic",
@@ -23475,7 +23940,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "astilla_prime_barrel",
@@ -23484,7 +23950,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "astilla_prime_set",
@@ -23494,7 +23961,8 @@
         "prime",
         "set",
         "primary"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "lith_a4_relic",
@@ -23521,7 +23989,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "volnus_prime_blueprint",
@@ -23531,7 +24000,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "neo_a5_relic",
@@ -23550,7 +24020,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "lith_g4_relic",
@@ -24497,7 +24968,8 @@
         "blueprint",
         "warframe",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "meso_b5_relic",
@@ -24525,7 +24997,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "meso_s10_relic",
@@ -24571,7 +25044,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "primed_magazine_warp",
@@ -24599,7 +25073,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "strun_prime_blueprint",
@@ -24609,7 +25084,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "axi_i2_relic",
@@ -24638,7 +25114,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "lith_n7_relic",
@@ -24656,7 +25133,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "meso_b6_relic",
@@ -24683,7 +25161,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "nidus_prime_systems_blueprint",
@@ -24693,7 +25172,8 @@
         "component",
         "warframe",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "strun_prime_stock",
@@ -24702,7 +25182,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "lith_t7_relic",
@@ -24730,7 +25211,8 @@
         "component",
         "warframe",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "nidus_prime_chassis_blueprint",
@@ -24740,7 +25222,8 @@
         "component",
         "warframe",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "magnus_prime_receiver",
@@ -24749,7 +25232,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "magnus_prime_barrel",
@@ -24758,7 +25242,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "neo_n16_relic",
@@ -24997,7 +25482,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "boreals_contempt",
@@ -25053,7 +25539,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "lith_t8_relic",
@@ -25071,7 +25558,8 @@
         "warframe",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "harrow_prime_set",
@@ -25080,7 +25568,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "meso_g3_relic",
@@ -25125,7 +25614,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "axi_t8_relic",
@@ -25162,7 +25652,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "scourge_prime_barrel",
@@ -25171,7 +25662,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "knell_prime_blueprint",
@@ -25181,7 +25673,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "boreals_hatred",
@@ -25254,7 +25747,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "scourge_prime_set",
@@ -25264,7 +25758,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "niras_contempt",
@@ -25293,7 +25788,8 @@
         "component",
         "blueprint",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "lith_c9_relic",
@@ -25311,7 +25807,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "knell_prime_receiver",
@@ -25320,7 +25817,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "scourge_prime_blueprint",
@@ -25330,7 +25828,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "meso_s11_relic",
@@ -25428,7 +25927,8 @@
         "component",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "corvas_prime_set",
@@ -25439,7 +25939,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "lith_n11_relic",
@@ -25458,7 +25959,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "axi_k7_relic",
@@ -25485,7 +25987,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "corvas_prime_blueprint",
@@ -25496,7 +25999,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "nagantaka_prime_receiver",
@@ -25505,7 +26009,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "nagantaka_prime_blueprint",
@@ -25515,7 +26020,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "lith_h4_relic",
@@ -25533,7 +26039,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "nagantaka_prime_stock",
@@ -25542,7 +26049,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "garuda_prime_systems_blueprint",
@@ -25552,7 +26060,8 @@
         "component",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "meso_g4_relic",
@@ -25588,7 +26097,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "axi_s10_relic",
@@ -25633,7 +26143,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "garuda_prime_set",
@@ -25642,7 +26153,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "neo_n20_relic",
@@ -25661,7 +26173,8 @@
         "component",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "meso_n12_relic",
@@ -25706,7 +26219,8 @@
         "blueprint",
         "prime",
         "warframe"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "zariman_chrysalith_scene",
@@ -26185,7 +26699,8 @@
         "prime",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "axi_k10_relic",
@@ -26240,7 +26755,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "dual_keres_prime_set",
@@ -26250,7 +26766,8 @@
         "melee",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 220
     },
     {
       "slug": "axi_k9_relic",
@@ -26269,7 +26786,8 @@
         "prime",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "axi_g8_relic",
@@ -26296,7 +26814,8 @@
         "prime",
         "weapon",
         "component"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "khora_prime_set",
@@ -26305,7 +26824,8 @@
         "prime",
         "warframe",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "khora_prime_blueprint",
@@ -26314,7 +26834,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "neo_g4_relic",
@@ -26332,7 +26853,8 @@
         "prime",
         "weapon",
         "component"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "neo_d5_relic",
@@ -26387,7 +26909,8 @@
         "prime",
         "weapon",
         "component"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "meso_v7_relic",
@@ -26406,7 +26929,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "dual_keres_prime_blueprint",
@@ -26416,7 +26940,8 @@
         "melee",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "neo_s15_relic",
@@ -26454,7 +26979,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "dual_keres_prime_blade",
@@ -26463,7 +26989,8 @@
         "prime",
         "weapon",
         "component"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "peculiar_audience",
@@ -26590,7 +27117,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "neo_t6_relic",
@@ -26618,7 +27146,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "revenant_prime_systems_blueprint",
@@ -26628,7 +27157,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "tatsu_prime_set",
@@ -26638,7 +27168,8 @@
         "prime",
         "melee",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "tatsu_prime_blueprint",
@@ -26648,7 +27179,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "meso_n13_relic",
@@ -26666,7 +27198,8 @@
         "prime",
         "warframe",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "phantasma_prime_barrel",
@@ -26675,7 +27208,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "lith_p6_relic",
@@ -26694,7 +27228,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "tatsu_prime_handle",
@@ -26703,7 +27238,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "meso_k4_relic",
@@ -26722,7 +27258,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "phantasma_prime_set",
@@ -26732,7 +27269,8 @@
         "prime",
         "primary",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "lith_h5_relic",
@@ -26759,7 +27297,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "axi_n9_relic",
@@ -26786,7 +27325,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "meso_p9_relic",
@@ -26813,7 +27353,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "lith_b9_relic",
@@ -27039,7 +27580,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "meso_a4_relic",
@@ -27093,7 +27635,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "neo_k5_relic",
@@ -27157,7 +27700,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "neo_d6_relic",
@@ -27185,7 +27729,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "meso_r5_relic",
@@ -27212,7 +27757,8 @@
         "prime",
         "warframe",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "lith_h7_relic",
@@ -27230,7 +27776,8 @@
         "prime",
         "component",
         "weapon"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "afuris_prime_barrel",
@@ -27239,7 +27786,8 @@
         "prime",
         "component",
         "weapon"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "afuris_prime_set",
@@ -27249,7 +27797,8 @@
         "secondary",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 290
     },
     {
       "slug": "afuris_prime_link",
@@ -27258,7 +27807,8 @@
         "prime",
         "component",
         "weapon"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "cobra_and_crane_prime_blueprint",
@@ -27268,7 +27818,8 @@
         "weapon",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "afuris_prime_blueprint",
@@ -27278,7 +27829,8 @@
         "secondary",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "cobra_and_crane_prime_blade",
@@ -27287,7 +27839,8 @@
         "prime",
         "component",
         "weapon"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "cobra_and_crane_prime_hilt",
@@ -27296,7 +27849,8 @@
         "prime",
         "component",
         "weapon"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "cobra_and_crane_prime_set",
@@ -27306,7 +27860,8 @@
         "weapon",
         "melee",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "afuris_prime_receiver",
@@ -27315,7 +27870,8 @@
         "prime",
         "component",
         "weapon"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "corufell_receiver",
@@ -27535,7 +28091,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "hildryn_prime_systems_blueprint",
@@ -27545,7 +28102,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "shade_prime_blueprint",
@@ -27554,7 +28112,8 @@
         "sentinel",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "hildryn_prime_set",
@@ -27563,7 +28122,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "shade_prime_systems",
@@ -27572,7 +28132,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "larkspur_prime_set",
@@ -27583,7 +28144,8 @@
         "weapon",
         "primary",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "hildryn_prime_neuroptics_blueprint",
@@ -27593,7 +28155,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "larkspur_prime_barrel",
@@ -27602,7 +28165,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "shade_prime_cerebrum",
@@ -27611,7 +28175,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "shade_prime_set",
@@ -27620,7 +28185,8 @@
         "prime",
         "sentinel",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "larkspur_prime_stock",
@@ -27629,7 +28195,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "hildryn_prime_chassis_blueprint",
@@ -27639,7 +28206,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "larkspur_prime_receiver",
@@ -27648,7 +28216,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "shade_prime_carapace",
@@ -27657,7 +28226,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "larkspur_prime_blueprint",
@@ -27668,7 +28238,8 @@
         "primary",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "lith_s15_relic",
@@ -28239,7 +28810,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "gunsen_prime_blueprint",
@@ -28249,7 +28821,8 @@
         "prime",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "gunsen_prime_set",
@@ -28259,7 +28832,8 @@
         "prime",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 305
     },
     {
       "slug": "fulmin_prime_blueprint",
@@ -28269,7 +28843,8 @@
         "prime",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "gunsen_prime_handle",
@@ -28278,7 +28853,8 @@
         "prime",
         "component",
         "weapon"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "fulmin_prime_barrel",
@@ -28287,7 +28863,8 @@
         "prime",
         "component",
         "weapon"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "neo_c4_relic",
@@ -28314,7 +28891,8 @@
         "prime",
         "warframe",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "fulmin_prime_set",
@@ -28324,7 +28902,8 @@
         "prime",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "fulmin_prime_stock",
@@ -28333,7 +28912,8 @@
         "prime",
         "component",
         "weapon"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "wisp_prime_neuroptics_blueprint",
@@ -28343,7 +28923,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "neo_f2_relic",
@@ -28408,7 +28989,8 @@
         "prime",
         "component",
         "weapon"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "ulfruns_endurance",
@@ -28458,7 +29040,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "shadow_haze",
@@ -28478,7 +29061,8 @@
         "prime",
         "component",
         "weapon"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "meso_k6_relic",
@@ -28514,7 +29098,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "eximus_advantage",
@@ -28892,7 +29477,8 @@
         "prime",
         "warframe",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "grendel_prime_blueprint",
@@ -28901,7 +29487,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "grendel_prime_neuroptics_blueprint",
@@ -28911,7 +29498,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "grendel_prime_chassis_blueprint",
@@ -28921,7 +29509,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "grendel_prime_systems_blueprint",
@@ -28931,7 +29520,8 @@
         "component",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "masseter_prime_set",
@@ -28941,7 +29531,8 @@
         "melee",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "masseter_prime_blueprint",
@@ -28951,7 +29542,8 @@
         "melee",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "masseter_prime_blade",
@@ -28960,7 +29552,8 @@
         "weapon",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "masseter_prime_handle",
@@ -28969,7 +29562,8 @@
         "weapon",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "zylok_prime_set",
@@ -28979,7 +29573,8 @@
         "secondary",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "zylok_prime_blueprint",
@@ -28989,7 +29584,8 @@
         "secondary",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "zylok_prime_barrel",
@@ -28998,7 +29594,8 @@
         "weapon",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "zylok_prime_receiver",
@@ -29007,7 +29604,8 @@
         "weapon",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "catalyzing_shields",
@@ -29622,7 +30220,8 @@
         "prime",
         "warframe",
         "set"
-      ]
+      ],
+      "ducats": 185
     },
     {
       "slug": "gauss_prime_blueprint",
@@ -29631,7 +30230,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 25
     },
     {
       "slug": "gauss_prime_neuroptics_blueprint",
@@ -29641,7 +30241,8 @@
         "warframe",
         "component",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "gauss_prime_chassis_blueprint",
@@ -29651,7 +30252,8 @@
         "warframe",
         "component",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "gauss_prime_systems_blueprint",
@@ -29661,7 +30263,8 @@
         "warframe",
         "component",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "axi_a18_relic",
@@ -29833,7 +30436,8 @@
         "secondary",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 305
     },
     {
       "slug": "akarius_prime_blueprint",
@@ -29843,7 +30447,8 @@
         "secondary",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "akarius_prime_barrel",
@@ -29852,7 +30457,8 @@
         "prime",
         "weapon",
         "component"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "akarius_prime_receiver",
@@ -29861,7 +30467,8 @@
         "prime",
         "weapon",
         "component"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "akarius_prime_link",
@@ -29870,7 +30477,8 @@
         "prime",
         "weapon",
         "component"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "acceltra_prime_set",
@@ -29880,7 +30488,8 @@
         "primary",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 225
     },
     {
       "slug": "acceltra_prime_blueprint",
@@ -29890,7 +30499,8 @@
         "primary",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "acceltra_prime_barrel",
@@ -29899,7 +30509,8 @@
         "prime",
         "weapon",
         "component"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "acceltra_prime_receiver",
@@ -29908,7 +30519,8 @@
         "prime",
         "weapon",
         "component"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "acceltra_prime_stock",
@@ -29917,7 +30529,8 @@
         "prime",
         "weapon",
         "component"
-      ]
+      ],
+      "ducats": 65
     },
     {
       "slug": "dreamers_bond",
@@ -30140,7 +30753,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "protea_prime_blueprint",
@@ -30149,7 +30763,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "protea_prime_neuroptics_blueprint",
@@ -30159,7 +30774,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "protea_prime_chassis_blueprint",
@@ -30169,7 +30785,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "protea_prime_systems_blueprint",
@@ -30179,7 +30796,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "axi_b8_relic",
@@ -30306,7 +30924,8 @@
         "secondary",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "velox_prime_blueprint",
@@ -30316,7 +30935,8 @@
         "secondary",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "velox_prime_barrel",
@@ -30325,7 +30945,8 @@
         "weapon",
         "component",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "velox_prime_receiver",
@@ -30334,7 +30955,8 @@
         "weapon",
         "component",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "okina_prime_set",
@@ -30344,7 +30966,8 @@
         "melee",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 220
     },
     {
       "slug": "okina_prime_blueprint",
@@ -30354,7 +30977,8 @@
         "melee",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "okina_prime_handle",
@@ -30363,7 +30987,8 @@
         "weapon",
         "component",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "okina_prime_blade",
@@ -30372,7 +30997,8 @@
         "weapon",
         "component",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "clip_delegation",
@@ -30773,7 +31399,8 @@
         "secondary",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 60
     },
     {
       "slug": "akmagnus_prime_blueprint",
@@ -30783,7 +31410,8 @@
         "secondary",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "akmagnus_prime_link",
@@ -30792,7 +31420,8 @@
         "component",
         "prime",
         "weapon"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "sevagoth_prime_set",
@@ -30801,7 +31430,8 @@
         "prime",
         "warframe",
         "set"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "sevagoth_prime_blueprint",
@@ -30810,7 +31440,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "sevagoth_prime_neuroptics_blueprint",
@@ -30820,7 +31451,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "sevagoth_prime_chassis_blueprint",
@@ -30830,7 +31462,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "sevagoth_prime_systems_blueprint",
@@ -30840,7 +31473,8 @@
         "prime",
         "warframe",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "axi_s17_relic",
@@ -31003,7 +31637,8 @@
         "secondary",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "epitaph_prime_blueprint",
@@ -31013,7 +31648,8 @@
         "secondary",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "epitaph_prime_barrel",
@@ -31022,7 +31658,8 @@
         "component",
         "prime",
         "weapon"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "epitaph_prime_receiver",
@@ -31031,7 +31668,8 @@
         "component",
         "prime",
         "weapon"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "nautilus_prime_set",
@@ -31040,7 +31678,8 @@
         "prime",
         "sentinel",
         "set"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "nautilus_prime_blueprint",
@@ -31049,7 +31688,8 @@
         "prime",
         "sentinel",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "nautilus_prime_cerebrum",
@@ -31058,7 +31698,8 @@
         "component",
         "prime",
         "weapon"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "nautilus_prime_carapace",
@@ -31067,7 +31708,8 @@
         "component",
         "prime",
         "weapon"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "nautilus_prime_systems",
@@ -31076,7 +31718,8 @@
         "component",
         "prime",
         "weapon"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "burning_hate",
@@ -31462,7 +32105,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "xaku_prime_blueprint",
@@ -31471,7 +32115,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "xaku_prime_neuroptics_blueprint",
@@ -31481,7 +32126,8 @@
         "component",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "xaku_prime_chassis_blueprint",
@@ -31491,7 +32137,8 @@
         "component",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "xaku_prime_systems_blueprint",
@@ -31501,7 +32148,8 @@
         "component",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "trumna_prime_set",
@@ -31511,7 +32159,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "trumna_prime_blueprint",
@@ -31521,7 +32170,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "trumna_prime_barrel",
@@ -31530,7 +32180,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "trumna_prime_receiver",
@@ -31539,7 +32190,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "trumna_prime_stock",
@@ -31548,7 +32200,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "quassus_prime_set",
@@ -31558,7 +32211,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 275
     },
     {
       "slug": "quassus_prime_blueprint",
@@ -31568,7 +32222,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "quassus_prime_handle",
@@ -31577,7 +32232,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "quassus_prime_blade",
@@ -31586,7 +32242,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "axi_a19_relic",
@@ -32086,7 +32743,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "cedo_prime_blueprint",
@@ -32096,7 +32754,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "cedo_prime_receiver",
@@ -32105,7 +32764,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "cedo_prime_barrel",
@@ -32114,7 +32774,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "cedo_prime_stock",
@@ -32123,7 +32784,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "dual_zoren_prime_set",
@@ -32133,7 +32795,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 275
     },
     {
       "slug": "dual_zoren_prime_blueprint",
@@ -32143,7 +32806,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "dual_zoren_prime_handle",
@@ -32152,7 +32816,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "dual_zoren_prime_blade",
@@ -32161,7 +32826,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "lavos_prime_set",
@@ -32170,7 +32836,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "lavos_prime_blueprint",
@@ -32179,7 +32846,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "lavos_prime_neuroptics_blueprint",
@@ -32189,7 +32857,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "lavos_prime_chassis_blueprint",
@@ -32199,7 +32868,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "lavos_prime_systems_blueprint",
@@ -32209,7 +32879,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "axi_p9_relic",
@@ -32917,7 +33588,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "yareli_prime_blueprint",
@@ -32926,7 +33598,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "yareli_prime_neuroptics_blueprint",
@@ -32936,7 +33609,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "yareli_prime_chassis_blueprint",
@@ -32946,7 +33620,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "yareli_prime_systems_blueprint",
@@ -32956,7 +33631,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "daikyu_prime_set",
@@ -32966,7 +33642,8 @@
         "primary",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 220
     },
     {
       "slug": "daikyu_prime_blueprint",
@@ -32976,7 +33653,8 @@
         "primary",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "daikyu_prime_lower_limb",
@@ -32985,7 +33663,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "daikyu_prime_upper_limb",
@@ -32994,7 +33673,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "daikyu_prime_grip",
@@ -33003,7 +33683,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "daikyu_prime_string",
@@ -33012,7 +33693,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "kompressa_prime_set",
@@ -33022,7 +33704,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "kompressa_prime_blueprint",
@@ -33032,7 +33715,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "kompressa_prime_barrel",
@@ -33041,7 +33725,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "kompressa_prime_reciever",
@@ -33050,7 +33735,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "axi_c9_relic",
@@ -33300,7 +33986,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "caliban_prime_blueprint",
@@ -33309,7 +33996,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "caliban_prime_neuroptics_blueprint",
@@ -33319,7 +34007,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "caliban_prime_chassis_blueprint",
@@ -33329,7 +34018,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "caliban_prime_systems_blueprint",
@@ -33339,7 +34029,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "vadarya_prime_set",
@@ -33349,7 +34040,8 @@
         "primary",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "vadarya_prime_blueprint",
@@ -33359,7 +34051,8 @@
         "primary",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "vadarya_prime_barrel",
@@ -33368,7 +34061,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "vadarya_prime_receiver",
@@ -33377,7 +34071,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "vadarya_prime_stock",
@@ -33386,7 +34081,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "venato_prime_set",
@@ -33396,7 +34092,8 @@
         "prime",
         "melee",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "venato_prime_blueprint",
@@ -33406,7 +34103,8 @@
         "prime",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "venato_prime_blade",
@@ -33415,7 +34113,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "venato_prime_handle",
@@ -33424,7 +34123,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "axi_o7_relic",
@@ -33792,7 +34492,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 205
     },
     {
       "slug": "gyre_prime_blueprint",
@@ -33801,7 +34502,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "gyre_prime_neuroptics_blueprint",
@@ -33811,7 +34513,8 @@
         "prime",
         "component",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "gyre_prime_chassis_blueprint",
@@ -33821,7 +34524,8 @@
         "prime",
         "component",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "gyre_prime_systems_blueprint",
@@ -33831,7 +34535,8 @@
         "prime",
         "component",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "alternox_prime_set",
@@ -33841,7 +34546,8 @@
         "prime",
         "weapon",
         "set"
-      ]
+      ],
+      "ducats": 260
     },
     {
       "slug": "alternox_prime_blueprint",
@@ -33851,7 +34557,8 @@
         "prime",
         "weapon",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "alternox_prime_barrel",
@@ -33860,7 +34567,8 @@
         "weapon",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "alternox_prime_receiver",
@@ -33869,7 +34577,8 @@
         "weapon",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "alternox_prime_stock",
@@ -33878,7 +34587,8 @@
         "weapon",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "kestrel_prime_set",
@@ -33888,7 +34598,8 @@
         "weapon",
         "melee",
         "set"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "kestrel_prime_blueprint",
@@ -33898,7 +34609,8 @@
         "weapon",
         "melee",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "kestrel_prime_grip",
@@ -33907,7 +34619,8 @@
         "weapon",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "kestrel_prime_blade",
@@ -33916,7 +34629,8 @@
         "weapon",
         "prime",
         "component"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "axi_t13_relic",
@@ -34548,7 +35262,8 @@
         "warframe",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 290
     },
     {
       "slug": "voruna_prime_blueprint",
@@ -34557,7 +35272,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "voruna_prime_neuroptics_blueprint",
@@ -34567,7 +35283,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "voruna_prime_chassis_blueprint",
@@ -34577,7 +35294,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "voruna_prime_systems_blueprint",
@@ -34587,7 +35305,8 @@
         "warframe",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "perigale_prime_set",
@@ -34597,7 +35316,8 @@
         "primary",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 175
     },
     {
       "slug": "perigale_prime_blueprint",
@@ -34607,7 +35327,8 @@
         "primary",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "perigale_prime_barrel",
@@ -34616,7 +35337,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "perigale_prime_receiver",
@@ -34625,7 +35347,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "perigale_prime_stock",
@@ -34634,7 +35357,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "sarofang_prime_set",
@@ -34644,7 +35368,8 @@
         "weapon",
         "prime",
         "set"
-      ]
+      ],
+      "ducats": 160
     },
     {
       "slug": "sarofang_prime_blueprint",
@@ -34654,7 +35379,8 @@
         "weapon",
         "prime",
         "blueprint"
-      ]
+      ],
+      "ducats": 45
     },
     {
       "slug": "sarofang_prime_blade",
@@ -34663,7 +35389,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 100
     },
     {
       "slug": "sarofang_prime_handle",
@@ -34672,7 +35399,8 @@
         "component",
         "weapon",
         "prime"
-      ]
+      ],
+      "ducats": 15
     },
     {
       "slug": "axi_v14_relic",

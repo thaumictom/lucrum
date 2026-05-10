@@ -4,7 +4,7 @@ use std::thread;
 use std::time::{Duration, Instant};
 
 use anyhow::{Context, Result};
-use chrono::{DateTime, SecondsFormat, Utc};
+use chrono::{DateTime, Datelike, SecondsFormat, Utc};
 use reqwest::blocking::Client;
 use serde::Deserialize;
 use serde_json::Value;
@@ -90,15 +90,37 @@ pub fn build_tradeable_items_run(
         let called_at = Utc::now();
         last_request_started_at = Some(Instant::now());
 
-        let response = client
+        let response_text = client
             .get(STATISTICS_URL_TEMPLATE.replace("{slug}", &slug))
             .send()
             .with_context(|| format!("failed to request statistics for slug {slug}"))?
             .error_for_status()
-            .with_context(|| format!("statistics endpoint returned error for slug {slug}"))?;
+            .with_context(|| format!("statistics endpoint returned error for slug {slug}"))?
+            .text()
+            .with_context(|| format!("failed to read response text for slug {slug}"))?;
 
-        let payload: StatisticsResponse = response
-            .json()
+        let archive_dir = format!("data/archive/{:04}-{:02}", called_at.year(), called_at.month());
+        if let Err(e) = fs::create_dir_all(&archive_dir) {
+            eprintln!("failed to create archive directory {}: {}", archive_dir, e);
+        } else {
+            let archive_file = format!("{}/{}.json.gz", archive_dir, slug);
+            if !std::path::Path::new(&archive_file).exists() {
+                match fs::File::create(&archive_file) {
+                    Ok(file) => {
+                        use std::io::Write;
+                        let mut encoder = flate2::write::GzEncoder::new(file, flate2::Compression::default());
+                        if let Err(e) = encoder.write_all(response_text.as_bytes()) {
+                            eprintln!("failed to write compressed archive file {}: {}", archive_file, e);
+                        } else if let Err(e) = encoder.finish() {
+                            eprintln!("failed to finish compressing archive file {}: {}", archive_file, e);
+                        }
+                    }
+                    Err(e) => eprintln!("failed to create archive file {}: {}", archive_file, e),
+                }
+            }
+        }
+
+        let payload: StatisticsResponse = serde_json::from_str(&response_text)
             .with_context(|| format!("failed to parse statistics payload for slug {slug}"))?;
 
         let today = called_at.date_naive();
