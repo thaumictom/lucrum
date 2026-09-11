@@ -99,7 +99,11 @@ pub fn build_tradeable_items_run(
             .text()
             .with_context(|| format!("failed to read response text for slug {slug}"))?;
 
-        let archive_dir = format!("data/archive/{:04}-{:02}", called_at.year(), called_at.month());
+        let archive_dir = format!(
+            "data/archive/{:04}-{:02}",
+            called_at.year(),
+            called_at.month()
+        );
         if let Err(e) = fs::create_dir_all(&archive_dir) {
             eprintln!("failed to create archive directory {}: {}", archive_dir, e);
         } else {
@@ -108,11 +112,18 @@ pub fn build_tradeable_items_run(
                 match fs::File::create(&archive_file) {
                     Ok(file) => {
                         use std::io::Write;
-                        let mut encoder = flate2::write::GzEncoder::new(file, flate2::Compression::default());
+                        let mut encoder =
+                            flate2::write::GzEncoder::new(file, flate2::Compression::default());
                         if let Err(e) = encoder.write_all(response_text.as_bytes()) {
-                            eprintln!("failed to write compressed archive file {}: {}", archive_file, e);
+                            eprintln!(
+                                "failed to write compressed archive file {}: {}",
+                                archive_file, e
+                            );
                         } else if let Err(e) = encoder.finish() {
-                            eprintln!("failed to finish compressing archive file {}: {}", archive_file, e);
+                            eprintln!(
+                                "failed to finish compressing archive file {}: {}",
+                                archive_file, e
+                            );
                         }
                     }
                     Err(e) => eprintln!("failed to create archive file {}: {}", archive_file, e),
@@ -228,7 +239,7 @@ fn filter_by_effective_day(entries: &[Value], day: chrono::NaiveDate) -> Vec<Val
                 .map(|dt| (dt + chrono::Duration::days(1)).date_naive() == day)
                 .unwrap_or(false);
 
-            day_matches && keep_mod_rank_zero_or_absent(entry)
+            day_matches && keep_rank_zero_or_absent(entry)
         })
         .map(sanitize_entry)
         .collect()
@@ -249,14 +260,14 @@ fn filter_current_hour_sell(entries: &[Value], now: DateTime<Utc>) -> Vec<Value>
                 })
                 .unwrap_or(false);
 
-            is_sell && same_hour && keep_mod_rank_zero_or_absent(entry)
+            is_sell && same_hour && keep_rank_zero_or_absent(entry)
         })
         .map(sanitize_entry)
         .collect()
 }
 
-fn keep_mod_rank_zero_or_absent(entry: &Value) -> bool {
-    match entry.get("mod_rank") {
+fn keep_rank_zero_or_absent(entry: &Value) -> bool {
+    match entry.get("rank") {
         None => true,
         Some(rank) => {
             rank.as_i64() == Some(0) || rank.as_u64() == Some(0) || rank.as_f64() == Some(0.0)
