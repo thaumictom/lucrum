@@ -15,7 +15,7 @@ use crate::tradeable_items::build_tradeable_items_run;
 
 const DICTIONARY_PATH: &str = "data/dictionary.json";
 const TRADEABLE_ITEMS_PATH: &str = "data/tradeable_items.json";
-const CACHE_MAX_AGE_HOURS: i64 = 72;
+const CACHE_MAX_AGE_HOURS: i64 = 24;
 const DEFAULT_REQUESTS_PER_SECOND: f64 = 2.5;
 const DEFAULT_DEBUG_FETCH_OFFSET: Option<usize> = None;
 const DEFAULT_DEBUG_FETCH_LIMIT: Option<usize> = None;

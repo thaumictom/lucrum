@@ -239,7 +239,7 @@ fn filter_by_effective_day(entries: &[Value], day: chrono::NaiveDate) -> Vec<Val
                 .map(|dt| (dt + chrono::Duration::days(1)).date_naive() == day)
                 .unwrap_or(false);
 
-            day_matches && keep_rank_zero_or_absent(entry)
+            day_matches
         })
         .map(sanitize_entry)
         .collect()
@@ -260,19 +260,10 @@ fn filter_current_hour_sell(entries: &[Value], now: DateTime<Utc>) -> Vec<Value>
                 })
                 .unwrap_or(false);
 
-            is_sell && same_hour && keep_rank_zero_or_absent(entry)
+            is_sell && same_hour
         })
         .map(sanitize_entry)
         .collect()
-}
-
-fn keep_rank_zero_or_absent(entry: &Value) -> bool {
-    match entry.get("rank") {
-        None => true,
-        Some(rank) => {
-            rank.as_i64() == Some(0) || rank.as_u64() == Some(0) || rank.as_f64() == Some(0.0)
-        }
-    }
 }
 
 fn sanitize_entry(entry: &Value) -> Value {
