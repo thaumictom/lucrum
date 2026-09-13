@@ -6,6 +6,7 @@
       "name": "lucrum",
       "dependencies": {
         "@wfcd/items": "^1.1275.85",
+        "zod": "^4.6.4",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -67,5 +68,7 @@
     "undici-types": ["undici-types@8.9.0", "", {}, "sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg=="],
 
     "warframe-worldstate-data": ["warframe-worldstate-data@3.16.9", "", {}, "sha512-7FlvQxeHw8zpoX5M0vBqiPCAcSwcXc/iJipaIwDLJfF94hy9gpOZiiZFeHE9eQI2O3jn2jdVekspZukgmbc/yw=="],
+
+    "zod": ["zod@4.6.4", "", {}, "sha512-AXSD6hvGdvRjajG/l1cC+d6IrhH+sjmPKtYeQdJIK8MFJl3LyClzS+o/YsVC+zQZPupAaeH5skwwm8YqYH7BqA=="],
   }
 }

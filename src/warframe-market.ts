@@ -1,15 +1,44 @@
-import { isOptionalU32, isRecord } from "./models";
+import { z } from "zod";
 
 const API_ORIGIN = "https://api.warframe.market";
 
-interface ApiItem {
-  slug: string;
-  maxRank?: number | null;
-  vaulted?: boolean | null;
-  ducats?: number | null;
-  tags?: string[];
-  i18n?: { en?: { name?: string | null } };
-}
+const u32Schema = z.number().int().min(0).max(0xffff_ffff);
+const apiItemSchema = z.object({
+  slug: z.string().min(1),
+  gameRef: z.string().optional(),
+  maxRank: u32Schema.nullish(),
+  vaulted: z.boolean().nullish(),
+  ducats: u32Schema.nullish(),
+  tags: z.array(z.string()).optional(),
+  i18n: z
+    .object({
+      en: z
+        .object({
+          name: z.string().nullish(),
+        })
+        .optional(),
+    })
+    .optional(),
+});
+const itemsResponseSchema = z.object({
+  data: z.array(apiItemSchema),
+});
+const statisticsResponseSchema = z.object({
+  payload: z.object({
+    statistics_closed: z
+      .object({
+        "90days": z.array(z.unknown()).optional(),
+      })
+      .optional(),
+    statistics_live: z
+      .object({
+        "48hours": z.array(z.unknown()).optional(),
+      })
+      .optional(),
+  }),
+});
+
+type ApiItem = z.infer<typeof apiItemSchema>;
 
 export interface StatisticsPayload {
   closed: unknown[];
@@ -18,17 +47,14 @@ export interface StatisticsPayload {
 
 export async function fetchItems(timeoutMs: number): Promise<ApiItem[]> {
   const body = await fetchText(`${API_ORIGIN}/v2/items`, timeoutMs, "items");
-  let value: unknown;
-  try {
-    value = JSON.parse(body);
-  } catch (error) {
-    throw new Error("failed to parse items response JSON", { cause: error });
+  const value = parseJson(body, "items response");
+  const result = itemsResponseSchema.safeParse(value);
+  if (!result.success) {
+    throw new Error("items response has an invalid shape", {
+      cause: result.error,
+    });
   }
-
-  if (!isRecord(value) || !Array.isArray(value.data)) {
-    throw new Error("items response must contain a data array");
-  }
-  return value.data.map(parseApiItem);
+  return result.data.data;
 }
 
 export async function fetchStatisticsText(
@@ -43,76 +69,26 @@ export async function fetchStatisticsText(
 }
 
 export function parseStatistics(body: string, slug: string): StatisticsPayload {
-  let value: unknown;
-  try {
-    value = JSON.parse(body);
-  } catch (error) {
-    throw new Error(`failed to parse statistics payload for slug ${slug}`, {
-      cause: error,
+  const value = parseJson(body, `statistics payload for slug ${slug}`);
+  const result = statisticsResponseSchema.safeParse(value);
+  if (!result.success) {
+    throw new Error(`statistics payload has an invalid shape for slug ${slug}`, {
+      cause: result.error,
     });
   }
 
-  if (!isRecord(value) || !isRecord(value.payload)) {
-    throw new Error(`statistics payload has an invalid shape for slug ${slug}`);
-  }
-
-  const closedContainer = value.payload.statistics_closed;
-  const liveContainer = value.payload.statistics_live;
-  if (
-    (closedContainer !== undefined && !isRecord(closedContainer)) ||
-    (liveContainer !== undefined && !isRecord(liveContainer))
-  ) {
-    throw new Error(`statistics payload has an invalid shape for slug ${slug}`);
-  }
-
-  const closed = closedContainer?.["90days"];
-  const live = liveContainer?.["48hours"];
-  if (
-    (closed !== undefined && !Array.isArray(closed)) ||
-    (live !== undefined && !Array.isArray(live))
-  ) {
-    throw new Error(`statistics payload has an invalid shape for slug ${slug}`);
-  }
-
-  return { closed: closed ?? [], live: live ?? [] };
+  return {
+    closed: result.data.payload.statistics_closed?.["90days"] ?? [],
+    live: result.data.payload.statistics_live?.["48hours"] ?? [],
+  };
 }
 
-function parseApiItem(value: unknown): ApiItem {
-  if (!isRecord(value) || typeof value.slug !== "string") {
-    throw new Error("every item must contain a string slug");
+function parseJson(body: string, label: string): unknown {
+  try {
+    return JSON.parse(body);
+  } catch (error) {
+    throw new Error(`failed to parse ${label} JSON`, { cause: error });
   }
-  if (
-    value.tags !== undefined &&
-    (!Array.isArray(value.tags) ||
-      !value.tags.every((tag) => typeof tag === "string"))
-  ) {
-    throw new Error(`item ${value.slug} has invalid tags`);
-  }
-  if (!isOptionalU32(value.maxRank) || !isOptionalU32(value.ducats)) {
-    throw new Error(`item ${value.slug} has invalid numeric metadata`);
-  }
-  if (
-    value.vaulted !== undefined &&
-    value.vaulted !== null &&
-    typeof value.vaulted !== "boolean"
-  ) {
-    throw new Error(`item ${value.slug} has invalid vaulted metadata`);
-  }
-  if (value.i18n !== undefined) {
-    if (!isRecord(value.i18n)) {
-      throw new Error(`item ${value.slug} has invalid i18n metadata`);
-    }
-    if (value.i18n.en !== undefined) {
-      if (!isRecord(value.i18n.en)) {
-        throw new Error(`item ${value.slug} has invalid English metadata`);
-      }
-      const name = value.i18n.en.name;
-      if (name !== undefined && name !== null && typeof name !== "string") {
-        throw new Error(`item ${value.slug} has an invalid English name`);
-      }
-    }
-  }
-  return value as unknown as ApiItem;
 }
 
 async function fetchText(

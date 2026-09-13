@@ -13,6 +13,7 @@
     "typescript": "latest"
   },
   "dependencies": {
-    "@wfcd/items": "^1.1275.85"
+    "@wfcd/items": "^1.1275.85",
+    "zod": "^4.6.4"
   }
 }

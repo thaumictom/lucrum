@@ -10,15 +10,19 @@ export interface SetMappingResult {
 export function applySetMappings(
   dictionaryItems: DictionaryItem[],
 ): SetMappingResult {
-  const slugByName = new Map(
-    dictionaryItems.map((item) => [normalizeName(item.name), item.slug]),
+  const setByGameRef = uniqueSlugByGameRef(
+    dictionaryItems.filter((item) => item.tags.includes("set")),
   );
-  const setSlugs = new Set(
-    dictionaryItems
-      .filter((item) => item.tags.includes("set") || item.slug.endsWith("_set"))
-      .map((item) => item.slug),
+  const componentByGameRef = uniqueSlugByGameRef(
+    dictionaryItems.filter(
+      (item) =>
+        item.tags.includes("component") || item.tags.includes("blueprint"),
+    ),
   );
-  const setByComponentSlug = buildComponentMap(slugByName, setSlugs);
+  const setByComponentSlug = buildComponentMap(
+    setByGameRef,
+    componentByGameRef,
+  );
   let changed = false;
   let mappedComponents = 0;
 
@@ -35,9 +39,28 @@ export function applySetMappings(
   return { items, changed, mappedComponents };
 }
 
+function uniqueSlugByGameRef(items: DictionaryItem[]): Map<string, string> {
+  const result = new Map<string, string>();
+  const ambiguousGameRefs = new Set<string>();
+
+  for (const item of items) {
+    if (!item.gameRef || ambiguousGameRefs.has(item.gameRef)) continue;
+
+    const existingSlug = result.get(item.gameRef);
+    if (existingSlug && existingSlug !== item.slug) {
+      result.delete(item.gameRef);
+      ambiguousGameRefs.add(item.gameRef);
+    } else {
+      result.set(item.gameRef, item.slug);
+    }
+  }
+
+  return result;
+}
+
 function buildComponentMap(
-  slugByName: Map<string, string>,
-  setSlugs: Set<string>,
+  setByGameRef: Map<string, string>,
+  componentByGameRef: Map<string, string>,
 ): Map<string, string> {
   const result = new Map<string, string>();
   const ambiguousComponents = new Set<string>();
@@ -46,54 +69,25 @@ function buildComponentMap(
     if (!("components" in parent) || !Array.isArray(parent.components))
       continue;
 
-    const setSlug = slugByName.get(normalizeName(`${parent.name} Set`));
-    if (!setSlug || !setSlugs.has(setSlug)) continue;
+    const setSlug = setByGameRef.get(parent.uniqueName);
+    if (!setSlug) continue;
 
     for (const component of parent.components) {
       if (!component.tradable) continue;
 
-      for (const name of componentMarketNames(parent.name, component.name)) {
-        const componentSlug = slugByName.get(normalizeName(name));
-        if (componentSlug && componentSlug !== setSlug) {
-          if (ambiguousComponents.has(componentSlug)) break;
-          const existingSet = result.get(componentSlug);
-          if (existingSet && existingSet !== setSlug) {
-            result.delete(componentSlug);
-            ambiguousComponents.add(componentSlug);
-          } else {
-            result.set(componentSlug, setSlug);
-          }
-          break;
-        }
+      const componentSlug = componentByGameRef.get(component.uniqueName);
+      if (!componentSlug || componentSlug === setSlug) continue;
+
+      if (ambiguousComponents.has(componentSlug)) continue;
+      const existingSet = result.get(componentSlug);
+      if (existingSet && existingSet !== setSlug) {
+        result.delete(componentSlug);
+        ambiguousComponents.add(componentSlug);
+      } else {
+        result.set(componentSlug, setSlug);
       }
     }
   }
 
   return result;
-}
-
-function componentMarketNames(
-  parentName: string,
-  componentName: string,
-): string[] {
-  if (normalizeName(componentName) === "blueprint") {
-    return [`${parentName} Blueprint`];
-  }
-
-  const qualifiedName = normalizeName(componentName).startsWith(
-    normalizeName(parentName),
-  )
-    ? componentName
-    : `${parentName} ${componentName}`;
-
-  // Warframe components are blueprints on the market; weapon parts usually are not.
-  return [qualifiedName, `${qualifiedName} Blueprint`];
-}
-
-function normalizeName(name: string): string {
-  return name
-    .normalize("NFKD")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
 }

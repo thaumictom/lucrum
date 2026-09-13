@@ -12,7 +12,7 @@ Each run:
 4. Sequentially fetches `/v1/items/{slug}/statistics` for stale or missing snapshots.
 5. Replaces `data/tradeable_items.json` only after the complete selected run succeeds.
 
-Dictionary entries contain the slug, English name (falling back to the slug), tags, and optional `maxRank`, `vaulted`, and `ducats` metadata. Tradeable components also receive a `set_slug` pointing to their matching market set, such as `wisp_prime_systems_blueprint -> wisp_prime_set`.
+Dictionary entries contain the slug, English name (falling back to the slug), tags, and optional `gameRef`, `maxRank`, `vaulted`, and `ducats` metadata. Tradeable components with matching game references also receive a `set_slug` pointing to their market set, such as `epitaph_blueprint -> epitaph_set`.
 
 The raw first response fetched for each slug in a UTC month is stored at `data/archive/YYYY-MM/{slug}.json.gz`. Archive errors are logged but do not fail the scrape.
 
@@ -44,7 +44,7 @@ Set relationships come from `@wfcd/items`. Its data is published frequently alon
 bun run update:items
 ```
 
-Mappings are derived from the installed dataset rather than a hard-coded item list. They are reapplied on every run, including when the API dictionary cache is still fresh.
+Mappings join Warframe Market `gameRef` values to `@wfcd/items` `uniqueName` values for tagged sets and components. They are reapplied on every run, including when the API dictionary cache is still fresh.
 
 ## Configuration
 
