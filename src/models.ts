@@ -4,7 +4,6 @@ export interface DictionaryItem {
   slug: string;
   name: string;
   tags: string[];
-  gameRef?: string;
   set_slug?: string;
   maxRank?: number;
   vaulted?: boolean;

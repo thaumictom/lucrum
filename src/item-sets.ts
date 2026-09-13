@@ -1,14 +1,18 @@
 import Items from "@wfcd/items";
 import type { DictionaryItem } from "./models";
 
+export interface SetMappingItem extends DictionaryItem {
+  gameRef?: string;
+}
+
 export interface SetMappingResult {
-  items: DictionaryItem[];
+  items: SetMappingItem[];
   changed: boolean;
   mappedComponents: number;
 }
 
 export function applySetMappings(
-  dictionaryItems: DictionaryItem[],
+  dictionaryItems: SetMappingItem[],
 ): SetMappingResult {
   const setByGameRef = uniqueSlugByGameRef(
     dictionaryItems.filter((item) => item.tags.includes("set")),
@@ -39,7 +43,7 @@ export function applySetMappings(
   return { items, changed, mappedComponents };
 }
 
-function uniqueSlugByGameRef(items: DictionaryItem[]): Map<string, string> {
+function uniqueSlugByGameRef(items: SetMappingItem[]): Map<string, string> {
   const result = new Map<string, string>();
   const ambiguousGameRefs = new Set<string>();
 

@@ -15,9 +15,24 @@ export interface DictionaryResult {
 export async function getDictionary(config: Config): Promise<DictionaryResult> {
   const cached = await readFreshDictionary(config);
   const source = cached ? "cache" : "api";
-  const dictionary = cached ?? (await fetchDictionary(config));
-  const mappings = applySetMappings(dictionary.tradeable_items);
-  dictionary.tradeable_items = mappings.items;
+  const marketItems = await fetchItems(config.requestTimeoutMs);
+  const dictionary = cached ?? createDictionary(marketItems);
+  const gameRefBySlug = new Map(
+    marketItems.flatMap((item) =>
+      item.gameRef ? [[item.slug, item.gameRef] as const] : [],
+    ),
+  );
+  const itemsWithGameRefs = dictionary.tradeable_items.map((item) => {
+    const gameRef = gameRefBySlug.get(item.slug);
+    return gameRef
+      ? { ...item, gameRef }
+      : item;
+  });
+  const mappings = applySetMappings(itemsWithGameRefs);
+  dictionary.tradeable_items = mappings.items.map((item) => {
+    const { gameRef: _gameRef, ...itemWithoutGameRef } = item;
+    return itemWithoutGameRef;
+  });
 
   if (source === "api" || mappings.changed) {
     await writeJson(config.dictionaryPath, dictionary);
@@ -31,8 +46,9 @@ export async function getDictionary(config: Config): Promise<DictionaryResult> {
   };
 }
 
-async function fetchDictionary(config: Config): Promise<Dictionary> {
-  const items = await fetchItems(config.requestTimeoutMs);
+function createDictionary(
+  items: Awaited<ReturnType<typeof fetchItems>>,
+): Dictionary {
   return {
     last_fetched_at: new Date().toISOString(),
     tradeable_items: items.map((item) => {
@@ -40,7 +56,6 @@ async function fetchDictionary(config: Config): Promise<Dictionary> {
         slug: item.slug,
         name: item.i18n?.en?.name ?? item.slug,
         tags: item.tags ?? [],
-        gameRef: item.gameRef,
       };
       if (item.maxRank != null) result.maxRank = item.maxRank;
       if (item.vaulted != null) result.vaulted = item.vaulted;
@@ -84,7 +99,6 @@ function parseDictionary(value: unknown): Dictionary {
       typeof item.name !== "string" ||
       !Array.isArray(item.tags) ||
       !item.tags.every((tag) => typeof tag === "string") ||
-      (item.gameRef !== undefined && typeof item.gameRef !== "string") ||
       (item.set_slug !== undefined && typeof item.set_slug !== "string") ||
       !isOptionalU32(item.maxRank) ||
       !isOptionalU32(item.ducats) ||

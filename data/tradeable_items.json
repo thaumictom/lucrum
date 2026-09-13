@@ -1,6 +1,6 @@
 {
-  "run_start": "2026-09-13T20:25:54.310Z",
-  "run_end": "2026-09-13T20:26:02.349Z",
+  "run_start": "2026-09-13T23:14:40.301Z",
+  "run_end": "2026-09-13T23:14:40.302Z",
   "tradeable_items": [
     {
       "slug": "secura_dual_cestra",
@@ -50,7 +50,7 @@
     },
     {
       "slug": "creeping_bullseye",
-      "last_fetched_at": "2026-09-13T20:25:54.710Z",
+      "last_fetched_at": "2026-09-13T23:14:05.680Z",
       "liquidity": 136,
       "statistics_yesterday": [
         {
@@ -114,20 +114,20 @@
       ],
       "current_offers": [
         {
-          "volume": 157,
-          "min_price": 8,
-          "max_price": 29,
-          "avg_price": 18.5,
-          "wa_price": 13.554,
-          "median": 13,
+          "volume": 443,
+          "min_price": 10,
+          "max_price": 25,
+          "avg_price": 17.5,
+          "wa_price": 18.165,
+          "median": 15,
           "mod_rank": 5
         },
         {
-          "volume": 505,
+          "volume": 452,
           "min_price": 3,
           "max_price": 15,
           "avg_price": 9,
-          "wa_price": 6.162,
+          "wa_price": 5.887,
           "median": 5,
           "mod_rank": 0
         }
@@ -453,7 +453,7 @@
     },
     {
       "slug": "frost_prime_set",
-      "last_fetched_at": "2026-09-13T20:25:57.607Z",
+      "last_fetched_at": "2026-09-13T23:14:06.081Z",
       "liquidity": 132,
       "statistics_yesterday": [
         {
@@ -487,13 +487,13 @@
       ],
       "current_offers": [
         {
-          "volume": 522,
+          "volume": 541,
           "min_price": 75,
           "max_price": 99,
           "avg_price": 87,
-          "wa_price": 82.697,
+          "wa_price": 84.957,
           "median": 80,
-          "moving_avg": 75
+          "moving_avg": 74.3
         }
       ]
     },
@@ -716,7 +716,7 @@
     },
     {
       "slug": "acid_shells",
-      "last_fetched_at": "2026-09-13T20:26:00.122Z",
+      "last_fetched_at": "2026-09-13T23:14:06.481Z",
       "liquidity": 137,
       "statistics_yesterday": [
         {
@@ -780,20 +780,20 @@
       ],
       "current_offers": [
         {
-          "volume": 477,
+          "volume": 633,
           "min_price": 10,
-          "max_price": 65,
-          "avg_price": 37.5,
-          "wa_price": 38.084,
-          "median": 30,
+          "max_price": 80,
+          "avg_price": 45,
+          "wa_price": 28.954,
+          "median": 38,
           "mod_rank": 5
         },
         {
-          "volume": 1903,
-          "min_price": 8,
-          "max_price": 49,
-          "avg_price": 28.5,
-          "wa_price": 30.679,
+          "volume": 1882,
+          "min_price": 9,
+          "max_price": 40,
+          "avg_price": 24.5,
+          "wa_price": 28.786,
           "median": 20,
           "mod_rank": 0
         }

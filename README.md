@@ -6,13 +6,13 @@ Lucrum is a Bun/TypeScript CLI that collects public Warframe Market data as stat
 
 Each run:
 
-1. Refreshes `data/dictionary.json` from `https://api.warframe.market/v2/items` when the file is missing, unreadable, malformed, or at least 24 hours old.
+1. Fetches `/v2/items` for transient game references, refreshing the cached dictionary metadata when it is missing, unreadable, malformed, or at least 24 hours old.
 2. Selects dictionary slugs after applying the configured offset and limit.
 3. Reuses snapshots that are still fresh according to their liquidity.
 4. Sequentially fetches `/v1/items/{slug}/statistics` for stale or missing snapshots.
 5. Replaces `data/tradeable_items.json` only after the complete selected run succeeds.
 
-Dictionary entries contain the slug, English name (falling back to the slug), tags, and optional `gameRef`, `maxRank`, `vaulted`, and `ducats` metadata. Tradeable components with matching game references also receive a `set_slug` pointing to their market set, such as `epitaph_blueprint -> epitaph_set`.
+Dictionary entries contain the slug, English name (falling back to the slug), tags, and optional `maxRank`, `vaulted`, and `ducats` metadata. Game references are used only while calculating `set_slug` and are not written to `dictionary.json`. Tradeable components with matching game references receive a `set_slug` pointing to their market set, such as `epitaph_blueprint -> epitaph_set`.
 
 The raw first response fetched for each slug in a UTC month is stored at `data/archive/YYYY-MM/{slug}.json.gz`. Archive errors are logged but do not fail the scrape.
 
