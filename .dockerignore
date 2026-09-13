@@ -2,5 +2,6 @@
 .gitignore
 target
 data
+node_modules
 review
 README.md

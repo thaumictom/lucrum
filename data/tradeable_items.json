@@ -1,830 +1,1029 @@
 {
-  "run_start": "2026-05-10T12:29:26.810437600Z",
-  "run_end": "2026-05-10T12:29:34.506548000Z",
+  "run_start": "2026-09-13T20:25:54.310Z",
+  "run_end": "2026-09-13T20:26:02.349Z",
   "tradeable_items": [
     {
       "slug": "secura_dual_cestra",
-      "last_fetched_at": "2026-05-10T12:29:26.810965000Z",
-      "liquidity": 46,
+      "last_fetched_at": "2026-09-13T20:25:54.310Z",
+      "liquidity": 34,
       "statistics_yesterday": [
         {
-          "avg_price": 35.0,
-          "closed_price": 45,
-          "donch_bot": 25,
-          "donch_top": 45,
-          "max_price": 45,
-          "median": 35,
+          "volume": 16,
           "min_price": 25,
-          "moving_avg": 33.5,
+          "max_price": 40,
           "open_price": 25,
-          "volume": 22,
-          "wa_price": 34.0
+          "closed_price": 35,
+          "avg_price": 32.5,
+          "wa_price": 33.312,
+          "median": 35,
+          "moving_avg": 28.3,
+          "donch_top": 40,
+          "donch_bot": 15
         }
       ],
       "statistics_today": [
         {
-          "avg_price": 36.5,
-          "closed_price": 25,
-          "donch_bot": 23,
-          "donch_top": 50,
-          "max_price": 50,
-          "median": 35,
-          "min_price": 23,
-          "moving_avg": 34.3,
-          "open_price": 40,
-          "volume": 24,
-          "wa_price": 34.917
+          "volume": 18,
+          "min_price": 28,
+          "max_price": 33,
+          "open_price": 28,
+          "closed_price": 30,
+          "avg_price": 30.5,
+          "wa_price": 29.611,
+          "median": 30,
+          "moving_avg": 28.7,
+          "donch_top": 40,
+          "donch_bot": 15
         }
       ],
       "current_offers": [
         {
-          "avg_price": 52.0,
-          "max_price": 70,
-          "median": 45.0,
-          "min_price": 34,
-          "moving_avg": 39.0,
-          "volume": 23,
-          "wa_price": 43.174
+          "volume": 49,
+          "min_price": 18,
+          "max_price": 50,
+          "avg_price": 34,
+          "wa_price": 35.347,
+          "median": 34,
+          "moving_avg": 27.7
         }
       ]
     },
     {
       "slug": "creeping_bullseye",
-      "last_fetched_at": "2026-05-10T12:29:27.211222200Z",
-      "liquidity": 143,
+      "last_fetched_at": "2026-09-13T20:25:54.710Z",
+      "liquidity": 136,
       "statistics_yesterday": [
         {
-          "avg_price": 6.0,
-          "closed_price": 5,
-          "donch_bot": 3,
-          "donch_top": 10,
-          "max_price": 8,
-          "median": 5.0,
+          "volume": 14,
+          "min_price": 8,
+          "max_price": 15,
+          "open_price": 10,
+          "closed_price": 10,
+          "avg_price": 11.5,
+          "wa_price": 11,
+          "median": 10,
+          "moving_avg": 11.3,
+          "donch_top": 15,
+          "donch_bot": 8,
+          "mod_rank": 5
+        },
+        {
+          "volume": 62,
           "min_price": 4,
-          "mod_rank": 0,
-          "moving_avg": 6.1,
-          "open_price": 5,
-          "volume": 57,
-          "wa_price": 5.123
+          "max_price": 10,
+          "open_price": 4,
+          "closed_price": 7,
+          "avg_price": 7,
+          "wa_price": 5.016,
+          "median": 5,
+          "moving_avg": 5.8,
+          "donch_top": 10,
+          "donch_bot": 2,
+          "mod_rank": 0
         }
       ],
       "statistics_today": [
         {
-          "avg_price": 6.5,
-          "closed_price": 5,
-          "donch_bot": 3,
-          "donch_top": 10,
+          "volume": 6,
+          "min_price": 8,
+          "max_price": 12,
+          "open_price": 12,
+          "closed_price": 10,
+          "avg_price": 10,
+          "wa_price": 9.5,
+          "median": 9.5,
+          "moving_avg": 10.6,
+          "donch_top": 15,
+          "donch_bot": 8,
+          "mod_rank": 5
+        },
+        {
+          "volume": 54,
+          "min_price": 4,
           "max_price": 10,
-          "median": 5.0,
-          "min_price": 3,
-          "mod_rank": 0,
-          "moving_avg": 6.1,
-          "open_price": 5,
-          "volume": 86,
-          "wa_price": 5.244
+          "open_price": 4,
+          "closed_price": 4,
+          "avg_price": 7,
+          "wa_price": 4.722,
+          "median": 5,
+          "moving_avg": 6.4,
+          "donch_top": 10,
+          "donch_bot": 2,
+          "mod_rank": 0
         }
       ],
       "current_offers": [
         {
-          "avg_price": 7.0,
-          "max_price": 10,
-          "median": 7.5,
-          "min_price": 4,
-          "mod_rank": 0,
-          "volume": 259,
-          "wa_price": 7.506
+          "volume": 157,
+          "min_price": 8,
+          "max_price": 29,
+          "avg_price": 18.5,
+          "wa_price": 13.554,
+          "median": 13,
+          "mod_rank": 5
+        },
+        {
+          "volume": 505,
+          "min_price": 3,
+          "max_price": 15,
+          "avg_price": 9,
+          "wa_price": 6.162,
+          "median": 5,
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "mutalist_alad_v_assassinate_key",
-      "last_fetched_at": "2026-05-10T12:29:27.611534000Z",
-      "liquidity": 26,
-      "statistics_yesterday": [
-        {
-          "avg_price": 8.5,
-          "closed_price": 7,
-          "donch_bot": 7,
-          "donch_top": 10,
-          "max_price": 10,
-          "median": 8,
-          "min_price": 7,
-          "moving_avg": 9.1,
-          "open_price": 10,
-          "volume": 17,
-          "wa_price": 8.412
-        }
-      ],
-      "statistics_today": [
-        {
-          "avg_price": 9.5,
-          "closed_price": 9,
-          "donch_bot": 7,
-          "donch_top": 10,
-          "max_price": 10,
-          "median": 9,
-          "min_price": 9,
-          "moving_avg": 9.2,
-          "open_price": 9,
-          "volume": 9,
-          "wa_price": 9.333
-        }
-      ],
+      "last_fetched_at": "2026-09-13T20:25:55.110Z",
+      "liquidity": 0,
+      "statistics_yesterday": [],
+      "statistics_today": [],
       "current_offers": [
         {
-          "avg_price": 10.5,
-          "max_price": 12,
+          "volume": 219,
+          "min_price": 5,
+          "max_price": 15,
+          "avg_price": 10,
+          "wa_price": 11.215,
           "median": 10,
-          "min_price": 9,
-          "moving_avg": 8.7,
-          "volume": 135,
-          "wa_price": 11.681
+          "moving_avg": 12
         }
       ]
     },
     {
       "slug": "irradiating_disarm",
-      "last_fetched_at": "2026-05-10T12:29:28.011929500Z",
-      "liquidity": 1,
+      "last_fetched_at": "2026-09-13T20:25:55.607Z",
+      "liquidity": 0,
       "statistics_yesterday": [],
-      "statistics_today": [
-        {
-          "avg_price": 9.0,
-          "closed_price": 9,
-          "donch_bot": 9,
-          "donch_top": 15,
-          "max_price": 9,
-          "median": 9,
-          "min_price": 9,
-          "mod_rank": 0,
-          "moving_avg": 11.8,
-          "open_price": 9,
-          "volume": 1,
-          "wa_price": 9.0
-        }
-      ],
+      "statistics_today": [],
       "current_offers": [
         {
-          "avg_price": 14.5,
-          "max_price": 15,
-          "median": 15,
-          "min_price": 14,
-          "mod_rank": 0,
-          "volume": 19,
-          "wa_price": 14.895
+          "volume": 27,
+          "min_price": 9,
+          "max_price": 45,
+          "avg_price": 27,
+          "wa_price": 21.667,
+          "median": 20,
+          "mod_rank": 3
+        },
+        {
+          "volume": 348,
+          "min_price": 12,
+          "max_price": 16,
+          "avg_price": 14,
+          "wa_price": 14.325,
+          "median": 14,
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "antimatter_absorb",
-      "last_fetched_at": "2026-05-10T12:29:28.412379200Z",
-      "liquidity": 1,
-      "statistics_yesterday": [],
+      "last_fetched_at": "2026-09-13T20:25:56.006Z",
+      "liquidity": 5,
+      "statistics_yesterday": [
+        {
+          "volume": 1,
+          "min_price": 15,
+          "max_price": 15,
+          "open_price": 15,
+          "closed_price": 15,
+          "avg_price": 15,
+          "wa_price": 15,
+          "median": 15,
+          "moving_avg": 12.6,
+          "donch_top": 15,
+          "donch_bot": 10,
+          "mod_rank": 3
+        },
+        {
+          "volume": 2,
+          "min_price": 10,
+          "max_price": 12,
+          "open_price": 12,
+          "closed_price": 10,
+          "avg_price": 11,
+          "wa_price": 11,
+          "median": 11,
+          "moving_avg": 11.8,
+          "donch_top": 12,
+          "donch_bot": 8,
+          "mod_rank": 0
+        }
+      ],
       "statistics_today": [
         {
-          "avg_price": 9.0,
-          "closed_price": 9,
+          "volume": 2,
+          "min_price": 10,
+          "max_price": 10,
+          "open_price": 10,
+          "closed_price": 10,
+          "avg_price": 10,
+          "wa_price": 10,
+          "median": 10,
+          "moving_avg": 9.8,
+          "donch_top": 12,
           "donch_bot": 9,
-          "donch_top": 10,
-          "max_price": 9,
-          "median": 9,
-          "min_price": 9,
-          "mod_rank": 0,
-          "moving_avg": 9.4,
-          "open_price": 9,
-          "volume": 1,
-          "wa_price": 9.0
+          "mod_rank": 0
         }
       ],
       "current_offers": [
         {
-          "avg_price": 10.0,
-          "max_price": 15,
+          "volume": 59,
+          "min_price": 8,
+          "max_price": 40,
+          "avg_price": 24,
+          "wa_price": 19.593,
+          "median": 17,
+          "mod_rank": 3
+        },
+        {
+          "volume": 483,
+          "min_price": 8,
+          "max_price": 16,
+          "avg_price": 12,
+          "wa_price": 11.886,
           "median": 10,
-          "min_price": 5,
-          "mod_rank": 0,
-          "volume": 159,
-          "wa_price": 10.585
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "arcane_barrier",
-      "last_fetched_at": "2026-05-10T12:29:28.812635900Z",
-      "liquidity": 76,
+      "last_fetched_at": "2026-09-13T20:25:56.406Z",
+      "liquidity": 24,
       "statistics_yesterday": [
         {
-          "avg_price": 2.5,
-          "closed_price": 2,
-          "donch_bot": 1,
-          "donch_top": 9,
-          "max_price": 3,
-          "median": 2,
-          "min_price": 2,
-          "mod_rank": 0,
-          "moving_avg": 3.7,
-          "open_price": 3,
-          "volume": 13,
-          "wa_price": 2.769
+          "volume": 8,
+          "min_price": 39,
+          "max_price": 50,
+          "open_price": 45,
+          "closed_price": 40,
+          "avg_price": 44.5,
+          "wa_price": 45.875,
+          "median": 45,
+          "moving_avg": 41,
+          "donch_top": 50,
+          "donch_bot": 30,
+          "mod_rank": 5
+        },
+        {
+          "volume": 2,
+          "min_price": 4,
+          "max_price": 4,
+          "open_price": 4,
+          "closed_price": 4,
+          "avg_price": 4,
+          "wa_price": 4,
+          "median": 4,
+          "moving_avg": 3.6,
+          "donch_top": 5,
+          "donch_bot": 2,
+          "mod_rank": 0
         }
       ],
       "statistics_today": [
         {
-          "avg_price": 2.5,
-          "closed_price": 2,
-          "donch_bot": 2,
-          "donch_top": 4,
-          "max_price": 3,
-          "median": 3.0,
-          "min_price": 2,
-          "mod_rank": 0,
-          "moving_avg": 3.2,
+          "volume": 7,
+          "min_price": 39,
+          "max_price": 40,
+          "open_price": 40,
+          "closed_price": 40,
+          "avg_price": 39.5,
+          "wa_price": 39.857,
+          "median": 40,
+          "moving_avg": 41,
+          "donch_top": 50,
+          "donch_bot": 30,
+          "mod_rank": 5
+        },
+        {
+          "volume": 7,
+          "min_price": 3,
+          "max_price": 3.83,
           "open_price": 3,
-          "volume": 63,
-          "wa_price": 2.746
+          "closed_price": 3.83,
+          "avg_price": 3.415,
+          "wa_price": 3.711,
+          "median": 3.415,
+          "moving_avg": 3.5829999999999997,
+          "donch_top": 5,
+          "donch_bot": 2,
+          "mod_rank": 0
         }
       ],
       "current_offers": [
         {
-          "avg_price": 3.5,
-          "max_price": 5,
-          "median": 3.0,
+          "volume": 135,
+          "min_price": 35,
+          "max_price": 100,
+          "avg_price": 67.5,
+          "wa_price": 63.741,
+          "median": 50,
+          "mod_rank": 5
+        },
+        {
+          "volume": 1027,
           "min_price": 2,
-          "mod_rank": 0,
-          "volume": 321,
-          "wa_price": 3.891
+          "max_price": 6,
+          "avg_price": 4,
+          "wa_price": 4.126,
+          "median": 4,
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "arcane_ice",
-      "last_fetched_at": "2026-05-10T12:29:29.212716300Z",
-      "liquidity": 1,
-      "statistics_yesterday": [],
+      "last_fetched_at": "2026-09-13T20:25:56.806Z",
+      "liquidity": 8,
+      "statistics_yesterday": [
+        {
+          "volume": 5,
+          "min_price": 19,
+          "max_price": 25,
+          "open_price": 20,
+          "closed_price": 19,
+          "avg_price": 22,
+          "wa_price": 20.8,
+          "median": 20,
+          "moving_avg": 20.4,
+          "donch_top": 25,
+          "donch_bot": 19,
+          "mod_rank": 5
+        },
+        {
+          "volume": 1,
+          "min_price": 2,
+          "max_price": 2,
+          "open_price": 2,
+          "closed_price": 2,
+          "avg_price": 2,
+          "wa_price": 2,
+          "median": 2,
+          "moving_avg": 1.9,
+          "donch_top": 3,
+          "donch_bot": 1,
+          "mod_rank": 0
+        }
+      ],
       "statistics_today": [
         {
-          "avg_price": 2.0,
-          "closed_price": 2,
-          "donch_bot": 2,
-          "donch_top": 3,
-          "max_price": 2,
-          "median": 2,
-          "min_price": 2,
-          "mod_rank": 0,
-          "moving_avg": 2.3,
-          "open_price": 2,
-          "volume": 1,
-          "wa_price": 2.0
+          "volume": 2,
+          "min_price": 19,
+          "max_price": 20,
+          "open_price": 19,
+          "closed_price": 20,
+          "avg_price": 19.5,
+          "wa_price": 19.5,
+          "median": 19.5,
+          "moving_avg": 20.3,
+          "donch_top": 25,
+          "donch_bot": 19,
+          "mod_rank": 5
         }
       ],
       "current_offers": [
         {
-          "avg_price": 3.5,
+          "volume": 52,
+          "min_price": 15,
+          "max_price": 33,
+          "avg_price": 24,
+          "wa_price": 22.404,
+          "median": 20,
+          "mod_rank": 5
+        },
+        {
+          "volume": 573,
+          "min_price": 1,
           "max_price": 5,
-          "median": 3.0,
-          "min_price": 2,
-          "mod_rank": 0,
-          "volume": 274,
-          "wa_price": 4.274
+          "avg_price": 3,
+          "wa_price": 3.239,
+          "median": 3,
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "telos_boltor",
-      "last_fetched_at": "2026-05-10T12:29:29.612875800Z",
-      "liquidity": 52,
+      "last_fetched_at": "2026-09-13T20:25:57.206Z",
+      "liquidity": 47,
       "statistics_yesterday": [
         {
-          "avg_price": 25.0,
-          "closed_price": 29,
-          "donch_bot": 15,
-          "donch_top": 35,
-          "max_price": 35,
-          "median": 25.0,
+          "volume": 23,
           "min_price": 15,
-          "moving_avg": 28.0,
-          "open_price": 15,
-          "volume": 28,
-          "wa_price": 23.571
+          "max_price": 35,
+          "open_price": 25,
+          "closed_price": 20,
+          "avg_price": 25,
+          "wa_price": 25.217,
+          "median": 25,
+          "moving_avg": 24.5,
+          "donch_top": 35,
+          "donch_bot": 15
         }
       ],
       "statistics_today": [
         {
-          "avg_price": 29.5,
-          "closed_price": 30,
-          "donch_bot": 15,
-          "donch_top": 35,
-          "max_price": 35,
-          "median": 30,
-          "min_price": 24,
-          "moving_avg": 27.9,
-          "open_price": 30,
           "volume": 24,
-          "wa_price": 28.583
+          "min_price": 18,
+          "max_price": 40,
+          "open_price": 25,
+          "closed_price": 22,
+          "avg_price": 29,
+          "wa_price": 27.375,
+          "median": 29,
+          "moving_avg": 25.3,
+          "donch_top": 40,
+          "donch_bot": 15
         }
       ],
       "current_offers": [
         {
-          "avg_price": 50.0,
-          "max_price": 80,
-          "median": 30.0,
-          "min_price": 20,
-          "moving_avg": 27.3,
-          "volume": 40,
-          "wa_price": 34.05
+          "volume": 57,
+          "min_price": 19,
+          "max_price": 44,
+          "avg_price": 31.5,
+          "wa_price": 30.298,
+          "median": 30,
+          "moving_avg": 24.4
         }
       ]
     },
     {
       "slug": "frost_prime_set",
-      "last_fetched_at": "2026-05-10T12:29:30.043280500Z",
-      "liquidity": 137,
+      "last_fetched_at": "2026-09-13T20:25:57.607Z",
+      "liquidity": 132,
       "statistics_yesterday": [
         {
-          "avg_price": 75.0,
-          "closed_price": 75,
-          "donch_bot": 70,
-          "donch_top": 80,
+          "volume": 78,
+          "min_price": 73,
           "max_price": 80,
-          "median": 75.0,
-          "min_price": 70,
-          "moving_avg": 75.1,
-          "open_price": 74,
-          "volume": 55,
-          "wa_price": 75.782
+          "open_price": 78,
+          "closed_price": 78,
+          "avg_price": 76.5,
+          "wa_price": 77.308,
+          "median": 78,
+          "moving_avg": 77.5,
+          "donch_top": 80,
+          "donch_bot": 73
         }
       ],
       "statistics_today": [
         {
-          "avg_price": 78.5,
-          "closed_price": 78,
-          "donch_bot": 70,
-          "donch_top": 85,
-          "max_price": 85,
-          "median": 78.0,
-          "min_price": 72,
-          "moving_avg": 75.8,
+          "volume": 54,
+          "min_price": 76,
+          "max_price": 80,
           "open_price": 80,
-          "volume": 82,
-          "wa_price": 77.146
+          "closed_price": 78,
+          "avg_price": 78,
+          "wa_price": 78.648,
+          "median": 78,
+          "moving_avg": 77.6,
+          "donch_top": 80,
+          "donch_bot": 73
         }
       ],
       "current_offers": [
         {
-          "avg_price": 84.0,
-          "max_price": 94,
+          "volume": 522,
+          "min_price": 75,
+          "max_price": 99,
+          "avg_price": 87,
+          "wa_price": 82.697,
           "median": 80,
-          "min_price": 74,
-          "moving_avg": 71.2,
-          "volume": 774,
-          "wa_price": 81.667
+          "moving_avg": 75
         }
       ]
     },
     {
       "slug": "catalyzer_link",
-      "last_fetched_at": "2026-05-10T12:29:30.443456400Z",
+      "last_fetched_at": "2026-09-13T20:25:58.121Z",
       "liquidity": 0,
       "statistics_yesterday": [],
       "statistics_today": [],
       "current_offers": [
         {
-          "avg_price": 7.0,
-          "max_price": 10,
-          "median": 8.0,
+          "volume": 59,
+          "min_price": 10,
+          "max_price": 70,
+          "avg_price": 40,
+          "wa_price": 40.831,
+          "median": 29,
+          "mod_rank": 5
+        },
+        {
+          "volume": 73,
           "min_price": 4,
-          "mod_rank": 0,
-          "volume": 25,
-          "wa_price": 7.64
+          "max_price": 7,
+          "avg_price": 5.5,
+          "wa_price": 4.959,
+          "median": 5,
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "targeting_subsystem",
-      "last_fetched_at": "2026-05-10T12:29:30.843682100Z",
-      "liquidity": 29,
+      "last_fetched_at": "2026-09-13T20:25:58.522Z",
+      "liquidity": 21,
       "statistics_yesterday": [
         {
-          "avg_price": 11.5,
-          "closed_price": 8,
-          "donch_bot": 8,
-          "donch_top": 15,
-          "max_price": 15,
-          "median": 12,
-          "min_price": 8,
-          "mod_rank": 0,
-          "moving_avg": 11.7,
-          "open_price": 12,
-          "volume": 17,
-          "wa_price": 11.647
+          "volume": 10,
+          "min_price": 9,
+          "max_price": 11,
+          "open_price": 10,
+          "closed_price": 11,
+          "avg_price": 10,
+          "wa_price": 10.1,
+          "median": 10,
+          "moving_avg": 9.4,
+          "donch_top": 12,
+          "donch_bot": 6,
+          "mod_rank": 0
         }
       ],
       "statistics_today": [
         {
-          "avg_price": 12.0,
-          "closed_price": 13,
-          "donch_bot": 8,
-          "donch_top": 15,
-          "max_price": 14,
-          "median": 12,
-          "min_price": 10,
-          "mod_rank": 0,
-          "moving_avg": 11.7,
-          "open_price": 13,
-          "volume": 12,
-          "wa_price": 11.417
+          "volume": 2,
+          "min_price": 15,
+          "max_price": 40,
+          "open_price": 15,
+          "closed_price": 40,
+          "avg_price": 27.5,
+          "wa_price": 27.5,
+          "median": 27.5,
+          "moving_avg": 28.3,
+          "donch_top": 40,
+          "donch_bot": 10,
+          "mod_rank": 5
+        },
+        {
+          "volume": 9,
+          "min_price": 9,
+          "max_price": 11,
+          "open_price": 10,
+          "closed_price": 11,
+          "avg_price": 10,
+          "wa_price": 9.778,
+          "median": 10,
+          "moving_avg": 9.5,
+          "donch_top": 12,
+          "donch_bot": 6,
+          "mod_rank": 0
         }
       ],
       "current_offers": [
         {
-          "avg_price": 14.5,
-          "max_price": 19,
-          "median": 15.0,
-          "min_price": 10,
-          "mod_rank": 0,
-          "volume": 41,
-          "wa_price": 14.268
+          "volume": 27,
+          "min_price": 15,
+          "max_price": 100,
+          "avg_price": 57.5,
+          "wa_price": 50.333,
+          "median": 32.5,
+          "mod_rank": 5
+        },
+        {
+          "volume": 97,
+          "min_price": 8,
+          "max_price": 12,
+          "avg_price": 10,
+          "wa_price": 10.01,
+          "median": 10,
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "strun_wraith_receiver",
-      "last_fetched_at": "2026-05-10T12:29:31.244065600Z",
-      "liquidity": 10,
+      "last_fetched_at": "2026-09-13T20:25:58.921Z",
+      "liquidity": 5,
       "statistics_yesterday": [
         {
-          "avg_price": 14.5,
-          "closed_price": 15,
-          "donch_bot": 12,
-          "donch_top": 18,
+          "volume": 2,
+          "min_price": 15,
           "max_price": 15,
-          "median": 15.0,
-          "min_price": 14,
-          "moving_avg": 14.4,
           "open_price": 15,
-          "volume": 6,
-          "wa_price": 14.667
+          "closed_price": 15,
+          "avg_price": 15,
+          "wa_price": 15,
+          "median": 15,
+          "moving_avg": 17.5,
+          "donch_top": 24,
+          "donch_bot": 15
         }
       ],
       "statistics_today": [
         {
-          "avg_price": 15.0,
-          "closed_price": 15,
-          "donch_bot": 12,
-          "donch_top": 18,
+          "volume": 3,
+          "min_price": 11,
           "max_price": 15,
-          "median": 15.0,
-          "min_price": 15,
-          "moving_avg": 14.9,
           "open_price": 15,
-          "volume": 4,
-          "wa_price": 15.0
+          "closed_price": 11,
+          "avg_price": 13,
+          "wa_price": 13.333,
+          "median": 14,
+          "moving_avg": 16.5,
+          "donch_top": 19,
+          "donch_bot": 11
         }
       ],
       "current_offers": [
         {
-          "avg_price": 21.0,
-          "max_price": 30,
-          "median": 20,
+          "volume": 56,
           "min_price": 12,
-          "moving_avg": 20.1,
-          "volume": 29,
-          "wa_price": 22.448
+          "max_price": 33,
+          "avg_price": 22.5,
+          "wa_price": 19.786,
+          "median": 19.5,
+          "moving_avg": 17.5
         }
       ]
     },
     {
       "slug": "tectonic_fracture",
-      "last_fetched_at": "2026-05-10T12:29:31.644496800Z",
+      "last_fetched_at": "2026-09-13T20:25:59.321Z",
       "liquidity": 0,
       "statistics_yesterday": [],
       "statistics_today": [],
       "current_offers": [
         {
-          "avg_price": 14.5,
+          "volume": 21,
+          "min_price": 15,
+          "max_price": 33,
+          "avg_price": 24,
+          "wa_price": 23.048,
+          "median": 20,
+          "mod_rank": 3
+        },
+        {
+          "volume": 34,
+          "min_price": 10,
           "max_price": 20,
+          "avg_price": 15,
+          "wa_price": 13.735,
           "median": 14,
-          "min_price": 9,
-          "mod_rank": 0,
-          "volume": 109,
-          "wa_price": 19.339
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "mantis_set",
-      "last_fetched_at": "2026-05-10T12:29:32.044629500Z",
-      "liquidity": 37,
+      "last_fetched_at": "2026-09-13T20:25:59.721Z",
+      "liquidity": 13,
       "statistics_yesterday": [
         {
-          "avg_price": 22.5,
-          "closed_price": 25,
-          "donch_bot": 15,
-          "donch_top": 30,
-          "max_price": 30,
-          "median": 23,
-          "min_price": 15,
-          "moving_avg": 21.9,
-          "open_price": 15,
-          "volume": 15,
-          "wa_price": 22.867
+          "volume": 6,
+          "min_price": 17,
+          "max_price": 20,
+          "open_price": 20,
+          "closed_price": 17,
+          "avg_price": 18.5,
+          "wa_price": 18.333,
+          "median": 18,
+          "moving_avg": 18.2,
+          "donch_top": 25,
+          "donch_bot": 10
         }
       ],
       "statistics_today": [
         {
-          "avg_price": 23.5,
-          "closed_price": 24,
-          "donch_bot": 15,
-          "donch_top": 30,
-          "max_price": 29,
-          "median": 23,
-          "min_price": 18,
-          "moving_avg": 22.6,
+          "volume": 7,
+          "min_price": 17,
+          "max_price": 20,
           "open_price": 20,
-          "volume": 22,
-          "wa_price": 22.773
+          "closed_price": 17,
+          "avg_price": 18.5,
+          "wa_price": 18.714,
+          "median": 19.5,
+          "moving_avg": 18.4,
+          "donch_top": 25,
+          "donch_bot": 10
         }
       ],
       "current_offers": [
         {
-          "avg_price": 29.0,
-          "max_price": 39,
-          "median": 25.0,
-          "min_price": 19,
-          "moving_avg": 25.6,
-          "volume": 74,
-          "wa_price": 26.77
+          "volume": 207,
+          "min_price": 13,
+          "max_price": 35,
+          "avg_price": 24,
+          "wa_price": 21.99,
+          "median": 20,
+          "moving_avg": 18.2
         }
       ]
     },
     {
       "slug": "acid_shells",
-      "last_fetched_at": "2026-05-10T12:29:32.445249600Z",
-      "liquidity": 171,
+      "last_fetched_at": "2026-09-13T20:26:00.122Z",
+      "liquidity": 137,
       "statistics_yesterday": [
         {
-          "avg_price": 32.5,
-          "closed_price": 25,
-          "donch_bot": 23,
-          "donch_top": 40,
-          "max_price": 40,
-          "median": 33.0,
-          "min_price": 25,
-          "mod_rank": 0,
-          "moving_avg": 31.8,
-          "open_price": 40,
-          "volume": 75,
-          "wa_price": 33.333
+          "volume": 1,
+          "min_price": 13,
+          "max_price": 13,
+          "open_price": 13,
+          "closed_price": 13,
+          "avg_price": 13,
+          "wa_price": 13,
+          "median": 13,
+          "moving_avg": 14.2,
+          "donch_top": 17,
+          "donch_bot": 12,
+          "mod_rank": 5
+        },
+        {
+          "volume": 47,
+          "min_price": 8,
+          "max_price": 15,
+          "open_price": 12,
+          "closed_price": 13,
+          "avg_price": 11.5,
+          "wa_price": 11.489,
+          "median": 11.5,
+          "moving_avg": 10.8,
+          "donch_top": 15,
+          "donch_bot": 7,
+          "mod_rank": 0
         }
       ],
       "statistics_today": [
         {
-          "avg_price": 32.5,
-          "closed_price": 35,
-          "donch_bot": 24,
-          "donch_top": 40,
-          "max_price": 37,
-          "median": 33.0,
-          "min_price": 28,
-          "mod_rank": 0,
-          "moving_avg": 32.0,
-          "open_price": 37,
-          "volume": 96,
-          "wa_price": 32.448
+          "volume": 10,
+          "min_price": 14,
+          "max_price": 15,
+          "open_price": 15,
+          "closed_price": 14,
+          "avg_price": 14.5,
+          "wa_price": 14.3,
+          "median": 14,
+          "moving_avg": 14.3,
+          "donch_top": 16,
+          "donch_bot": 12,
+          "mod_rank": 5
+        },
+        {
+          "volume": 79,
+          "min_price": 8,
+          "max_price": 30,
+          "open_price": 15,
+          "closed_price": 12,
+          "avg_price": 19,
+          "wa_price": 11.025,
+          "median": 10,
+          "moving_avg": 12.5,
+          "donch_top": 30,
+          "donch_bot": 7,
+          "mod_rank": 0
         }
       ],
       "current_offers": [
         {
-          "avg_price": 31.0,
-          "max_price": 40,
-          "median": 35.0,
-          "min_price": 22,
-          "mod_rank": 0,
-          "volume": 47,
-          "wa_price": 35.468
+          "volume": 477,
+          "min_price": 10,
+          "max_price": 65,
+          "avg_price": 37.5,
+          "wa_price": 38.084,
+          "median": 30,
+          "mod_rank": 5
+        },
+        {
+          "volume": 1903,
+          "min_price": 8,
+          "max_price": 49,
+          "avg_price": 28.5,
+          "wa_price": 30.679,
+          "median": 20,
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "nightwatch_napalm",
-      "last_fetched_at": "2026-05-10T12:29:32.845705000Z",
-      "liquidity": 71,
+      "last_fetched_at": "2026-09-13T20:26:00.522Z",
+      "liquidity": 59,
       "statistics_yesterday": [
         {
-          "avg_price": 18.5,
-          "closed_price": 20,
-          "donch_bot": 15,
-          "donch_top": 25,
-          "max_price": 20,
-          "median": 20.0,
-          "min_price": 17,
-          "mod_rank": 0,
-          "moving_avg": 20.0,
-          "open_price": 20,
           "volume": 29,
-          "wa_price": 19.241
+          "min_price": 7,
+          "max_price": 16,
+          "open_price": 12,
+          "closed_price": 12,
+          "avg_price": 11.5,
+          "wa_price": 10.207,
+          "median": 10,
+          "moving_avg": 9.8,
+          "donch_top": 16,
+          "donch_bot": 5,
+          "mod_rank": 0
         }
       ],
       "statistics_today": [
         {
-          "avg_price": 17.5,
-          "closed_price": 15,
-          "donch_bot": 15,
-          "donch_top": 22,
-          "max_price": 20,
-          "median": 18.0,
-          "min_price": 15,
-          "mod_rank": 0,
-          "moving_avg": 19.2,
-          "open_price": 19,
-          "volume": 42,
-          "wa_price": 17.405
+          "volume": 2,
+          "min_price": 14,
+          "max_price": 15,
+          "open_price": 15,
+          "closed_price": 14,
+          "avg_price": 14.5,
+          "wa_price": 14.5,
+          "median": 14.5,
+          "moving_avg": 16.2,
+          "donch_top": 20,
+          "donch_bot": 13,
+          "mod_rank": 5
+        },
+        {
+          "volume": 28,
+          "min_price": 8,
+          "max_price": 12,
+          "open_price": 11,
+          "closed_price": 8,
+          "avg_price": 10,
+          "wa_price": 9.929,
+          "median": 10,
+          "moving_avg": 9.8,
+          "donch_top": 16,
+          "donch_bot": 5,
+          "mod_rank": 0
         }
       ],
       "current_offers": [
         {
-          "avg_price": 20.0,
-          "max_price": 25,
-          "median": 20,
+          "volume": 73,
           "min_price": 15,
-          "mod_rank": 0,
-          "volume": 51,
-          "wa_price": 20.804
+          "max_price": 50,
+          "avg_price": 32.5,
+          "wa_price": 27.014,
+          "median": 29.5,
+          "mod_rank": 5
+        },
+        {
+          "volume": 157,
+          "min_price": 7,
+          "max_price": 25,
+          "avg_price": 16,
+          "wa_price": 14.752,
+          "median": 15,
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "quasar_drill",
-      "last_fetched_at": "2026-05-10T12:29:33.246204800Z",
-      "liquidity": 4,
-      "statistics_yesterday": [
-        {
-          "avg_price": 4.5,
-          "closed_price": 4,
-          "donch_bot": 4,
-          "donch_top": 9,
-          "max_price": 5,
-          "median": 4.5,
-          "min_price": 4,
-          "mod_rank": 0,
-          "moving_avg": 6.5,
-          "open_price": 5,
-          "volume": 3,
-          "wa_price": 4.667
-        }
-      ],
+      "last_fetched_at": "2026-09-13T20:26:00.923Z",
+      "liquidity": 1,
+      "statistics_yesterday": [],
       "statistics_today": [
         {
-          "avg_price": 3.0,
-          "closed_price": 3,
-          "donch_bot": 3,
-          "donch_top": 9,
-          "max_price": 3,
-          "median": 3,
-          "min_price": 3,
-          "mod_rank": 0,
-          "moving_avg": 5.9,
-          "open_price": 3,
           "volume": 1,
-          "wa_price": 3.0
+          "min_price": 5,
+          "max_price": 5,
+          "open_price": 5,
+          "closed_price": 5,
+          "avg_price": 5,
+          "wa_price": 5,
+          "median": 5,
+          "moving_avg": 6.4,
+          "donch_top": 7,
+          "donch_bot": 5,
+          "mod_rank": 0
         }
       ],
       "current_offers": [
         {
-          "avg_price": 7.5,
-          "max_price": 12,
-          "median": 6,
-          "min_price": 3,
-          "mod_rank": 0,
-          "volume": 26,
-          "wa_price": 6.077
+          "volume": 63,
+          "min_price": 10,
+          "max_price": 50,
+          "avg_price": 30,
+          "wa_price": 32.54,
+          "median": 20,
+          "mod_rank": 5
+        },
+        {
+          "volume": 36,
+          "min_price": 4,
+          "max_price": 10,
+          "avg_price": 7,
+          "wa_price": 6.278,
+          "median": 5,
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "comet_blast",
-      "last_fetched_at": "2026-05-10T12:29:33.646596900Z",
+      "last_fetched_at": "2026-09-13T20:26:01.324Z",
       "liquidity": 1,
-      "statistics_yesterday": [
+      "statistics_yesterday": [],
+      "statistics_today": [
         {
-          "avg_price": 5.0,
-          "closed_price": 5,
-          "donch_bot": 2,
-          "donch_top": 8,
-          "max_price": 5,
-          "median": 5,
-          "min_price": 5,
-          "mod_rank": 0,
-          "moving_avg": 5.0,
-          "open_price": 5,
           "volume": 1,
-          "wa_price": 5.0
+          "min_price": 4,
+          "max_price": 4,
+          "open_price": 4,
+          "closed_price": 4,
+          "avg_price": 4,
+          "wa_price": 4,
+          "median": 4,
+          "moving_avg": 5.6,
+          "donch_top": 6,
+          "donch_bot": 4,
+          "mod_rank": 0
         }
       ],
-      "statistics_today": [],
       "current_offers": [
         {
-          "avg_price": 6.5,
-          "max_price": 8,
-          "median": 6,
+          "volume": 32,
           "min_price": 5,
-          "mod_rank": 0,
-          "volume": 16,
-          "wa_price": 6.0
+          "max_price": 57,
+          "avg_price": 31,
+          "wa_price": 31.344,
+          "median": 25,
+          "mod_rank": 5
+        },
+        {
+          "volume": 47,
+          "min_price": 4,
+          "max_price": 10,
+          "avg_price": 7,
+          "wa_price": 7.362,
+          "median": 6,
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "nebula_bore",
-      "last_fetched_at": "2026-05-10T12:29:34.047109800Z",
-      "liquidity": 3,
-      "statistics_yesterday": [
-        {
-          "avg_price": 4.0,
-          "closed_price": 4,
-          "donch_bot": 4,
-          "donch_top": 7,
-          "max_price": 4,
-          "median": 4,
-          "min_price": 4,
-          "mod_rank": 0,
-          "moving_avg": 5.4,
-          "open_price": 4,
-          "volume": 1,
-          "wa_price": 4.0
-        }
-      ],
-      "statistics_today": [
-        {
-          "avg_price": 6.5,
-          "closed_price": 8,
-          "donch_bot": 4,
-          "donch_top": 8,
-          "max_price": 8,
-          "median": 6.5,
-          "min_price": 5,
-          "mod_rank": 0,
-          "moving_avg": 5.7,
-          "open_price": 5,
-          "volume": 2,
-          "wa_price": 6.5
-        }
-      ],
+      "last_fetched_at": "2026-09-13T20:26:01.724Z",
+      "liquidity": 0,
+      "statistics_yesterday": [],
+      "statistics_today": [],
       "current_offers": [
         {
-          "avg_price": 8.0,
-          "max_price": 12,
-          "median": 10,
+          "volume": 41,
+          "min_price": 9,
+          "max_price": 80,
+          "avg_price": 44.5,
+          "wa_price": 36.561,
+          "median": 35,
+          "mod_rank": 5
+        },
+        {
+          "volume": 42,
           "min_price": 4,
-          "mod_rank": 0,
-          "volume": 17,
-          "wa_price": 8.118
+          "max_price": 8,
+          "avg_price": 6,
+          "wa_price": 5.69,
+          "median": 5,
+          "mod_rank": 0
         }
       ]
     },
     {
       "slug": "kaszas_blade",
-      "last_fetched_at": "2026-05-10T12:29:34.447459400Z",
-      "liquidity": 13,
+      "last_fetched_at": "2026-09-13T20:26:02.125Z",
+      "liquidity": 5,
       "statistics_yesterday": [
         {
-          "avg_price": 9.0,
-          "closed_price": 10,
-          "donch_bot": 8,
-          "donch_top": 15,
-          "max_price": 10,
-          "median": 10.0,
-          "min_price": 8,
-          "moving_avg": 9.6,
-          "open_price": 10,
-          "volume": 6,
-          "wa_price": 9.5
+          "volume": 2,
+          "min_price": 7,
+          "max_price": 9,
+          "open_price": 9,
+          "closed_price": 7,
+          "avg_price": 8,
+          "wa_price": 8,
+          "median": 8,
+          "moving_avg": 8.8,
+          "donch_top": 11,
+          "donch_bot": 7
         }
       ],
       "statistics_today": [
         {
-          "avg_price": 9.0,
-          "closed_price": 10,
-          "donch_bot": 8,
-          "donch_top": 10,
-          "max_price": 10,
-          "median": 9.0,
-          "min_price": 8,
-          "moving_avg": 9.6,
-          "open_price": 8,
-          "volume": 7,
-          "wa_price": 9.143
+          "volume": 3,
+          "min_price": 9,
+          "max_price": 15,
+          "open_price": 10,
+          "closed_price": 9,
+          "avg_price": 12,
+          "wa_price": 11.333,
+          "median": 10,
+          "moving_avg": 9.3,
+          "donch_top": 15,
+          "donch_bot": 7
         }
       ],
       "current_offers": [
         {
-          "avg_price": 10.0,
+          "volume": 1041,
+          "min_price": 9,
           "max_price": 12,
+          "avg_price": 10.5,
+          "wa_price": 9.993,
           "median": 10,
-          "min_price": 8,
-          "moving_avg": 9.7,
-          "volume": 61,
-          "wa_price": 9.328
+          "moving_avg": 8.3
         }
       ]
     }

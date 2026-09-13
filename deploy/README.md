@@ -1,96 +1,50 @@
-# Deployment Guide (Coolify + Caddy)
+# Coolify deployment
 
-This folder contains everything needed to:
+The Compose stack has two services sharing a named data volume:
 
-- host generated JSON with Caddy
-- regenerate JSON on a 6-hour schedule
-- avoid overlapping runs with a lock file
+- `worker` contains Bun and the Lucrum TypeScript source. It idles until a Coolify scheduled task runs it.
+- `caddy` serves the generated files under `/warframe/v1/` with CORS, zstd/gzip compression, and five-minute JSON caching.
 
-## Files
+## Deploy
 
-- `docker-compose.coolify.yml`: two services (`caddy`, `worker`) and shared volumes
-- `Dockerfile.worker`: builds the Rust binary and includes scheduler script
-- `Dockerfile.caddy`: builds the Caddy image with an embedded Caddyfile
-- `run-lucrum.sh`: lock + retry wrapper around the Rust binary
-- `Caddyfile`: static JSON hosting config with CORS and gzip/zstd
-- `.env.example`: optional env overrides for scrape behavior
-
-## Coolify Setup
-
-1. Create a new Docker Compose resource in Coolify.
-2. Set compose file path to `deploy/docker-compose.coolify.yml`.
-3. Add a domain to the `caddy` service in Coolify (target container port `80`).
+1. Create a Docker Compose resource in Coolify.
+2. Select `deploy/docker-compose.coolify.yml` as the Compose file.
+3. Attach a domain to the `caddy` service on container port 80.
 4. Deploy the stack.
+5. Run `/usr/local/bin/run-lucrum.sh` once in the `worker` service to generate initial data.
 
-Coolify will handle TLS and public routing. Caddy only serves internal HTTP on port 80.
+Coolify evaluates build paths from the repository root, so the Compose build contexts and Dockerfile paths are intentionally repository-root relative. TLS and public routing are handled by Coolify.
 
-## Coolify Path Resolution Note
+## Schedule
 
-Coolify runs Docker Compose with the repository root as the project directory.
-Because of that, relative paths in `deploy/docker-compose.coolify.yml` should be
-repo-root relative, for example:
-
-- `build.context: .`
-- `dockerfile: deploy/Dockerfile.worker`
-- `dockerfile: deploy/Dockerfile.caddy`
-
-The Caddy service intentionally bakes `deploy/Caddyfile` into the image instead
-of bind-mounting it, which avoids runtime file-vs-directory mount issues on
-some Coolify hosts.
-
-## Initial Data Generation
-
-After first deploy, run this command once on the `worker` service:
-
-~~~sh
-/usr/local/bin/run-lucrum.sh
-~~~
-
-This will produce data in the shared volume mounted at `/app/data` on the worker and `/srv/data` on Caddy.
-
-## Scheduled Regeneration (Every 6 Hours)
-
-Create a Coolify Scheduled Task with:
+Create a Coolify scheduled task:
 
 - Service: `worker`
 - Cron: `0 */6 * * *`
-- Command:
+- Command: `/usr/local/bin/run-lucrum.sh`
 
-~~~sh
-/usr/local/bin/run-lucrum.sh
-~~~
+The wrapper uses `flock` to skip overlapping runs and retries the entire CLI invocation. It defaults to three attempts with 300 seconds between attempts.
 
-## Hosted Endpoints
+## Endpoints
 
-Once deployed, your domain will serve:
-
-- `/warframe/v1/items.json`
-- `/warframe/v1/market_statistics.json`
-
-Optional health endpoint:
-
+- `/warframe/v1/dictionary.json`
+- `/warframe/v1/tradeable_items.json`
 - `/healthz`
+- `/warframe/v1/healthz`
 
-## Optional Tuning
+## Environment variables
 
-Adjust values via environment variables in Coolify:
+| Variable                     |                  Default | Meaning                                       |
+| ---------------------------- | -----------------------: | --------------------------------------------- |
+| `LUCRUM_REQUESTS_PER_SECOND` |                    `2.5` | Request-start rate                            |
+| `LUCRUM_FETCH_OFFSET`        |                      `0` | No skip; positive values skip that many slugs |
+| `LUCRUM_FETCH_LIMIT`         |                     `20` | Selected slug limit; `0` is unlimited         |
+| `MAX_ATTEMPTS`               |                      `3` | Whole-run attempts in the wrapper             |
+| `RETRY_SECONDS`              |                    `300` | Delay between whole-run attempts              |
+| `LOCK_FILE`                  | `/app/data/.lucrum.lock` | Wrapper lock path                             |
 
-- `LUCRUM_REQUESTS_PER_SECOND` (default `2.5`)
-- `MAX_ATTEMPTS` (default `3`)
-- `RETRY_SECONDS` (default `300`)
+Generated data lives at `/app/data` in the worker and `/srv/data` in Caddy. The worker must run with `/app` as its working directory because CLI paths are relative.
 
-## Troubleshooting Build Failures
+## Updating Warframe item data
 
-If Coolify fails on `cargo build --release` with exit code `101`:
-
-- ensure the latest `deploy/Dockerfile.worker` is deployed
-- check full build logs for the first Rust compiler error above the final `exit code: 101` line
-- verify your deployment server has enough RAM (Rust builds can fail under memory pressure)
-- verify the builder Rust version is not older than your dependency lockfile requires
-
-The worker Dockerfile already applies:
-
-- lockfile build (`cargo build --release --locked`)
-- single-job compile (`CARGO_BUILD_JOBS=1` and `-j 1`)
-- crates.io sparse protocol and retries
-- current stable Rust image (`rust:bookworm`) to avoid stale compiler pinning
+`@wfcd/items` publishes new datasets as Warframe changes. Run `bun run update:items`, commit the updated `package.json` and `bun.lock`, and redeploy the worker. The next scheduled run reapplies component-to-set mappings even if `dictionary.json` is still within its 24-hour API cache window.

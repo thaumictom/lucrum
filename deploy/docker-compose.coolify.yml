@@ -5,7 +5,7 @@ services:
       dockerfile: deploy/Dockerfile.caddy
     restart: unless-stopped
     expose:
-      - '80'
+      - "80"
     volumes:
       - lucrum_data:/srv/data:ro
       - caddy_data:/data
@@ -16,11 +16,13 @@ services:
       context: .
       dockerfile: deploy/Dockerfile.worker
     restart: unless-stopped
-    command: ['sleep', 'infinity']
+    command: ["sleep", "infinity"]
     environment:
-      LUCRUM_REQUESTS_PER_SECOND: '${LUCRUM_REQUESTS_PER_SECOND:-2.5}'
-      MAX_ATTEMPTS: '${MAX_ATTEMPTS:-3}'
-      RETRY_SECONDS: '${RETRY_SECONDS:-300}'
+      LUCRUM_REQUESTS_PER_SECOND: "${LUCRUM_REQUESTS_PER_SECOND:-2.5}"
+      LUCRUM_FETCH_OFFSET: "${LUCRUM_FETCH_OFFSET:-0}"
+      LUCRUM_FETCH_LIMIT: "${LUCRUM_FETCH_LIMIT:-20}"
+      MAX_ATTEMPTS: "${MAX_ATTEMPTS:-3}"
+      RETRY_SECONDS: "${RETRY_SECONDS:-300}"
     volumes:
       - lucrum_data:/app/data
 
