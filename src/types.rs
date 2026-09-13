@@ -9,6 +9,8 @@ pub struct ItemsResponse {
 #[derive(Debug, Deserialize)]
 pub struct ApiItem {
     pub slug: String,
+    #[serde(default, rename = "maxRank")]
+    pub max_rank: Option<u32>,
     #[serde(default)]
     pub vaulted: Option<bool>,
     #[serde(default)]
@@ -41,6 +43,8 @@ pub struct TradeableItem {
     pub slug: String,
     pub name: String,
     pub tags: Vec<String>,
+    #[serde(rename = "maxRank", skip_serializing_if = "Option::is_none")]
+    pub max_rank: Option<u32>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vaulted: Option<bool>,
     #[serde(skip_serializing_if = "Option::is_none")]

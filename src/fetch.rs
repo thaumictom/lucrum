@@ -33,6 +33,7 @@ pub fn build_dictionary() -> Result<Dictionary> {
             name: item.i18n.en.name.unwrap_or_else(|| item.slug.clone()),
             slug: item.slug,
             tags: item.tags,
+            max_rank: item.max_rank,
             vaulted: item.vaulted,
             ducats: item.ducats,
         })
