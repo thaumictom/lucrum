@@ -1,34 +1,60 @@
-import { loadConfig } from "./config";
-import { getDictionary } from "./dictionary";
-import { buildSnapshotRun } from "./snapshots";
-import { writeJson } from "./storage";
+import { dictionarySchema, itemsSchema, tradeableItemsSchema } from './schemas';
 
-async function main(): Promise<void> {
-  const config = loadConfig();
-  const { dictionary, source, setMappingsChanged, mappedComponents } =
-    await getDictionary(config);
+const paths = {
+	dictionary: 'data/dictionary.json',
+	tradeableItems: 'data/tradeable_items.json',
+};
+const wfmUrl = 'https://api.warframe.market';
+const cacheLifetime = 4 * 60 * 60 * 1000;
 
-  if (source === "api") {
-    console.log(
-      `Wrote ${dictionary.tradeable_items.length} tradeable items to ${config.dictionaryPath}`,
-    );
-  } else if (setMappingsChanged) {
-    console.log(`Updated set mappings in ${config.dictionaryPath}`);
-  } else {
-    console.log(`Using fresh dictionary at ${config.dictionaryPath}`);
-  }
-  console.log(`Mapped ${mappedComponents} components to their sets`);
+async function getDictionary() {
+	const file = Bun.file(paths.dictionary);
+	if (await file.exists()) {
+		const cached = dictionarySchema.safeParse(await file.json());
+		if (cached.success && Date.now() - Date.parse(cached.data.fetched_at) <= cacheLifetime)
+			return cached.data;
+	}
 
-  const run = await buildSnapshotRun(dictionary, config);
-  await writeJson(config.snapshotPath, run);
-  console.log(
-    `Wrote ${run.tradeable_items.length} item snapshots to ${config.snapshotPath}`,
-  );
+	const response = await fetch(`${wfmUrl}/v2/items`);
+	if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+
+	const responseBody = itemsSchema.parse(await response.json());
+	const dictionary = {
+		...responseBody,
+		fetched_at: new Date().toISOString(),
+		data: responseBody.data.map(({ id, i18n, ...item }) => ({
+			...item,
+			name: i18n.en.name,
+		})),
+	};
+
+	await Bun.write(paths.dictionary, JSON.stringify(dictionary, null, 2));
+	return dictionary;
 }
 
-if (import.meta.main) {
-  main().catch((error) => {
-    console.error(error);
-    process.exitCode = 1;
-  });
+async function updateTradeableItems() {
+	const dictionary = await getDictionary();
+	const file = Bun.file(paths.tradeableItems);
+	const current = (await file.exists())
+		? tradeableItemsSchema.parse(await file.json())
+		: { data: [] };
+	const currentBySlug = new Map(current.data.map((item) => [item.slug, item]));
+
+	const tradeableItems = {
+		...current,
+		...dictionary,
+		error: undefined,
+		apiVersion: undefined,
+		data: dictionary.data.map((item) => ({
+			...currentBySlug.get(item.slug),
+			...item,
+			gameRef: undefined,
+			tags: undefined,
+			subtypes: undefined,
+		})),
+	};
+
+	await Bun.write(paths.tradeableItems, JSON.stringify(tradeableItems, null, 2));
 }
+
+await updateTradeableItems();
