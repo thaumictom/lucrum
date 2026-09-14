@@ -1,8 +1,8 @@
 {
   "data": [
     {
-      "slug": "secura_dual_cestraa",
-      "name": "Secura Dual Cestra Item"
+      "slug": "secura_dual_cestra",
+      "name": "Secura Dual Cestra"
     },
     {
       "slug": "creeping_bullseye",
@@ -17866,7 +17866,68 @@
       "slug": "arcane_hot_shot",
       "bulkTradable": true,
       "maxRank": 5,
-      "name": "Arcane Hot Shot"
+      "name": "Arcane Hot Shot",
+      "statistics_yesterday": [
+        {
+          "volume": 100,
+          "min_price": 385,
+          "max_price": 438,
+          "open_price": 400,
+          "closed_price": 430,
+          "avg_price": 411.5,
+          "wa_price": 410.42,
+          "median": 410,
+          "moving_avg": 404.1,
+          "donch_top": 439,
+          "donch_bot": 385,
+          "mod_rank": 5
+        },
+        {
+          "volume": 518,
+          "min_price": 16,
+          "max_price": 20,
+          "open_price": 19,
+          "closed_price": 20,
+          "avg_price": 18,
+          "wa_price": 18.529,
+          "median": 18,
+          "moving_avg": 17.8,
+          "donch_top": 20,
+          "donch_bot": 16,
+          "mod_rank": 0
+        }
+      ],
+      "statistics_today": [
+        {
+          "volume": 126,
+          "min_price": 375,
+          "max_price": 429,
+          "open_price": 410,
+          "closed_price": 429,
+          "avg_price": 402,
+          "wa_price": 402.786,
+          "median": 400,
+          "moving_avg": 404.8,
+          "donch_top": 439,
+          "donch_bot": 375,
+          "mod_rank": 5
+        },
+        {
+          "volume": 488,
+          "min_price": 16,
+          "max_price": 20,
+          "open_price": 20,
+          "closed_price": 20,
+          "avg_price": 18,
+          "wa_price": 18.539,
+          "median": 18,
+          "moving_avg": 18,
+          "donch_top": 20,
+          "donch_bot": 16,
+          "mod_rank": 0
+        }
+      ],
+      "liquidity": 1232
     },
     {
       "slug": "arcane_universal_fallout",
