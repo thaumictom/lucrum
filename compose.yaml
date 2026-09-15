@@ -1,0 +1,16 @@
+services:
+  lucrum:
+    build: .
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+      HTTP_ADDR: ":8080"
+    ports:
+      - "8080:8080"
+    volumes:
+      - lucrum-data:/data
+    restart: unless-stopped
+    stop_grace_period: 30s
+
+volumes:
+  lucrum-data:
