@@ -1,0 +1,5 @@
+- better logging
+- fix items.json
+- ram usage while doing nothing?
+- remove tests
+- better comments?
