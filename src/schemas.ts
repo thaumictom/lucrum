@@ -45,3 +45,7 @@ export const environmentSchema = z.object({
   LUCRUM_ITEM_OFFSET: z.coerce.number().int().nonnegative().default(0),
   LUCRUM_ITEM_LIMIT: z.coerce.number().int().nonnegative().default(0),
 });
+
+export type Dictionary = z.infer<typeof dictionarySchema>;
+export type Statistic = z.infer<typeof statisticSchema>;
+export type TradeableItems = z.infer<typeof tradeableItemsSchema>;

@@ -1,120 +1,183 @@
 import {
-	dictionarySchema,
-	environmentSchema,
-	itemsSchema,
-	statisticsSchema,
-	tradeableItemsSchema,
+  dictionarySchema,
+  environmentSchema,
+  itemsSchema,
+  statisticsSchema,
+  tradeableItemsSchema,
+  type Dictionary,
+  type Statistic,
+  type TradeableItems,
 } from './schemas';
 
-const paths = {
-	dictionary: 'data/dictionary.json',
-	tradeableItems: 'data/tradeable_items.json',
-};
-const wfmUrl = 'https://api.warframe.market';
-const cacheLifetime = 4 * 60 * 60 * 1000;
-const environment = environmentSchema.parse(Bun.env);
-let lastRequest = 0;
+const API_URL = 'https://api.warframe.market';
+const DICTIONARY_PATH = 'data/dictionary.json';
+const TRADEABLE_ITEMS_PATH = 'data/tradeable_items.json';
+const HOUR = 60 * 60 * 1000;
+const DICTIONARY_CACHE_LIFETIME = 4 * HOUR;
+
+const {
+  LUCRUM_REQUESTS_PER_SECOND: requestsPerSecond,
+  LUCRUM_ITEM_OFFSET: itemOffset,
+  LUCRUM_ITEM_LIMIT: itemLimit,
+} = environmentSchema.parse(Bun.env);
+
+let lastRequestAt = 0;
 
 async function request(path: string) {
-	const wait = 1000 / environment.LUCRUM_REQUESTS_PER_SECOND - (Date.now() - lastRequest);
-	if (wait > 0) await Bun.sleep(wait);
-	lastRequest = Date.now();
-	const fetched_at = new Date().toISOString();
+  const interval = 1000 / requestsPerSecond;
+  const wait = interval - (Date.now() - lastRequestAt);
+  if (wait > 0) await Bun.sleep(wait);
 
-	const response = await fetch(`${wfmUrl}${path}`, { signal: AbortSignal.timeout(60_000) });
-	if (!response.ok) throw new Error(`${path}: ${response.status} ${response.statusText}`);
-	return { response, fetched_at };
+  lastRequestAt = Date.now();
+  const fetchedAt = new Date(lastRequestAt).toISOString();
+  const response = await fetch(`${API_URL}${path}`, {
+    signal: AbortSignal.timeout(60_000),
+  });
+
+  if (!response.ok) {
+    throw new Error(`${path}: ${response.status} ${response.statusText}`);
+  }
+
+  return { response, fetchedAt };
 }
 
-function utcDate(daysAgo: number) {
-	const date = new Date();
-	date.setUTCDate(date.getUTCDate() - daysAgo);
-	return date.toISOString().slice(0, 10);
+function writeJson(path: string, value: unknown) {
+  return Bun.write(path, JSON.stringify(value, null, 2));
+}
+
+function isFresh(fetchedAt: string, lifetime: number) {
+  return Date.now() - Date.parse(fetchedAt) <= lifetime;
+}
+
+async function readCachedDictionary() {
+  const file = Bun.file(DICTIONARY_PATH);
+  if (!(await file.exists())) return;
+
+  const cached = dictionarySchema.safeParse(await file.json());
+  if (cached.success && isFresh(cached.data.fetched_at, DICTIONARY_CACHE_LIFETIME)) {
+    return cached.data;
+  }
+}
+
+async function getDictionary(): Promise<Dictionary> {
+  const cached = await readCachedDictionary();
+  if (cached) {
+    console.log('(skip) dictionary');
+    return cached;
+  }
+
+  console.log('(fetch) dictionary');
+  const { response, fetchedAt } = await request('/v2/items');
+  const responseBody = itemsSchema.parse(await response.json());
+  const dictionary = {
+    ...responseBody,
+    fetched_at: fetchedAt,
+    data: responseBody.data.map(({ id, i18n, ...item }) => ({
+      ...item,
+      name: i18n.en.name,
+    })),
+  };
+
+  await writeJson(DICTIONARY_PATH, dictionary);
+  return dictionary;
+}
+
+async function readTradeableItems(): Promise<TradeableItems> {
+  const file = Bun.file(TRADEABLE_ITEMS_PATH);
+  return (await file.exists())
+    ? tradeableItemsSchema.parse(await file.json())
+    : { data: [] };
+}
+
+function patchTradeableItems(
+  dictionary: Dictionary,
+  current: TradeableItems,
+): TradeableItems {
+  const currentBySlug = new Map(current.data.map((item) => [item.slug, item]));
+
+  return {
+    ...current,
+    ...dictionary,
+    error: undefined,
+    apiVersion: undefined,
+    data: dictionary.data.map((item) => ({
+      ...currentBySlug.get(item.slug),
+      ...item,
+      gameRef: undefined,
+      tags: undefined,
+      subtypes: undefined,
+    })),
+  };
+}
+
+function utcDate(daysAgo: number, now: Date) {
+  const date = new Date(now);
+  date.setUTCDate(date.getUTCDate() - daysAgo);
+  return date.toISOString().slice(0, 10);
+}
+
+function selectStatistics(rows: Statistic[], date: string) {
+  return rows
+    .filter(({ datetime }) => new Date(datetime).toISOString().slice(0, 10) === date)
+    .map(({ datetime, id, order_type, ...row }) => row);
 }
 
 async function getStatistics(slug: string) {
-	const { response, fetched_at } = await request(`/v1/items/${slug}/statistics`);
-	const rows = statisticsSchema.parse(await response.json()).payload.statistics_closed['90days'];
-	const select = (daysAgo: number) =>
-		rows
-			.filter(({ datetime }) => new Date(datetime).toISOString().startsWith(utcDate(daysAgo)))
-			.map(({ datetime, id, order_type, ...row }) => row);
-	const statistics_yesterday = select(2);
-	const statistics_today = select(1);
+  const { response, fetchedAt } = await request(`/v1/items/${slug}/statistics`);
+  const rows = statisticsSchema.parse(await response.json()).payload.statistics_closed['90days'];
+  const now = new Date();
+  const statisticsYesterday = selectStatistics(rows, utcDate(2, now));
+  const statisticsToday = selectStatistics(rows, utcDate(1, now));
+  const liquidity = [...statisticsYesterday, ...statisticsToday].reduce(
+    (total, row) => total + row.volume,
+    0,
+  );
 
-	return {
-		fetched_at,
-		statistics_yesterday,
-		statistics_today,
-		liquidity: [...statistics_yesterday, ...statistics_today].reduce(
-			(sum, { volume }) => sum + volume,
-			0,
-		),
-	};
+  return {
+    fetched_at: fetchedAt,
+    statistics_yesterday: statisticsYesterday,
+    statistics_today: statisticsToday,
+    liquidity,
+  };
 }
 
-function hasFreshStatistics(item: { fetched_at?: string; liquidity?: number }) {
-	if (item.fetched_at === undefined || item.liquidity === undefined) return false;
-	const hours = item.liquidity <= 20 ? 24 : item.liquidity >= 21 && item.liquidity <= 150 ? 6 : 0;
-	return hours > 0 && Date.now() - Date.parse(item.fetched_at) <= hours * 60 * 60 * 1000;
+function statisticsCacheLifetime(liquidity: number) {
+  if (liquidity <= 20) return 24 * HOUR;
+  if (liquidity >= 21 && liquidity <= 150) return 6 * HOUR;
+  return 0;
 }
 
-async function getDictionary() {
-	const file = Bun.file(paths.dictionary);
-	if (await file.exists()) {
-		const cached = dictionarySchema.safeParse(await file.json());
-		if (cached.success && Date.now() - Date.parse(cached.data.fetched_at) <= cacheLifetime)
-			return cached.data;
-	}
+function hasFreshStatistics(item: TradeableItems['data'][number]) {
+  if (item.fetched_at === undefined || item.liquidity === undefined) return false;
 
-	const { response, fetched_at } = await request('/v2/items');
-	const responseBody = itemsSchema.parse(await response.json());
-	const dictionary = {
-		...responseBody,
-		fetched_at,
-		data: responseBody.data.map(({ id, i18n, ...item }) => ({
-			...item,
-			name: i18n.en.name,
-		})),
-	};
-
-	await Bun.write(paths.dictionary, JSON.stringify(dictionary, null, 2));
-	return dictionary;
+  const lifetime = statisticsCacheLifetime(item.liquidity);
+  return lifetime > 0 && isFresh(item.fetched_at, lifetime);
 }
 
-async function updateTradeableItems() {
-	const dictionary = await getDictionary();
-	const file = Bun.file(paths.tradeableItems);
-	const current = (await file.exists())
-		? tradeableItemsSchema.parse(await file.json())
-		: { data: [] };
-	const currentBySlug = new Map(current.data.map((item) => [item.slug, item]));
-
-	const tradeableItems = {
-		...current,
-		...dictionary,
-		error: undefined,
-		apiVersion: undefined,
-		data: dictionary.data.map((item) => ({
-			...currentBySlug.get(item.slug),
-			...item,
-			gameRef: undefined,
-			tags: undefined,
-			subtypes: undefined,
-		})),
-	};
-	const { LUCRUM_ITEM_OFFSET, LUCRUM_ITEM_LIMIT } = environment;
-	const items = tradeableItems.data.slice(
-		LUCRUM_ITEM_OFFSET,
-		LUCRUM_ITEM_LIMIT ? LUCRUM_ITEM_OFFSET + LUCRUM_ITEM_LIMIT : undefined,
-	);
-
-	for (const item of items) {
-		if (hasFreshStatistics(item)) continue;
-		Object.assign(item, await getStatistics(item.slug));
-	}
-
-	await Bun.write(paths.tradeableItems, JSON.stringify(tradeableItems, null, 2));
+function selectItems(items: TradeableItems['data']) {
+  const end = itemLimit === 0 ? undefined : itemOffset + itemLimit;
+  return items.slice(itemOffset, end);
 }
 
-await updateTradeableItems();
+async function updateStatistics(items: TradeableItems['data']) {
+  for (const item of selectItems(items)) {
+    if (hasFreshStatistics(item)) {
+      console.log(`(skip) ${item.slug}`);
+      continue;
+    }
+
+    console.log(`(fetch) ${item.slug}`);
+    Object.assign(item, await getStatistics(item.slug));
+  }
+}
+
+async function main() {
+  const dictionary = await getDictionary();
+  const current = await readTradeableItems();
+  const tradeableItems = patchTradeableItems(dictionary, current);
+
+  await updateStatistics(tradeableItems.data);
+  await writeJson(TRADEABLE_ITEMS_PATH, tradeableItems);
+}
+
+await main();
