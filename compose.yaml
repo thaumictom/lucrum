@@ -4,9 +4,9 @@ services:
     env_file: .env
     environment:
       DATA_DIR: /data
-      HTTP_ADDR: ":8080"
+      HTTP_ADDR: ':3003'
     ports:
-      - "8080:8080"
+      - '3003:3003'
     volumes:
       - lucrum-data:/data
     restart: unless-stopped
