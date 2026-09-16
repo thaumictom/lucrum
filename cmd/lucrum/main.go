@@ -13,6 +13,7 @@ import (
 	"lucrum/internal/items"
 	"lucrum/internal/tradeable"
 	"lucrum/internal/upstream"
+	"lucrum/internal/warframedata"
 )
 
 func main() {
@@ -43,12 +44,17 @@ func run() error {
 	if err != nil {
 		return err
 	}
+	gameData, err := warframedata.New(config.DataDir)
+	if err != nil {
+		return err
+	}
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
 	mux := http.NewServeMux()
 	mux.Handle("/warframe/v2/wfm-items", store)
 	mux.Handle("/warframe/v2/tradeable-items", statistics)
+	mux.Handle("/warframe/v2/items", gameData)
 	server := &http.Server{
 		// An empty host listens on all interfaces so Coolify's proxy can reach us.
 		Addr:              ":3100",
@@ -70,6 +76,11 @@ func run() error {
 		defer close(catalogueDone)
 		store.Run(ctx, config.FetchInterval, client)
 	}()
+	gameDataDone := make(chan struct{})
+	go func() {
+		defer close(gameDataDone)
+		gameData.Run(ctx, config.FetchInterval)
+	}()
 	serverDone := make(chan error, 1)
 	go func() { serverDone <- server.ListenAndServe() }()
 	slog.Info("starting HTTP server", "address", server.Addr, "fetch_interval", config.FetchInterval)
@@ -88,6 +99,7 @@ func run() error {
 	}
 	<-workerDone
 	<-catalogueDone
+	<-gameDataDone
 	if errors.Is(serverErr, http.ErrServerClosed) {
 		return nil
 	}

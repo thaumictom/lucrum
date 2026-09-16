@@ -1,6 +1,6 @@
 # Lucrum
 
-A small Go service serving a Warframe Market catalogue and cached trading statistics on port **3100**. The catalogue comes from `https://api.warframe.market/v2/items` at startup and every 180 minutes.
+A small Go service serving a Warframe Market catalogue, cached trading statistics, and WFCD game data on port **3100**. The WFM catalogue refreshes and WFCD releases are checked at startup and every 180 minutes.
 
 ## Run locally
 
@@ -15,7 +15,7 @@ Optional `.env` settings (existing environment variables take precedence):
 
 | Variable                 | Default  | Meaning                                            |
 | ------------------------ | -------- | -------------------------------------------------- |
-| `FETCH_INTERVAL_MINUTES` | `180`    | Positive whole minutes between fetches             |
+| `FETCH_INTERVAL_MINUTES` | `180`    | Positive whole minutes between WFM catalogue refreshes and WFCD release checks |
 | `DATA_DIR`               | `./data` | Directory for the generated file and hash metadata |
 | `WFM_REQUESTS_PER_SECOND` | `2.5` | Shared upstream request starts per second; greater than 0, at most 3 |
 | `DEBUG` | `false` | Log every fetch and scheduling skip |
@@ -56,6 +56,27 @@ Progress is atomically published every **max(1, ceil(WFM_REQUESTS_PER_SECOND × 
 
 Normal logs include pass summaries, publications, failures, and rate-limit pauses. `DEBUG=true` adds individual fetches and skips. Both snapshots, private deadlines, and pause state live in `DATA_DIR`; keep that directory persistent.
 
+## WFCD game data
+
+```sh
+curl -i http://localhost:3100/warframe/v2/items
+```
+
+The app checks the latest published [WFCD/warframe-items release](https://github.com/WFCD/warframe-items/releases). If its version matches the saved snapshot's metadata, it skips downloading and rebuilding. Otherwise, it reads every JSON file in `data/json` except `i18n.json`, pinned to that release tag.
+
+`items.json` is a **root map keyed by `uniqueName`**, without an `items` wrapper. Top-level entries are kept when `tradable` or `masterable` is `true`. Their components are recursively retained regardless of those flags, so every component reference resolves:
+
+```json
+{
+  "/Example/Parent": {"name": "Parent", "masterable": true, "components": ["/Example/Part"]},
+  "/Example/Part": {"name": "Part", "tradable": true}
+}
+```
+
+Each flattened entry loses its own `uniqueName`; other fields, including nested abilities and drops, remain intact. Shared components have one definition: top-level fields take precedence over nested copies, otherwise the first definition in alphabetical file order wins. Missing fields and additional component links are merged from other copies so partial definitions do not hide sub-recipes. The preferred component list retains its order and duplicates; extra links are appended once.
+
+Source categories are streamed and discarded; only `items.json` and `items.meta.json` (release version and output hash) are saved in `DATA_DIR`. Publication is atomic, with the same ETag/HEAD/304 behavior as the other endpoints. Failed imports leave the last valid snapshot available. GitHub downloads use a separate HTTP client and do not consume the WFM request budget.
+
 ## Docker / Coolify
 
 From the project root, after creating `.env`:
@@ -80,6 +101,6 @@ The named volume preserves `/data` across container replacements. Run one instan
 
 ## Code map
 
-`cmd/lucrum` starts and stops the app. `internal/items` handles catalogue/configuration, `internal/tradeable` handles statistics passes, `internal/upstream` shares rate limiting, and `internal/snapshot` publishes and serves files. `deploy` contains the container setup. Only extracted statistics and scheduling metadata remain in memory between passes; complete upstream histories are discarded after each fetch.
+`cmd/lucrum` starts and stops the app. `internal/items` handles WFM catalogue/configuration, `internal/tradeable` handles statistics passes, `internal/warframedata` imports WFCD releases, `internal/upstream` shares WFM rate limiting, and `internal/snapshot` publishes and serves files. `deploy` contains the container setup. Only extracted statistics and scheduling metadata remain in memory between passes; complete upstream histories and the WFCD import map are released after processing.
 
 There are no tests. Basic development checks are `go build ./...` and `go vet ./...`.
