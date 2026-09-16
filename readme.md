@@ -39,10 +39,12 @@ Updates atomically replace `wfm-items.json`. Requests stream from disk, and fail
 From the project root, after creating `.env`:
 
 ```sh
-docker compose --env-file .env -f deploy/compose.yaml up -d --build
+docker compose --project-directory . --env-file .env -f deploy/compose.yaml up -d --build
 ```
 
 In Coolify, select the **Docker Compose** build pack, keep the base directory at the repository root, and set the Compose location to `/deploy/compose.yaml`. Assign your domain to the `lucrum` service on port **3100**. Set `FETCH_INTERVAL_MINUTES` in Coolify if needed; no `.env` file is required there.
+
+The build context is the repository root. The local command explicitly sets `--project-directory .` to match Coolify's path resolution.
 
 The named volume preserves `/data` across container replacements. Run one instance against that volume. The container runs as a non-root user; if replacing the named volume with a bind mount, make its directory writable by UID 10001. Logs go to standard output/error. HTTPS for upstream requests uses the container's CA certificates.
 
