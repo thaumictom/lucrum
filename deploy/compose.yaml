@@ -1,0 +1,17 @@
+services:
+  lucrum:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    ports:
+      - "3100:3100"
+    environment:
+      FETCH_INTERVAL_MINUTES: ${FETCH_INTERVAL_MINUTES:-180}
+      DATA_DIR: /data
+    volumes:
+      - items-data:/data
+    restart: unless-stopped
+    stop_grace_period: 15s
+
+volumes:
+  items-data:
