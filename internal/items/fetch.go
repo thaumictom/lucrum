@@ -2,15 +2,15 @@ package items
 
 import (
 	"context"
-	"crypto/sha256"
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io"
 	"log/slog"
-	"net/http"
 	"strings"
 	"time"
+
+	"lucrum/internal/snapshot"
+	"lucrum/internal/upstream"
 )
 
 const upstreamURL = "https://api.warframe.market/v2/items"
@@ -25,8 +25,7 @@ type document struct {
 }
 
 // Run uses one worker: refreshes never overlap, even if a request is slow.
-func (s *Store) Run(ctx context.Context, interval time.Duration) {
-	client := &http.Client{Timeout: 30 * time.Second}
+func (s *Store) Run(ctx context.Context, interval time.Duration, client *upstream.Client) {
 	ticker := time.NewTicker(interval)
 	defer ticker.Stop()
 
@@ -42,35 +41,14 @@ func (s *Store) Run(ctx context.Context, interval time.Duration) {
 	}
 }
 
-func (s *Store) refresh(ctx context.Context, client *http.Client) error {
-	request, err := http.NewRequestWithContext(ctx, http.MethodGet, upstreamURL, nil)
-	if err != nil {
-		return err
-	}
-	request.Header.Set("Accept", "application/json")
-	fetchedAt := time.Now().UTC()
-	response, err := client.Do(request)
+func (s *Store) refresh(ctx context.Context, client *upstream.Client) error {
+	body, fetchedAt, err := client.Fetch(ctx, upstreamURL, nil)
 	if err != nil {
 		return fmt.Errorf("fetch items: %w", err)
 	}
-	// defer runs when this function returns, much like a finally block in TS.
-	defer response.Body.Close()
-	if response.StatusCode != http.StatusOK {
-		return fmt.Errorf("upstream returned %s", response.Status)
-	}
-
-	// Bound temporary memory use if the upstream unexpectedly sends a huge body.
-	const maxResponseBytes = 32 << 20 // 32 MiB
-	body, err := io.ReadAll(io.LimitReader(response.Body, maxResponseBytes+1))
-	if err != nil {
-		return fmt.Errorf("read upstream response: %w", err)
-	}
-	if len(body) > maxResponseBytes {
-		return errors.New("upstream response exceeds 32 MiB")
-	}
-	sourceHash := hash(body)
+	sourceHash := snapshot.Hash(body)
 	if sourceHash == s.sourceHash {
-		slog.Info("items unchanged")
+		slog.Debug("catalogue rebuild skipped", "reason", "upstream unchanged")
 		return nil
 	}
 
@@ -116,8 +94,4 @@ func transform(body []byte, fetchedAt time.Time) ([]byte, error) {
 		entry["name"] = name
 	}
 	return json.Marshal(document{Items: upstream.Data, LastFetchedAt: fetchedAt})
-}
-
-func hash(body []byte) string {
-	return fmt.Sprintf("%x", sha256.Sum256(body))
 }

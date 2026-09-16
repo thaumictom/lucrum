@@ -1,6 +1,6 @@
 # Lucrum
 
-A small Go service that fetches `https://api.warframe.market/v2/items` at startup and every 180 minutes, then serves a simplified catalogue on port **3100**.
+A small Go service serving a Warframe Market catalogue and cached trading statistics on port **3100**. The catalogue comes from `https://api.warframe.market/v2/items` at startup and every 180 minutes.
 
 ## Run locally
 
@@ -17,6 +17,8 @@ Optional `.env` settings (existing environment variables take precedence):
 | ------------------------ | -------- | -------------------------------------------------- |
 | `FETCH_INTERVAL_MINUTES` | `180`    | Positive whole minutes between fetches             |
 | `DATA_DIR`               | `./data` | Directory for the generated file and hash metadata |
+| `WFM_REQUESTS_PER_SECOND` | `2.5` | Shared upstream request starts per second; greater than 0, at most 3 |
+| `DEBUG` | `false` | Log every fetch and scheduling skip |
 
 Port 3100 is fixed. Restart the app after changing settings.
 
@@ -33,6 +35,26 @@ The response contains `items` and `last_fetched_at`. Each item keeps its origina
 The upstream response SHA-256 detects changes. A separate SHA-256 of the generated file is its ETag. Matching conditional requests return `304` without a body; HEAD is also supported. `Cache-Control: public, no-cache` allows storage but requires revalidation.
 
 Updates atomically replace `wfm-items.json`. Requests stream from disk, and failed refreshes retain the last valid file. Before any valid file exists, the endpoint returns `503`. Failures retry at the next interval. Fetches have a 30-second timeout and a 32 MiB response limit.
+
+## Trading statistics
+
+```sh
+curl -i http://localhost:3100/warframe/v2/tradeable-items
+```
+
+`tradeable-items.json` contains an `items` array with `slug`, `name`, `gameRef`, `liquidity`, `statistics_today`, `statistics_yesterday`, `statistics_live`, and `last_fetched_at` on each item. Initially, arrays are empty, liquidity is zero, and the timestamp is null. This endpoint supports the same ETag, HEAD, and conditional-request behavior as the catalogue.
+
+Each statistics fetch uses `https://api.warframe.market/v1/items/{slug}/statistics`. WFM's completed periods are delayed: a September 16 UTC request uses September 15 from `statistics_closed["90days"]` for `statistics_today`, and September 14 for `statistics_yesterday`. `statistics_live` contains all sell variants at the newest sell timestamp from `statistics_live["48hours"]`. Only `id` and `datetime` are stripped from these records. Liquidity sums volume across both daily arrays.
+
+Passes start every hour at **:15 UTC**, including the first pass after startup. An active pass causes that scheduled tick to be skipped. Each pass reads the latest catalogue and processes due slugs once in catalogue order, without sorting. Catalogue changes join the next pass. Refresh intervals are **24 hours** for liquidity 0–20, **6 hours** for 21–150, and **1 hour** above 150. Deadlines are measured from request start and checked at the next scheduled pass, so actual refreshes may happen later than those intervals.
+
+Only successful fetches update an item's statistics and `last_fetched_at`. Failures retain the previous snapshot and wait the existing liquidity interval; a never-successful item waits 24 hours. Dates describe the last successful fetch's snapshot, even across midnight. Private deadline metadata prevents immediate retries after restarting.
+
+The shared limiter spaces catalogue and statistics request starts, including redirects, at least 400 ms apart by default. Statistics requests can overlap, with at most eight in flight. A 429 pauses all new starts for `Retry-After` (seconds or an HTTP date), or 30 seconds if missing/invalid; existing requests can finish. The failed slug is not retried within the pass, and pauses survive restarts. Rate-limit waiting does not consume the HTTP timeout. Other applications sharing the same upstream rate limit must leave sufficient capacity.
+
+Progress is atomically published every **max(1, ceil(WFM_REQUESTS_PER_SECOND × 60)) completed statistics requests**: 150 by default, counting failures. There is no publication timer. Remaining changes publish at pass completion or graceful shutdown; failure-only checkpoints leave the public file untouched. An abrupt stop can lose unpublished statistics, but saved deadlines remain in effect. At the default rate, an initial pass over 3,840 items takes at least 26 minutes after its scheduled start.
+
+Normal logs include pass summaries, publications, failures, and rate-limit pauses. `DEBUG=true` adds individual fetches and skips. Both snapshots, private deadlines, and pause state live in `DATA_DIR`; keep that directory persistent.
 
 ## Docker / Coolify
 
@@ -58,6 +80,6 @@ The named volume preserves `/data` across container replacements. Run one instan
 
 ## Code map
 
-`cmd/lucrum` starts and stops the app. `internal/items` contains configuration, fetching/transformation, disk storage, and HTTP handling. `deploy` contains the container setup. The app keeps only small hash metadata in memory between refreshes; Go manages temporary fetch allocations through garbage collection.
+`cmd/lucrum` starts and stops the app. `internal/items` handles catalogue/configuration, `internal/tradeable` handles statistics passes, `internal/upstream` shares rate limiting, and `internal/snapshot` publishes and serves files. `deploy` contains the container setup. Only extracted statistics and scheduling metadata remain in memory between passes; complete upstream histories are discarded after each fetch.
 
 There are no tests. Basic development checks are `go build ./...` and `go vet ./...`.

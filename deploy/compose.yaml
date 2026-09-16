@@ -7,6 +7,8 @@ services:
       - '3100:3100'
     environment:
       FETCH_INTERVAL_MINUTES: ${FETCH_INTERVAL_MINUTES:-180}
+      WFM_REQUESTS_PER_SECOND: ${WFM_REQUESTS_PER_SECOND:-2.5}
+      DEBUG: ${DEBUG:-false}
       DATA_DIR: /data
     volumes:
       - items-data:/data

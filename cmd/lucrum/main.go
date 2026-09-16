@@ -11,6 +11,8 @@ import (
 	"time"
 
 	"lucrum/internal/items"
+	"lucrum/internal/tradeable"
+	"lucrum/internal/upstream"
 )
 
 func main() {
@@ -26,17 +28,31 @@ func run() error {
 	if err != nil {
 		return err
 	}
+	if config.Debug {
+		slog.SetLogLoggerLevel(slog.LevelDebug)
+	}
 	store, err := items.NewStore(config.DataDir)
+	if err != nil {
+		return err
+	}
+	client, err := upstream.New(config.DataDir, config.RequestsPerSecond)
+	if err != nil {
+		return err
+	}
+	statistics, err := tradeable.New(config.DataDir, store, client, config.RequestsPerSecond)
 	if err != nil {
 		return err
 	}
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
+	mux := http.NewServeMux()
+	mux.Handle("/warframe/v2/wfm-items", store)
+	mux.Handle("/warframe/v2/tradeable-items", statistics)
 	server := &http.Server{
 		// An empty host listens on all interfaces so Coolify's proxy can reach us.
 		Addr:              ":3100",
-		Handler:           store,
+		Handler:           mux,
 		ReadHeaderTimeout: 5 * time.Second,
 		WriteTimeout:      30 * time.Second,
 		IdleTimeout:       60 * time.Second,
@@ -47,7 +63,12 @@ func run() error {
 	workerDone := make(chan struct{})
 	go func() {
 		defer close(workerDone)
-		store.Run(ctx, config.FetchInterval)
+		statistics.Run(ctx)
+	}()
+	catalogueDone := make(chan struct{})
+	go func() {
+		defer close(catalogueDone)
+		store.Run(ctx, config.FetchInterval, client)
 	}()
 	serverDone := make(chan error, 1)
 	go func() { serverDone <- server.ListenAndServe() }()
@@ -66,6 +87,7 @@ func run() error {
 		server.Close()
 	}
 	<-workerDone
+	<-catalogueDone
 	if errors.Is(serverErr, http.ErrServerClosed) {
 		return nil
 	}

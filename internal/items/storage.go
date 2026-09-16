@@ -8,22 +8,17 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"sync"
+
+	"lucrum/internal/snapshot"
 )
 
-const fileName = "wfm-items.json"
-const metadataName = "wfm-items.meta.json"
-
 type Store struct {
-	dir string
-
-	// Unlike normal JS callbacks, Go HTTP handlers can run simultaneously.
-	// This lock keeps file opening and its ETag consistent during replacement.
-	mu   sync.RWMutex
-	etag string
-
-	// Only the single refresh worker accesses this after startup.
-	sourceHash string
+	// Embedding exposes File's Read and ServeHTTP methods on Store too.
+	// Unlike TS inheritance, this simply forwards these methods to the field.
+	*snapshot.File
+	dir        string
+	sourceHash string // Only the catalogue worker changes this after startup.
+	Changes    chan struct{}
 }
 
 type metadata struct {
@@ -31,36 +26,55 @@ type metadata struct {
 	FileHash   string `json:"file_hash"`
 }
 
-func NewStore(dir string) (*Store, error) {
-	if err := os.MkdirAll(dir, 0755); err != nil {
-		return nil, fmt.Errorf("create data directory: %w", err)
-	}
-	store := &Store{dir: dir}
-	body, err := os.ReadFile(filepath.Join(dir, fileName))
-	if errors.Is(err, os.ErrNotExist) {
-		return store, nil
-	}
-	if err != nil {
-		return nil, fmt.Errorf("read saved items: %w", err)
-	}
-	if err := validateSaved(body); err != nil {
-		slog.Warn("saved file is invalid; waiting for a fresh fetch", "error", err)
-		return store, nil
-	}
-	fileHash := hash(body)
-	store.etag = `"` + fileHash + `"`
+// Entry is the small part of the catalogue that statistics processing needs.
+type Entry struct {
+	Slug    string `json:"slug"`
+	Name    string `json:"name"`
+	GameRef string `json:"gameRef"`
+}
 
-	metaBody, err := os.ReadFile(filepath.Join(dir, metadataName))
-	var saved metadata
-	if err == nil && json.Unmarshal(metaBody, &saved) == nil && saved.FileHash == fileHash {
-		store.sourceHash = saved.SourceHash
-	} else {
-		// The process might have stopped between publishing the file and metadata.
-		// The file is still usable; an empty source hash forces a fresh rebuild.
-		slog.Warn("saved metadata missing or inconsistent; will rebuild on refresh")
+func NewStore(dir string) (*Store, error) {
+	file, err := snapshot.New(dir, "wfm-items.json", validateSaved)
+	if err != nil {
+		return nil, err
 	}
-	slog.Info("loaded saved items", "bytes", len(body))
-	return store, nil
+	s := &Store{File: file, dir: dir, Changes: make(chan struct{}, 1)}
+	if !file.Available() {
+		return s, nil
+	}
+	body, err := file.Read()
+	if err != nil {
+		return nil, err
+	}
+	metaBody, err := os.ReadFile(filepath.Join(dir, "wfm-items.meta.json"))
+	var saved metadata
+	if err == nil && json.Unmarshal(metaBody, &saved) == nil && saved.FileHash == snapshot.Hash(body) {
+		s.sourceHash = saved.SourceHash
+	} else {
+		slog.Warn("catalogue metadata missing or inconsistent; will rebuild on refresh")
+	}
+	return s, nil
+}
+
+func (s *Store) Catalogue() ([]Entry, error) {
+	body, err := s.Read()
+	if err != nil {
+		return nil, err
+	}
+	var catalogue struct {
+		Items []Entry `json:"items"`
+	}
+	if err := json.Unmarshal(body, &catalogue); err != nil {
+		return nil, err
+	}
+	seen := make(map[string]bool, len(catalogue.Items))
+	for _, entry := range catalogue.Items {
+		if entry.Slug == "" || entry.Name == "" || seen[entry.Slug] {
+			return nil, errors.New("catalogue needs unique slugs and nonempty names")
+		}
+		seen[entry.Slug] = true
+	}
+	return catalogue.Items, nil
 }
 
 func validateSaved(body []byte) error {
@@ -87,62 +101,21 @@ func validateSaved(body []byte) error {
 }
 
 func (s *Store) publish(body []byte, sourceHash string) error {
-	tempPath, err := writeTemp(s.dir, body)
-	if err != nil {
-		return fmt.Errorf("prepare items file: %w", err)
+	if err := s.Publish(body); err != nil {
+		return err
 	}
-	defer os.Remove(tempPath)
-	fileHash := hash(body)
-
-	// Write the slow part first; hold the lock only while replacing the file
-	// and its ETag. Linux readers with an open old file can finish reading it.
-	s.mu.Lock()
-	err = os.Rename(tempPath, filepath.Join(s.dir, fileName))
+	s.sourceHash = sourceHash
+	metaBody, err := json.Marshal(metadata{SourceHash: sourceHash, FileHash: snapshot.Hash(body)})
 	if err == nil {
-		s.etag = `"` + fileHash + `"`
-		s.sourceHash = sourceHash
-	}
-	s.mu.Unlock()
-	if err != nil {
-		return fmt.Errorf("replace items file: %w", err)
-	}
-
-	metaBody, err := json.Marshal(metadata{SourceHash: sourceHash, FileHash: fileHash})
-	if err == nil {
-		var metaPath string
-		metaPath, err = writeTemp(s.dir, metaBody)
-		if err == nil {
-			defer os.Remove(metaPath)
-			err = os.Rename(metaPath, filepath.Join(s.dir, metadataName))
-		}
+		err = snapshot.Write(filepath.Join(s.dir, "wfm-items.meta.json"), metaBody)
 	}
 	if err != nil {
-		// Publication succeeded. Missing metadata only costs a rebuild on restart.
-		slog.Warn("items published but metadata could not be saved", "error", err)
+		slog.Warn("catalogue published but metadata could not be saved", "error", err)
+	}
+	// A buffered notification coalesces updates; consumers read the latest file.
+	select {
+	case s.Changes <- struct{}{}:
+	default:
 	}
 	return nil
-}
-
-// A temp file must be on the same filesystem for Linux rename to be atomic.
-// Naming the return values lets the deferred cleanup inspect the final error.
-func writeTemp(dir string, body []byte) (path string, err error) {
-	file, err := os.CreateTemp(dir, ".wfm-*")
-	if err != nil {
-		return "", err
-	}
-	path = file.Name()
-	defer func() {
-		file.Close()
-		if err != nil {
-			os.Remove(path)
-		}
-	}()
-	if _, err = file.Write(body); err != nil {
-		return path, err
-	}
-	if err = file.Sync(); err != nil {
-		return path, err
-	}
-	err = file.Close()
-	return path, err
 }
