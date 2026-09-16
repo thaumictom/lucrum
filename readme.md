@@ -13,19 +13,19 @@ go run ./cmd/lucrum
 
 Optional `.env` settings (existing environment variables take precedence):
 
-| Variable | Default | Meaning |
-| --- | --- | --- |
-| `FETCH_INTERVAL_MINUTES` | `180` | Positive whole minutes between fetches |
-| `DATA_DIR` | `./data` | Directory for the generated file and hash metadata |
+| Variable                 | Default  | Meaning                                            |
+| ------------------------ | -------- | -------------------------------------------------- |
+| `FETCH_INTERVAL_MINUTES` | `180`    | Positive whole minutes between fetches             |
+| `DATA_DIR`               | `./data` | Directory for the generated file and hash metadata |
 
 Port 3100 is fixed. Restart the app after changing settings.
 
 ## Use the endpoint
 
 ```sh
-curl -i http://localhost:3100/warframe/v1/wfm-items
+curl -i http://localhost:3100/warframe/v2/wfm-items
 # Substitute the quoted ETag returned above:
-curl -i -H 'If-None-Match: "your-etag-hash"' http://localhost:3100/warframe/v1/wfm-items
+curl -i -H 'If-None-Match: "your-etag-hash"' http://localhost:3100/warframe/v2/wfm-items
 ```
 
 The response contains `items` and `last_fetched_at`. Each item keeps its original fields except `id` and `i18n`; `name` comes from `i18n.en.name`. The UTC timestamp records the request start time for the published version. Unchanged upstream responses leave the file and timestamp untouched.
@@ -42,7 +42,15 @@ From the project root, after creating `.env`:
 docker compose --project-directory . --env-file .env -f deploy/compose.yaml up -d --build
 ```
 
-In Coolify, select the **Docker Compose** build pack, keep the base directory at the repository root, and set the Compose location to `/deploy/compose.yaml`. Assign your domain to the `lucrum` service on port **3100**. Set `FETCH_INTERVAL_MINUTES` in Coolify if needed; no `.env` file is required there.
+In Coolify, select the **Docker Compose** build pack, keep the base directory at the repository root, and set the Compose location to `/deploy/compose.yaml`. Set `FETCH_INTERVAL_MINUTES` in Coolify if needed; no `.env` file is required there.
+
+To make the endpoint public through **Domains for app** (the `lucrum` service):
+
+1. Point your domain's DNS to the Coolify server.
+2. Enter `https://api.example.com:3100` in the Domains field, replacing the example hostname with your own. Use just the domain and port, without the endpoint path.
+3. Save and redeploy, then open `https://api.example.com/warframe/v2/wfm-items`.
+
+The `:3100` in Coolify's domain setting selects the **container port**; public HTTPS requests use port 443, so omit `:3100` from the public URL. The Go server listens on all interfaces (`:3100`), allowing Coolify's proxy to reach it. See [Coolify's domain routing documentation](https://coolify.io/docs/core/networking/domains#route-to-a-port-or-path). The domain root `/` returns `404`; use the full endpoint path above.
 
 The build context is the repository root. The local command explicitly sets `--project-directory .` to match Coolify's path resolution.
 

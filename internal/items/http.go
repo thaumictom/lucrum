@@ -9,7 +9,7 @@ import (
 )
 
 func (s *Store) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/warframe/v1/wfm-items" {
+	if r.URL.Path != "/warframe/v2/wfm-items" {
 		http.NotFound(w, r)
 		return
 	}

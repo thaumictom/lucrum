@@ -34,6 +34,7 @@ func run() error {
 	defer stop()
 
 	server := &http.Server{
+		// An empty host listens on all interfaces so Coolify's proxy can reach us.
 		Addr:              ":3100",
 		Handler:           store,
 		ReadHeaderTimeout: 5 * time.Second,
