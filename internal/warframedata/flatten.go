@@ -6,6 +6,9 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"strings"
+
+	"lucrum/internal/items"
 )
 
 // Like Record<string, unknown> in TypeScript, with the values kept as JSON
@@ -19,6 +22,29 @@ type catalogue struct {
 
 func newCatalogue() *catalogue {
 	return &catalogue{entries: make(map[string]object), roots: make(map[string]bool)}
+}
+
+func (c *catalogue) linkMarket(entries []items.Entry) {
+	slugs := make(map[string]string, len(entries))
+	for _, entry := range entries {
+		if entry.GameRef != "" && entry.Slug != "" {
+			// Keep the first mapping if multiple market entries share a gameRef.
+			if _, exists := slugs[entry.GameRef]; !exists {
+				slugs[entry.GameRef] = entry.Slug
+			}
+		}
+	}
+	for key, item := range c.entries {
+		delete(item, "marketSlug")
+		slug := slugs[key]
+		if slug == "" && strings.HasSuffix(key, "Component") {
+			slug = slugs[strings.TrimSuffix(key, "Component")+"Blueprint"]
+		}
+		if slug != "" {
+			// Marshaling a string cannot fail and correctly escapes JSON characters.
+			item["marketSlug"], _ = json.Marshal(slug)
+		}
+	}
 }
 
 // Decode one array element at a time. In particular, we do not hold all of a

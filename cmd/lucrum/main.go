@@ -44,7 +44,7 @@ func run() error {
 	if err != nil {
 		return err
 	}
-	gameData, err := warframedata.New(config.DataDir)
+	gameData, err := warframedata.New(config.DataDir, store)
 	if err != nil {
 		return err
 	}

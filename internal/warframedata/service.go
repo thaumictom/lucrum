@@ -16,6 +16,7 @@ import (
 	"strings"
 	"time"
 
+	"lucrum/internal/items"
 	"lucrum/internal/snapshot"
 )
 
@@ -26,6 +27,7 @@ type Service struct {
 	client   *http.Client
 	metaPath string
 	version  string
+	market   *items.Store
 }
 
 type metadata struct {
@@ -39,12 +41,12 @@ type sourceFile struct {
 	DownloadURL string `json:"download_url"`
 }
 
-func New(dir string) (*Service, error) {
+func New(dir string, market *items.Store) (*Service, error) {
 	file, err := snapshot.New(dir, "items.json", validateSaved)
 	if err != nil {
 		return nil, err
 	}
-	s := &Service{File: file, client: &http.Client{Timeout: 60 * time.Second}, metaPath: filepath.Join(dir, "items.meta.json")}
+	s := &Service{File: file, client: &http.Client{Timeout: 60 * time.Second}, metaPath: filepath.Join(dir, "items.meta.json"), market: market}
 	if !file.Available() {
 		return s, nil
 	}
@@ -92,8 +94,17 @@ func (s *Service) refresh(ctx context.Context) error {
 		return errors.New("GitHub release has no tag_name")
 	}
 	if release.Tag == s.version && s.Available() {
-		slog.Debug("WFCD import skipped", "reason", "release unchanged", "version", release.Tag)
-		return nil
+		// Market mappings can change independently of the WFCD release. Reuse
+		// the saved records so updating links needs no category downloads.
+		body, err := s.Read()
+		if err != nil {
+			return err
+		}
+		catalogue := newCatalogue()
+		if err := json.Unmarshal(body, &catalogue.entries); err != nil {
+			return err
+		}
+		return s.publishCatalogue(ctx, catalogue, release.Tag)
 	}
 
 	// Use the release tag, never master: all files must describe the version
@@ -121,6 +132,21 @@ func (s *Service) refresh(ctx context.Context) error {
 	if count == 0 || len(catalogue.entries) == 0 {
 		return errors.New("WFCD release contained no usable items")
 	}
+	if err := s.publishCatalogue(ctx, catalogue, release.Tag); err != nil {
+		return err
+	}
+	slog.Info("WFCD items published", "version", release.Tag, "files", count, "items", len(catalogue.entries))
+	return nil
+}
+
+func (s *Service) publishCatalogue(ctx context.Context, catalogue *catalogue, version string) error {
+	if s.market.Available() {
+		entries, err := s.market.Catalogue()
+		if err != nil {
+			return fmt.Errorf("read market catalogue: %w", err)
+		}
+		catalogue.linkMarket(entries)
+	}
 	body, err := json.Marshal(catalogue.entries)
 	if err != nil {
 		return err
@@ -131,15 +157,14 @@ func (s *Service) refresh(ctx context.Context) error {
 	if err := s.Publish(body); err != nil {
 		return err
 	}
-	metaBody, err := json.Marshal(metadata{Version: release.Tag, FileHash: snapshot.Hash(body)})
+	metaBody, err := json.Marshal(metadata{Version: version, FileHash: snapshot.Hash(body)})
 	if err == nil {
 		err = snapshot.Write(s.metaPath, metaBody)
 	}
 	if err != nil {
 		return fmt.Errorf("snapshot published but could not save WFCD version: %w", err)
 	}
-	s.version = release.Tag
-	slog.Info("WFCD items published", "version", release.Tag, "files", count, "items", len(catalogue.entries), "bytes", len(body))
+	s.version = version
 	return nil
 }
 

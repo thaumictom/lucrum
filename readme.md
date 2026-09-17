@@ -62,7 +62,7 @@ Normal logs include pass summaries, publications, failures, and rate-limit pause
 curl -i http://localhost:3100/warframe/v2/items
 ```
 
-The app checks the latest published [WFCD/warframe-items release](https://github.com/WFCD/warframe-items/releases). If its version matches the saved snapshot's metadata, it skips downloading and rebuilding. Otherwise, it reads every JSON file in `data/json` except `i18n.json`, pinned to that release tag.
+The app checks the latest published [WFCD/warframe-items release](https://github.com/WFCD/warframe-items/releases). If its version matches the saved snapshot's metadata, it reuses the saved records and refreshes market links. Otherwise, it reads every JSON file in `data/json` except `i18n.json`, pinned to that release tag.
 
 `items.json` is a **root map keyed by `uniqueName`**, without an `items` wrapper. Top-level entries are kept when `tradable` or `masterable` is `true`. Their components are recursively retained regardless of those flags, so every component reference resolves:
 
@@ -74,6 +74,8 @@ The app checks the latest published [WFCD/warframe-items release](https://github
 ```
 
 Each flattened entry loses its own `uniqueName`; other fields, including nested abilities and drops, remain intact. Shared components have one definition: top-level fields take precedence over nested copies, otherwise the first definition in alphabetical file order wins. Missing fields and additional component links are merged from other copies so partial definitions do not hide sub-recipes. The preferred component list retains its order and duplicates; extra links are appended once.
+
+Entries gain `marketSlug` from `wfm-items.json` when their key matches a market item's `gameRef`. If no exact match exists, a trailing `Component` is replaced with `Blueprint` for matching (for example, `WispPrimeChassisComponent` → `WispPrimeChassisBlueprint`). Unmatched entries omit `marketSlug`. Links refresh at the configured fetch interval, even for unchanged WFCD releases. If WFM data is not available yet, the import proceeds and links are added on a later refresh.
 
 Source categories are streamed and discarded; only `items.json` and `items.meta.json` (release version and output hash) are saved in `DATA_DIR`. Publication is atomic, with the same ETag/HEAD/304 behavior as the other endpoints. Failed imports leave the last valid snapshot available. GitHub downloads use a separate HTTP client and do not consume the WFM request budget.
 
