@@ -47,14 +47,30 @@ func (s *Store) refresh(ctx context.Context, client *upstream.Client) error {
 		return fmt.Errorf("fetch items: %w", err)
 	}
 	sourceHash := snapshot.Hash(body)
+	var output []byte
 	if sourceHash == s.sourceHash {
-		slog.Debug("catalogue rebuild skipped", "reason", "upstream unchanged")
-		return nil
+		// Parent links may have changed even when WFM has not. Reuse the saved
+		// document to preserve last_fetched_at for an unchanged upstream response.
+		output, err = s.Read()
+	} else {
+		output, err = transform(body, fetchedAt)
 	}
-
-	output, err := transform(body, fetchedAt)
 	if err != nil {
 		return err
+	}
+	output, err = s.linkSets(output)
+	if err != nil {
+		return err
+	}
+	if sourceHash == s.sourceHash {
+		previous, err := s.Read()
+		if err != nil {
+			return err
+		}
+		if snapshot.Hash(previous) == snapshot.Hash(output) {
+			slog.Debug("catalogue rebuild skipped", "reason", "upstream and parent links unchanged")
+			return nil
+		}
 	}
 	if err := s.publish(output, sourceHash); err != nil {
 		return err

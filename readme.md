@@ -30,11 +30,13 @@ curl -i http://localhost:3100/warframe/v2/wfm-items
 curl -i -H 'If-None-Match: "your-etag-hash"' http://localhost:3100/warframe/v2/wfm-items
 ```
 
-The response contains `items` and `last_fetched_at`. Each item keeps its original fields except `id` and `i18n`; `name` comes from `i18n.en.name`. The UTC timestamp records the request start time for the published version. Unchanged upstream responses leave the file and timestamp untouched.
+The response contains `items` and `last_fetched_at`. Each item keeps its original fields except `id` and `i18n`; `name` comes from `i18n.en.name`. The UTC timestamp records the request start time for the published upstream version. Unchanged upstream responses leave the timestamp untouched; parent links can still update the file.
 
 The upstream response SHA-256 detects changes. A separate SHA-256 of the generated file is its ETag. Matching conditional requests return `304` without a body; HEAD is also supported. `Cache-Control: public, no-cache` allows storage but requires revalidation.
 
 Updates atomically replace `wfm-items.json`. Requests stream from disk, and failed refreshes retain the last valid file. Before any valid file exists, the endpoint returns `503`. Failures retry at the next interval. Fetches have a 30-second timeout and a 32 MiB response limit.
+
+WFM entries tagged `component` or `blueprint` gain `set_slug` when `items.json` links them to one market parent. Its value is the parent's WFM slug, with the same `Component` → `Blueprint` matching fallback used for `marketSlug`. Entries without a market parent, or with multiple market parents, omit the field. Parent links refresh at the fetch interval even when the upstream WFM response is unchanged, preserving `last_fetched_at`. If `items.json` is not available yet, linking waits for a later refresh.
 
 ## Trading statistics
 
