@@ -30,7 +30,7 @@ curl -i http://localhost:3100/warframe/v2/wfm-items
 curl -i -H 'If-None-Match: "your-etag-hash"' http://localhost:3100/warframe/v2/wfm-items
 ```
 
-The response contains `items` and `last_fetched_at`. Each item keeps its original fields, including `id`, except for `i18n`; `name` comes from `i18n.en.name`. The UTC timestamp records the request start time for the published upstream version. Unchanged upstream responses leave the timestamp untouched; parent links can still update the file.
+The response contains `items` and `last_fetched_at`. Each item keeps its original fields except `id` and `i18n`; `name` comes from `i18n.en.name`. The UTC timestamp records the request start time for the published upstream version. Unchanged upstream responses leave the timestamp untouched; parent links can still update the file.
 
 The upstream response SHA-256 detects changes. A separate SHA-256 of the generated file is its ETag. Matching conditional requests return `304` without a body; HEAD is also supported. `Cache-Control: public, no-cache` allows storage but requires revalidation.
 
@@ -46,7 +46,7 @@ curl -i http://localhost:3100/warframe/v2/tradeable-items
 
 `tradeable-items.json` contains an `items` array with `slug`, `name`, `gameRef`, `liquidity`, `statistics_today`, `statistics_yesterday`, `statistics_live`, and `last_fetched_at` on each item. Initially, arrays are empty, liquidity is zero, and the timestamp is null. This endpoint supports the same ETag, HEAD, and conditional-request behavior as the catalogue.
 
-Each statistics fetch uses `https://api.warframe.market/v1/items/{slug}/statistics`. WFM's completed periods are delayed: a September 16 UTC request uses September 15 from `statistics_closed["90days"]` for `statistics_today`, and September 14 for `statistics_yesterday`. `statistics_live` contains all sell variants at the newest sell timestamp from `statistics_live["48hours"]`. The `id` field is retained and only `datetime` is stripped from these records. Liquidity sums volume across both daily arrays.
+Each statistics fetch uses `https://api.warframe.market/v1/items/{slug}/statistics`. WFM's completed periods are delayed: a September 16 UTC request uses September 15 from `statistics_closed["90days"]` for `statistics_today`, and September 14 for `statistics_yesterday`. `statistics_live` contains all sell variants at the newest sell timestamp from `statistics_live["48hours"]`. Only `id` and `datetime` are stripped from these records. Liquidity sums volume across both daily arrays.
 
 Passes start every hour at **:15 UTC**, including the first pass after startup. An active pass causes that scheduled tick to be skipped. Each pass reads the latest catalogue and processes due slugs once in catalogue order, without sorting. Catalogue changes join the next pass. Refresh intervals are **24 hours** for liquidity 0–20, **6 hours** for 21–150, and **1 hour** above 150. Deadlines are measured from request start and checked at the next scheduled pass, so actual refreshes may happen later than those intervals.
 

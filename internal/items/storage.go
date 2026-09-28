@@ -22,12 +22,9 @@ type Store struct {
 }
 
 type metadata struct {
-	FormatVersion int    `json:"format_version"`
-	SourceHash    string `json:"source_hash"`
-	FileHash      string `json:"file_hash"`
+	SourceHash string `json:"source_hash"`
+	FileHash   string `json:"file_hash"`
 }
-
-const currentFormatVersion = 1
 
 // Entry is the small part of the catalogue that statistics processing needs.
 type Entry struct {
@@ -51,7 +48,7 @@ func NewStore(dir string) (*Store, error) {
 	}
 	metaBody, err := os.ReadFile(filepath.Join(dir, "wfm-items.meta.json"))
 	var saved metadata
-	if err == nil && json.Unmarshal(metaBody, &saved) == nil && saved.FormatVersion == currentFormatVersion && saved.FileHash == snapshot.Hash(body) {
+	if err == nil && json.Unmarshal(metaBody, &saved) == nil && saved.FileHash == snapshot.Hash(body) {
 		s.sourceHash = saved.SourceHash
 	} else {
 		slog.Warn("catalogue metadata missing or inconsistent; will rebuild on refresh")
@@ -93,6 +90,9 @@ func validateSaved(body []byte) error {
 		if err := json.Unmarshal(entry["name"], &name); err != nil || strings.TrimSpace(name) == "" {
 			return fmt.Errorf("saved item %d has no valid name", index)
 		}
+		if _, exists := entry["id"]; exists {
+			return fmt.Errorf("saved item %d still has id", index)
+		}
 		if _, exists := entry["i18n"]; exists {
 			return fmt.Errorf("saved item %d still has i18n", index)
 		}
@@ -105,7 +105,7 @@ func (s *Store) publish(body []byte, sourceHash string) error {
 		return err
 	}
 	s.sourceHash = sourceHash
-	metaBody, err := json.Marshal(metadata{FormatVersion: currentFormatVersion, SourceHash: sourceHash, FileHash: snapshot.Hash(body)})
+	metaBody, err := json.Marshal(metadata{SourceHash: sourceHash, FileHash: snapshot.Hash(body)})
 	if err == nil {
 		err = snapshot.Write(filepath.Join(s.dir, "wfm-items.meta.json"), metaBody)
 	}
