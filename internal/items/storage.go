@@ -90,9 +90,6 @@ func validateSaved(body []byte) error {
 		if err := json.Unmarshal(entry["name"], &name); err != nil || strings.TrimSpace(name) == "" {
 			return fmt.Errorf("saved item %d has no valid name", index)
 		}
-		if _, exists := entry["id"]; exists {
-			return fmt.Errorf("saved item %d still has id", index)
-		}
 		if _, exists := entry["i18n"]; exists {
 			return fmt.Errorf("saved item %d still has i18n", index)
 		}

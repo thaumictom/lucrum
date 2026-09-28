@@ -4,7 +4,7 @@
 - Keep startup/shutdown in `cmd/lucrum`, WFM catalogue behavior in `internal/items`, statistics in `internal/tradeable`, WFCD release imports in `internal/warframedata`, shared disk/HTTP behavior in `internal/snapshot`, upstream limiting in `internal/upstream`, and deployment in `deploy`. Avoid speculative interfaces, frameworks, or extra root files.
 - Use the standard library where practical. `godotenv` is the only current external dependency.
 - The upstream URL is `https://api.warframe.market/v2/items`. The public path is `/warframe/v2/wfm-items` and port 3100 is fixed; do not add a port environment variable.
-- Preserve unknown item fields. Remove only `id` and `i18n`, deriving `name` from `i18n.en.name`. Keep `last_fetched_at` unchanged for unchanged upstream responses.
+- Preserve unknown item fields, including `id`. Remove only `i18n`, deriving `name` from `i18n.en.name`. Keep `last_fetched_at` unchanged for unchanged upstream responses.
 - Use the upstream SHA-256 for change detection and the generated-file SHA-256 for the quoted HTTP ETag. Keep each served file and ETag consistent.
 - Publish through a temporary file and same-directory atomic rename on Linux. Retain the last valid version after refresh failures. Assume one writer per data directory.
 - Serve `/warframe/v2/tradeable-items` with slug, name, gameRef, liquidity, three statistics arrays, and per-item last_fetched_at. Select the previous two UTC days from closed 90days and the latest sell timestamp from live 48hours; strip only id and datetime. Preserve duplicate variants.

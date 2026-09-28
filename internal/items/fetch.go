@@ -105,7 +105,6 @@ func transform(body []byte, fetchedAt time.Time) ([]byte, error) {
 		if err != nil {
 			return nil, fmt.Errorf("item %d: encode name: %w", index, err)
 		}
-		delete(entry, "id")
 		delete(entry, "i18n")
 		entry["name"] = name
 	}

@@ -30,7 +30,7 @@ curl -i http://localhost:3100/warframe/v2/wfm-items
 curl -i -H 'If-None-Match: "your-etag-hash"' http://localhost:3100/warframe/v2/wfm-items
 ```
 
-The response contains `items` and `last_fetched_at`. Each item keeps its original fields except `id` and `i18n`; `name` comes from `i18n.en.name`. The UTC timestamp records the request start time for the published upstream version. Unchanged upstream responses leave the timestamp untouched; parent links can still update the file.
+The response contains `items` and `last_fetched_at`. Each item keeps its original fields except `i18n`; `name` comes from `i18n.en.name`. The UTC timestamp records the request start time for the published upstream version. Unchanged upstream responses leave the timestamp untouched; parent links can still update the file.
 
 The upstream response SHA-256 detects changes. A separate SHA-256 of the generated file is its ETag. Matching conditional requests return `304` without a body; HEAD is also supported. `Cache-Control: public, no-cache` allows storage but requires revalidation.
 
