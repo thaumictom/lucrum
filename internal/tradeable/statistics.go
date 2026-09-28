@@ -74,7 +74,7 @@ func transform(body []byte, base Item, started time.Time) (Item, error) {
 			return Item{}, errors.New("invalid statistics volume")
 		}
 		base.Liquidity += volume
-		strip(record)
+		removeDatetime(record)
 		if day == today {
 			base.Today = append(base.Today, record)
 		} else {
@@ -102,7 +102,7 @@ func transform(body []byte, base Item, started time.Time) (Item, error) {
 			base.Live = []row{}
 		}
 		if date.Equal(latest) {
-			strip(record)
+			removeDatetime(record)
 			base.Live = append(base.Live, record)
 		}
 	}
@@ -121,8 +121,7 @@ func timestamp(record row) (time.Time, error) {
 	return date, nil
 }
 
-func strip(record row) {
-	delete(record, "id")
+func removeDatetime(record row) {
 	delete(record, "datetime")
 }
 
